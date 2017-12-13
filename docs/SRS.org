@@ -12,16 +12,36 @@ This is the cross platform
 
 *** init
 
+#+BEGIN_SRC 
+> devnagri --init
+#+END_SRC
+
 *** validate
 
+#+BEGIN_SRC 
+> devnagri --validate
+#+END_SRC
 
 *** version
+
 #+BEGIN_SRC 
 > devnagri --version
 #+END_SRC
 
 *** sync
 
+#+BEGIN_SRC 
+> devnagri --sync
+#+END_SRC
+
 *** push
 
+#+BEGIN_SRC 
+> devnagri --push
+#+END_SRC
+
 *** pull
+
+#+BEGIN_SRC 
+> devnagri --pull
+#+END_SRC
