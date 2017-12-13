@@ -55,17 +55,7 @@ This command initilizes the devnagri-cli config within the repository which cons
 
 **** Sub-command 
 
-***** clie
-# Please enter the commit message for your changes. Lines starting
-# with '#' will be ignored, and an empty message aborts the commit.
-# On branch master
-# Your branch is ahead of 'origin/master' by 1 commit.
-#   (use "git push" to publish your local commits)
-#
-# Changes to be committed:
-#	modified:   docs/SRS.org
-#
-nt-id
+***** client-id
 
 #+BEGIN_SRC 
 
