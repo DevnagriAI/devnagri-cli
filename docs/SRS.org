@@ -1,3 +1,6 @@
+#+SETUPFILE: theme-readtheorg-local.setup
+
+
 * devnagri-cli
 
 This is the cross platform API client for Devnagri, written in Go-lang.
@@ -52,7 +55,17 @@ This command initilizes the devnagri-cli config within the repository which cons
 
 **** Sub-command 
 
-***** client-id
+***** clie
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch is ahead of 'origin/master' by 1 commit.
+#   (use "git push" to publish your local commits)
+#
+# Changes to be committed:
+#	modified:   docs/SRS.org
+#
+nt-id
 
 #+BEGIN_SRC 
 
