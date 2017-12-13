@@ -1,6 +1,8 @@
 * devnagri-cli
 
-This is the cross platform 
+This is the cross platform API client for Devnagri, written in Go-lang.
+
+This has been developed to facilitate the integration of Devnagri localization platform within the Developement workflow.
 
 ** Invocation
 
