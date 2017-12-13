@@ -7,7 +7,9 @@ This has been developed to facilitate the integration of Devnagri localization p
 ** Invocation
 
 #+BEGIN_SRC 
+
 > devnagri
+
 #+END_SRC
 
 ** Usage Commands
@@ -15,7 +17,9 @@ This has been developed to facilitate the integration of Devnagri localization p
 *** init
 
 #+BEGIN_SRC 
-> devnagri --init
+
+> devnagri init
+
 #+END_SRC
 
 
@@ -38,10 +42,11 @@ This command initilizes the devnagri-cli config within the repository which cons
     - en
     - hi
 
+- global-preference-in-case-of-merge-conflict
 
 
 #+END_SRC
-
+-
 
 
 **** Sub-command 
@@ -50,6 +55,7 @@ This command initilizes the devnagri-cli config within the repository which cons
 
 #+BEGIN_SRC 
 
+devnagri init --client-id XXXXXXX
 
 #+END_SRC
 
@@ -58,6 +64,7 @@ This command initilizes the devnagri-cli config within the repository which cons
 
 #+BEGIN_SRC 
 
+devnagri init --client-secret XXXXXXX
 
 #+END_SRC
 
@@ -66,48 +73,63 @@ This command initilizes the devnagri-cli config within the repository which cons
 
 #+BEGIN_SRC 
 
+devnagri init --client-key XXXXXXX
 
 #+END_SRC
 
 *** validate
 
 #+BEGIN_SRC 
-> devnagri --validate
+
+> devnagri validate
+
 #+END_SRC
 
 *** version
-
+    
 #+BEGIN_SRC 
-> devnagri --version
+
+> devnagri version
+
 #+END_SRC
 
 *** status
 
 #+BEGIN_SRC 
-> devnagri --status
+
+> devnagri status
+
 #+END_SRC
 
 *** sync
 
 #+BEGIN_SRC 
-> devnagri --sync
+
+> devnagri sync
+
 #+END_SRC
 
 *** push
 
 #+BEGIN_SRC 
-> devnagri --push
+
+> devnagri push
+
 #+END_SRC
 
 *** pull
 
 #+BEGIN_SRC 
-> devnagri --pull
+
+> devnagri pull
+
 #+END_SRC
 
 *** help
 
 #+BEGIN_SRC 
-> devnagri --help
+
+> devnagri help
+
 #+END_SRC
 
