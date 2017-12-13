@@ -26,8 +26,6 @@ This has been developed to facilitate the integration of Devnagri localization p
 #+END_SRC
 
 
-**** Functionality
-
 This command initilizes the devnagri-cli .devnagri.yaml within the repository which consists of the following fields
 
 
@@ -82,6 +80,11 @@ devnagri init --client-key XXXXXXX
 #+END_SRC
 
 *** validate
+Just validate the credentials
+
+
+- Send a sample request to devnagri to recieve the project-key [ generate this via browser ]
+- On local machine, validate the YAML file
 
 #+BEGIN_SRC 
 
@@ -103,6 +106,10 @@ This command initiates a process
 #+END_SRC
 
 *** status
+
+- Project completion status
+- Total number of words
+- Translate words
 
 #+BEGIN_SRC 
 
