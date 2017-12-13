@@ -29,12 +29,12 @@ This has been developed to facilitate the integration of Devnagri localization p
 
 **** Functionality
 
-This command initilizes the devnagri-cli config within the repository which consists of the following fields
+This command initilizes the devnagri-cli .devnagri.yaml within the repository which consists of the following fields
 
 
 
 #+BEGIN_SRC yaml
-## sample content of the config.yaml
+## sample content of the .devnagri.yaml
 
 - client-id
 
@@ -90,6 +90,12 @@ devnagri init --client-key XXXXXXX
 
 #+END_SRC
 
+This command initiates a process 
+
+- To validate the .devnagri.yaml file 
+- Sends a request to the devnagri and checks the credentials are authorized
+
+
 *** version
     
 #+BEGIN_SRC 
@@ -140,3 +146,5 @@ devnagri init --client-key XXXXXXX
 
 
 This command prints a short summary of all the commands
+
+*** Someday / Maybe - enhancements
