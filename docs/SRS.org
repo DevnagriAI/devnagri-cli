@@ -1,0 +1,27 @@
+* devnagri-cli
+
+This is the cross platform 
+
+** Invocation
+
+#+BEGIN_SRC 
+> devnagri
+#+END_SRC
+
+** Usage Commands
+
+*** init
+
+*** validate
+
+
+*** version
+#+BEGIN_SRC 
+> devnagri --version
+#+END_SRC
+
+*** sync
+
+*** push
+
+*** pull
