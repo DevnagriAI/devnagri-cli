@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-12-13 Wed 11:56 -->
+<!-- 2017-12-13 Wed 11:57 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -180,17 +180,12 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
-<link rel="stylesheet" type="text/css" href="styles/bigblow/css/htmlize.css"/>
-<link rel="stylesheet" type="text/css" href="styles/bigblow/css/bigblow.css"/>
-<link rel="stylesheet" type="text/css" href="styles/bigblow/css/hideshow.css"/>
-<script type="text/javascript" src="styles/bigblow/js/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="styles/bigblow/js/jquery-ui-1.10.2.min.js"></script>
-<script type="text/javascript" src="styles/bigblow/js/jquery.localscroll-min.js"></script>
-<script type="text/javascript" src="styles/bigblow/js/jquery.scrollTo-1.4.3.1-min.js"></script>
-<script type="text/javascript" src="styles/bigblow/js/jquery.zclip.min.js"></script>
-<script type="text/javascript" src="styles/bigblow/js/bigblow.js"></script>
-<script type="text/javascript" src="styles/bigblow/js/hideshow.js"></script>
+<link rel="stylesheet" type="text/css" href="styles/readtheorg/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="styles/readtheorg/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="styles/readtheorg/js/readtheorg.js"></script>
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -244,19 +239,19 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org0dd1c10">1. devnagri-cli</a>
+<li><a href="#org7ab0e69">1. devnagri-cli</a>
 <ul>
-<li><a href="#orga71dbe3">1.1. Invocation</a></li>
-<li><a href="#org146d1fd">1.2. Usage Commands</a>
+<li><a href="#orgda369b4">1.1. Invocation</a></li>
+<li><a href="#org449145b">1.2. Usage Commands</a>
 <ul>
-<li><a href="#org8e04222">1.2.1. init</a></li>
-<li><a href="#org4cf1630">1.2.2. validate</a></li>
-<li><a href="#orgaa61f6f">1.2.3. version</a></li>
-<li><a href="#orgdebf0cc">1.2.4. status</a></li>
-<li><a href="#org11d5174">1.2.5. sync</a></li>
-<li><a href="#org512c22f">1.2.6. push</a></li>
-<li><a href="#orge0d7c43">1.2.7. pull</a></li>
-<li><a href="#org2fb5284">1.2.8. help</a></li>
+<li><a href="#orga147332">1.2.1. init</a></li>
+<li><a href="#org832d941">1.2.2. validate</a></li>
+<li><a href="#org579e2ec">1.2.3. version</a></li>
+<li><a href="#orgd1f3e7f">1.2.4. status</a></li>
+<li><a href="#org42970ae">1.2.5. sync</a></li>
+<li><a href="#org356d7a2">1.2.6. push</a></li>
+<li><a href="#org5432bb3">1.2.7. pull</a></li>
+<li><a href="#orga021545">1.2.8. help</a></li>
 </ul>
 </li>
 </ul>
@@ -266,8 +261,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-org0dd1c10" class="outline-2">
-<h2 id="org0dd1c10"><span class="section-number-2">1</span> devnagri-cli</h2>
+<div id="outline-container-org7ab0e69" class="outline-2">
+<h2 id="org7ab0e69"><span class="section-number-2">1</span> devnagri-cli</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 This is the cross platform API client for Devnagri, written in Go-lang.
@@ -278,8 +273,8 @@ This has been developed to facilitate the integration of Devnagri localization p
 </p>
 </div>
 
-<div id="outline-container-orga71dbe3" class="outline-3">
-<h3 id="orga71dbe3"><span class="section-number-3">1.1</span> Invocation</h3>
+<div id="outline-container-orgda369b4" class="outline-3">
+<h3 id="orgda369b4"><span class="section-number-3">1.1</span> Invocation</h3>
 <div class="outline-text-3" id="text-1-1">
 <pre class="example">
 
@@ -289,12 +284,12 @@ This has been developed to facilitate the integration of Devnagri localization p
 </div>
 </div>
 
-<div id="outline-container-org146d1fd" class="outline-3">
-<h3 id="org146d1fd"><span class="section-number-3">1.2</span> Usage Commands</h3>
+<div id="outline-container-org449145b" class="outline-3">
+<h3 id="org449145b"><span class="section-number-3">1.2</span> Usage Commands</h3>
 <div class="outline-text-3" id="text-1-2">
 </div>
-<div id="outline-container-org8e04222" class="outline-4">
-<h4 id="org8e04222"><span class="section-number-4">1.2.1</span> init</h4>
+<div id="outline-container-orga147332" class="outline-4">
+<h4 id="orga147332"><span class="section-number-4">1.2.1</span> init</h4>
 <div class="outline-text-4" id="text-1-2-1">
 <pre class="example">
 
@@ -305,7 +300,7 @@ This has been developed to facilitate the integration of Devnagri localization p
 
 
 <ol class="org-ol">
-<li><a id="org3c88c50"></a>Functionality<br />
+<li><a id="org2103414"></a>Functionality<br />
 <div class="outline-text-5" id="text-1-2-1-1">
 <p>
 This command initilizes the devnagri-cli config within the repository which consists of the following fields
@@ -337,9 +332,9 @@ This command initilizes the devnagri-cli config within the repository which cons
 
 
 
-<li><a id="orgc243a64"></a>Sub-command<br />
+<li><a id="orgd342bd0"></a>Sub-command<br />
 <ol class="org-ol">
-<li><a id="org83d0d83"></a>clie<br />
+<li><a id="orgbb42e49"></a>clie<br />
 <div class="outline-text-6" id="text-1-2-1-2-1">
 <p>
 #	modified:   docs/SRS.org
@@ -358,7 +353,7 @@ devnagri init --client-id XXXXXXX
 </li>
 
 
-<li><a id="orgdd9bd1f"></a>client-secret<br />
+<li><a id="org27c1458"></a>client-secret<br />
 <div class="outline-text-6" id="text-1-2-1-2-2">
 <pre class="example">
 
@@ -369,7 +364,7 @@ devnagri init --client-secret XXXXXXX
 </li>
 
 
-<li><a id="org0b34416"></a>project-key<br />
+<li><a id="org62f034a"></a>project-key<br />
 <div class="outline-text-6" id="text-1-2-1-2-3">
 <pre class="example">
 
@@ -383,8 +378,8 @@ devnagri init --client-key XXXXXXX
 </ol>
 </div>
 
-<div id="outline-container-org4cf1630" class="outline-4">
-<h4 id="org4cf1630"><span class="section-number-4">1.2.2</span> validate</h4>
+<div id="outline-container-org832d941" class="outline-4">
+<h4 id="org832d941"><span class="section-number-4">1.2.2</span> validate</h4>
 <div class="outline-text-4" id="text-1-2-2">
 <pre class="example">
 
@@ -394,8 +389,8 @@ devnagri init --client-key XXXXXXX
 </div>
 </div>
 
-<div id="outline-container-orgaa61f6f" class="outline-4">
-<h4 id="orgaa61f6f"><span class="section-number-4">1.2.3</span> version</h4>
+<div id="outline-container-org579e2ec" class="outline-4">
+<h4 id="org579e2ec"><span class="section-number-4">1.2.3</span> version</h4>
 <div class="outline-text-4" id="text-1-2-3">
 <pre class="example">
 
@@ -405,8 +400,8 @@ devnagri init --client-key XXXXXXX
 </div>
 </div>
 
-<div id="outline-container-orgdebf0cc" class="outline-4">
-<h4 id="orgdebf0cc"><span class="section-number-4">1.2.4</span> status</h4>
+<div id="outline-container-orgd1f3e7f" class="outline-4">
+<h4 id="orgd1f3e7f"><span class="section-number-4">1.2.4</span> status</h4>
 <div class="outline-text-4" id="text-1-2-4">
 <pre class="example">
 
@@ -416,8 +411,8 @@ devnagri init --client-key XXXXXXX
 </div>
 </div>
 
-<div id="outline-container-org11d5174" class="outline-4">
-<h4 id="org11d5174"><span class="section-number-4">1.2.5</span> sync</h4>
+<div id="outline-container-org42970ae" class="outline-4">
+<h4 id="org42970ae"><span class="section-number-4">1.2.5</span> sync</h4>
 <div class="outline-text-4" id="text-1-2-5">
 <pre class="example">
 
@@ -427,8 +422,8 @@ devnagri init --client-key XXXXXXX
 </div>
 </div>
 
-<div id="outline-container-org512c22f" class="outline-4">
-<h4 id="org512c22f"><span class="section-number-4">1.2.6</span> push</h4>
+<div id="outline-container-org356d7a2" class="outline-4">
+<h4 id="org356d7a2"><span class="section-number-4">1.2.6</span> push</h4>
 <div class="outline-text-4" id="text-1-2-6">
 <pre class="example">
 
@@ -438,8 +433,8 @@ devnagri init --client-key XXXXXXX
 </div>
 </div>
 
-<div id="outline-container-orge0d7c43" class="outline-4">
-<h4 id="orge0d7c43"><span class="section-number-4">1.2.7</span> pull</h4>
+<div id="outline-container-org5432bb3" class="outline-4">
+<h4 id="org5432bb3"><span class="section-number-4">1.2.7</span> pull</h4>
 <div class="outline-text-4" id="text-1-2-7">
 <pre class="example">
 
@@ -449,8 +444,8 @@ devnagri init --client-key XXXXXXX
 </div>
 </div>
 
-<div id="outline-container-org2fb5284" class="outline-4">
-<h4 id="org2fb5284"><span class="section-number-4">1.2.8</span> help</h4>
+<div id="outline-container-orga021545" class="outline-4">
+<h4 id="orga021545"><span class="section-number-4">1.2.8</span> help</h4>
 <div class="outline-text-4" id="text-1-2-8">
 <pre class="example">
 
@@ -469,7 +464,7 @@ This command prints a short summary of all the commands
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: abhinav</p>
-<p class="date">Created: 2017-12-13 Wed 11:56</p>
+<p class="date">Created: 2017-12-13 Wed 11:57</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
