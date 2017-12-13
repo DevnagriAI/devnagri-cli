@@ -29,6 +29,7 @@ This has been developed to facilitate the integration of Devnagri localization p
 This command initilizes the devnagri-cli .devnagri.yaml within the repository which consists of the following fields
 
 
+**** TODO metadata of a file - shall we send a tar ?
 
 #+BEGIN_SRC yaml
 ## sample content of the .devnagri.yaml
@@ -158,10 +159,11 @@ This command returns the translation status of the project
 This command prints a short summary of all the commands
 
 ** Someday / Maybe - enhancements
-- order 
-- automatic sync for updated files
-- first conflict prompt for preference
-- file location 
+*** TODO How to accomodate order system ?
+*** TODO automatic sync for updated files
+*** TODO first conflict prompt for preference
+*** TODO file location 
 
 
 
+- 

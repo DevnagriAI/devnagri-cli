@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-12-13 Wed 12:04 -->
+<!-- 2017-12-13 Wed 15:17 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -239,19 +239,27 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org01653bb">1. devnagri-cli</a>
+<li><a href="#org42a413e">1. devnagri-cli</a>
 <ul>
-<li><a href="#orgfaf5b2d">1.1. Invocation</a></li>
-<li><a href="#orga7d6be3">1.2. Usage Commands</a>
+<li><a href="#orgf3769bf">1.1. Invocation</a></li>
+<li><a href="#orgec26c91">1.2. Usage Commands</a>
 <ul>
-<li><a href="#org9f4820c">1.2.1. init</a></li>
-<li><a href="#org4b82227">1.2.2. validate</a></li>
-<li><a href="#orgc508443">1.2.3. version</a></li>
-<li><a href="#org2c59508">1.2.4. status</a></li>
-<li><a href="#org1eccb36">1.2.5. sync</a></li>
-<li><a href="#org161d141">1.2.6. push</a></li>
-<li><a href="#org6b2b1b4">1.2.7. pull</a></li>
-<li><a href="#org6723f5a">1.2.8. help</a></li>
+<li><a href="#org3cd3941">1.2.1. init</a></li>
+<li><a href="#org38010de">1.2.2. validate</a></li>
+<li><a href="#org93ccd03">1.2.3. version</a></li>
+<li><a href="#orgccb8bb0">1.2.4. status</a></li>
+<li><a href="#org9d17d7f">1.2.5. sync</a></li>
+<li><a href="#orgd814345">1.2.6. push</a></li>
+<li><a href="#org48de6a3">1.2.7. pull</a></li>
+<li><a href="#orga5eb23c">1.2.8. help</a></li>
+</ul>
+</li>
+<li><a href="#org43b95b2">1.3. Someday / Maybe - enhancements</a>
+<ul>
+<li><a href="#orgc30a97b">1.3.1. <span class="todo TODO">TODO</span> How to accomodate order system ?</a></li>
+<li><a href="#org1508aca">1.3.2. <span class="todo TODO">TODO</span> automatic sync for updated files</a></li>
+<li><a href="#org977876c">1.3.3. <span class="todo TODO">TODO</span> first conflict prompt for preference</a></li>
+<li><a href="#orgd0ced03">1.3.4. <span class="todo TODO">TODO</span> file location</a></li>
 </ul>
 </li>
 </ul>
@@ -261,8 +269,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-org01653bb" class="outline-2">
-<h2 id="org01653bb"><span class="section-number-2">1</span> devnagri-cli</h2>
+<div id="outline-container-org42a413e" class="outline-2">
+<h2 id="org42a413e"><span class="section-number-2">1</span> devnagri-cli</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 This is the cross platform API client for Devnagri, written in Go-lang.
@@ -273,8 +281,8 @@ This has been developed to facilitate the integration of Devnagri localization p
 </p>
 </div>
 
-<div id="outline-container-orgfaf5b2d" class="outline-3">
-<h3 id="orgfaf5b2d"><span class="section-number-3">1.1</span> Invocation</h3>
+<div id="outline-container-orgf3769bf" class="outline-3">
+<h3 id="orgf3769bf"><span class="section-number-3">1.1</span> Invocation</h3>
 <div class="outline-text-3" id="text-1-1">
 <pre class="example">
 
@@ -284,38 +292,39 @@ This has been developed to facilitate the integration of Devnagri localization p
 </div>
 </div>
 
-<div id="outline-container-orga7d6be3" class="outline-3">
-<h3 id="orga7d6be3"><span class="section-number-3">1.2</span> Usage Commands</h3>
+<div id="outline-container-orgec26c91" class="outline-3">
+<h3 id="orgec26c91"><span class="section-number-3">1.2</span> Usage Commands</h3>
 <div class="outline-text-3" id="text-1-2">
 </div>
-<div id="outline-container-org9f4820c" class="outline-4">
-<h4 id="org9f4820c"><span class="section-number-4">1.2.1</span> init</h4>
+<div id="outline-container-org3cd3941" class="outline-4">
+<h4 id="org3cd3941"><span class="section-number-4">1.2.1</span> init</h4>
 <div class="outline-text-4" id="text-1-2-1">
 <pre class="example">
 
 &gt; devnagri init
 
 </pre>
+
+
+<p>
+This command initilizes the devnagri-cli .devnagri.yaml within the repository which consists of the following fields
+</p>
 </div>
 
 
 <ol class="org-ol">
-<li><a id="org4756ba2"></a>Functionality<br />
+<li><a id="orgf3eaa2f"></a><span class="todo TODO">TODO</span> metadata of a file - shall we send a tar ?<br />
 <div class="outline-text-5" id="text-1-2-1-1">
-<p>
-This command initilizes the devnagri-cli config within the repository which consists of the following fields
-</p>
-
-
-
 <div class="org-src-container">
-<pre class="src src-yaml"><span style="color: #2aa1ae; background-color: #ecf3ec;">## </span><span style="color: #2aa1ae; background-color: #ecf3ec;">sample content of the config.yaml</span>
+<pre class="src src-yaml"><span style="color: #2aa1ae; background-color: #ecf3ec;">## </span><span style="color: #2aa1ae; background-color: #ecf3ec;">sample content of the .devnagri.yaml</span>
 
 - client-id
 
 - client-secret
 
 - project-key
+
+- localization folder
 
 - languages-to-be-translated
     - en
@@ -332,9 +341,9 @@ This command initilizes the devnagri-cli config within the repository which cons
 
 
 
-<li><a id="org5244483"></a>Sub-command<br />
+<li><a id="orgecc76e2"></a>Sub-command<br />
 <ol class="org-ol">
-<li><a id="org1eefd16"></a>client-id<br />
+<li><a id="orgaa4fb01"></a>client-id<br />
 <div class="outline-text-6" id="text-1-2-1-2-1">
 <pre class="example">
 
@@ -345,7 +354,7 @@ devnagri init --client-id XXXXXXX
 </li>
 
 
-<li><a id="org893ee92"></a>client-secret<br />
+<li><a id="orgd85df6c"></a>client-secret<br />
 <div class="outline-text-6" id="text-1-2-1-2-2">
 <pre class="example">
 
@@ -356,7 +365,7 @@ devnagri init --client-secret XXXXXXX
 </li>
 
 
-<li><a id="org2880b50"></a>project-key<br />
+<li><a id="orgfc2b3c0"></a>project-key<br />
 <div class="outline-text-6" id="text-1-2-1-2-3">
 <pre class="example">
 
@@ -370,19 +379,38 @@ devnagri init --client-key XXXXXXX
 </ol>
 </div>
 
-<div id="outline-container-org4b82227" class="outline-4">
-<h4 id="org4b82227"><span class="section-number-4">1.2.2</span> validate</h4>
+<div id="outline-container-org38010de" class="outline-4">
+<h4 id="org38010de"><span class="section-number-4">1.2.2</span> validate</h4>
 <div class="outline-text-4" id="text-1-2-2">
+<p>
+Just validate the credentials
+</p>
+
+
+<ul class="org-ul">
+<li>Send a sample request to devnagri to recieve the project-key [ generate this via browser ]</li>
+<li>On local machine, validate the YAML file</li>
+</ul>
+
 <pre class="example">
 
 &gt; devnagri validate
 
 </pre>
+
+<p>
+This command initiates a process 
+</p>
+
+<ul class="org-ul">
+<li>To validate the .devnagri.yaml file</li>
+<li>Sends a request to the devnagri and checks the credentials are authorized</li>
+</ul>
 </div>
 </div>
 
-<div id="outline-container-orgc508443" class="outline-4">
-<h4 id="orgc508443"><span class="section-number-4">1.2.3</span> version</h4>
+<div id="outline-container-org93ccd03" class="outline-4">
+<h4 id="org93ccd03"><span class="section-number-4">1.2.3</span> version</h4>
 <div class="outline-text-4" id="text-1-2-3">
 <pre class="example">
 
@@ -392,19 +420,30 @@ devnagri init --client-key XXXXXXX
 </div>
 </div>
 
-<div id="outline-container-org2c59508" class="outline-4">
-<h4 id="org2c59508"><span class="section-number-4">1.2.4</span> status</h4>
+<div id="outline-container-orgccb8bb0" class="outline-4">
+<h4 id="orgccb8bb0"><span class="section-number-4">1.2.4</span> status</h4>
 <div class="outline-text-4" id="text-1-2-4">
+<ul class="org-ul">
+<li>Project completion status</li>
+<li>Total number of words</li>
+<li>Translate words</li>
+</ul>
+
 <pre class="example">
 
 &gt; devnagri status
 
 </pre>
+
+
+<p>
+This command returns the translation status of the project
+</p>
 </div>
 </div>
 
-<div id="outline-container-org1eccb36" class="outline-4">
-<h4 id="org1eccb36"><span class="section-number-4">1.2.5</span> sync</h4>
+<div id="outline-container-org9d17d7f" class="outline-4">
+<h4 id="org9d17d7f"><span class="section-number-4">1.2.5</span> sync</h4>
 <div class="outline-text-4" id="text-1-2-5">
 <pre class="example">
 
@@ -414,8 +453,8 @@ devnagri init --client-key XXXXXXX
 </div>
 </div>
 
-<div id="outline-container-org161d141" class="outline-4">
-<h4 id="org161d141"><span class="section-number-4">1.2.6</span> push</h4>
+<div id="outline-container-orgd814345" class="outline-4">
+<h4 id="orgd814345"><span class="section-number-4">1.2.6</span> push</h4>
 <div class="outline-text-4" id="text-1-2-6">
 <pre class="example">
 
@@ -425,8 +464,8 @@ devnagri init --client-key XXXXXXX
 </div>
 </div>
 
-<div id="outline-container-org6b2b1b4" class="outline-4">
-<h4 id="org6b2b1b4"><span class="section-number-4">1.2.7</span> pull</h4>
+<div id="outline-container-org48de6a3" class="outline-4">
+<h4 id="org48de6a3"><span class="section-number-4">1.2.7</span> pull</h4>
 <div class="outline-text-4" id="text-1-2-7">
 <pre class="example">
 
@@ -436,8 +475,8 @@ devnagri init --client-key XXXXXXX
 </div>
 </div>
 
-<div id="outline-container-org6723f5a" class="outline-4">
-<h4 id="org6723f5a"><span class="section-number-4">1.2.8</span> help</h4>
+<div id="outline-container-orga5eb23c" class="outline-4">
+<h4 id="orga5eb23c"><span class="section-number-4">1.2.8</span> help</h4>
 <div class="outline-text-4" id="text-1-2-8">
 <pre class="example">
 
@@ -452,11 +491,34 @@ This command prints a short summary of all the commands
 </div>
 </div>
 </div>
+
+<div id="outline-container-org43b95b2" class="outline-3">
+<h3 id="org43b95b2"><span class="section-number-3">1.3</span> Someday / Maybe - enhancements</h3>
+<div class="outline-text-3" id="text-1-3">
+</div>
+<div id="outline-container-orgc30a97b" class="outline-4">
+<h4 id="orgc30a97b"><span class="section-number-4">1.3.1</span> <span class="todo TODO">TODO</span> How to accomodate order system ?</h4>
+</div>
+<div id="outline-container-org1508aca" class="outline-4">
+<h4 id="org1508aca"><span class="section-number-4">1.3.2</span> <span class="todo TODO">TODO</span> automatic sync for updated files</h4>
+</div>
+<div id="outline-container-org977876c" class="outline-4">
+<h4 id="org977876c"><span class="section-number-4">1.3.3</span> <span class="todo TODO">TODO</span> first conflict prompt for preference</h4>
+</div>
+<div id="outline-container-orgd0ced03" class="outline-4">
+<h4 id="orgd0ced03"><span class="section-number-4">1.3.4</span> <span class="todo TODO">TODO</span> file location</h4>
+<div class="outline-text-4" id="text-1-3-4">
+<ul class="org-ul">
+<li></li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Abhinav Sharma ( abhi18av )</p>
-<p class="date">Created: 2017-12-13 Wed 12:04</p>
+<p class="date">Created: 2017-12-13 Wed 15:17</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
