@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-12-13 Wed 15:17 -->
+<!-- 2017-12-13 Wed 15:53 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -239,27 +239,28 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org42a413e">1. devnagri-cli</a>
+<li><a href="#org19bcd77">1. devnagri-cli</a>
 <ul>
-<li><a href="#orgf3769bf">1.1. Invocation</a></li>
-<li><a href="#orgec26c91">1.2. Usage Commands</a>
+<li><a href="#orgbbe8996">1.1. Invocation</a></li>
+<li><a href="#org6600d54">1.2. Usage Commands</a>
 <ul>
-<li><a href="#org3cd3941">1.2.1. init</a></li>
-<li><a href="#org38010de">1.2.2. validate</a></li>
-<li><a href="#org93ccd03">1.2.3. version</a></li>
-<li><a href="#orgccb8bb0">1.2.4. status</a></li>
-<li><a href="#org9d17d7f">1.2.5. sync</a></li>
-<li><a href="#orgd814345">1.2.6. push</a></li>
-<li><a href="#org48de6a3">1.2.7. pull</a></li>
-<li><a href="#orga5eb23c">1.2.8. help</a></li>
+<li><a href="#org3fe1b58">1.2.1. init</a></li>
+<li><a href="#orgd73b284">1.2.2. validate</a></li>
+<li><a href="#orga2c4a25">1.2.3. version</a></li>
+<li><a href="#org06a46e9">1.2.4. status</a></li>
+<li><a href="#org38e013e">1.2.5. sync</a></li>
+<li><a href="#org482b4a2">1.2.6. push</a></li>
+<li><a href="#org17aa478">1.2.7. pull</a></li>
+<li><a href="#org1b6deb9">1.2.8. help</a></li>
 </ul>
 </li>
-<li><a href="#org43b95b2">1.3. Someday / Maybe - enhancements</a>
+<li><a href="#org69518bf">1.3. Someday / Maybe - enhancements</a>
 <ul>
-<li><a href="#orgc30a97b">1.3.1. <span class="todo TODO">TODO</span> How to accomodate order system ?</a></li>
-<li><a href="#org1508aca">1.3.2. <span class="todo TODO">TODO</span> automatic sync for updated files</a></li>
-<li><a href="#org977876c">1.3.3. <span class="todo TODO">TODO</span> first conflict prompt for preference</a></li>
-<li><a href="#orgd0ced03">1.3.4. <span class="todo TODO">TODO</span> file location</a></li>
+<li><a href="#org79fbee2">1.3.1. <span class="todo TODO">TODO</span> How to accomodate order system ? Needs to accomodate credit system - place order - subcommand &lt;&lt; devnagri order &#x2013;xyz &gt;&gt;</a></li>
+<li><a href="#org5e3ba12">1.3.2. <span class="todo TODO">TODO</span> automatic sync for updated files</a></li>
+<li><a href="#orgafdd0fb">1.3.3. <span class="todo TODO">TODO</span> first conflict prompt for preference</a></li>
+<li><a href="#org7235c20">1.3.4. <span class="todo TODO">TODO</span> file location</a></li>
+<li><a href="#orge384a94">1.3.5. <span class="todo TODO">TODO</span> file type within the config</a></li>
 </ul>
 </li>
 </ul>
@@ -269,8 +270,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-org42a413e" class="outline-2">
-<h2 id="org42a413e"><span class="section-number-2">1</span> devnagri-cli</h2>
+<div id="outline-container-org19bcd77" class="outline-2">
+<h2 id="org19bcd77"><span class="section-number-2">1</span> devnagri-cli</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 This is the cross platform API client for Devnagri, written in Go-lang.
@@ -281,8 +282,8 @@ This has been developed to facilitate the integration of Devnagri localization p
 </p>
 </div>
 
-<div id="outline-container-orgf3769bf" class="outline-3">
-<h3 id="orgf3769bf"><span class="section-number-3">1.1</span> Invocation</h3>
+<div id="outline-container-orgbbe8996" class="outline-3">
+<h3 id="orgbbe8996"><span class="section-number-3">1.1</span> Invocation</h3>
 <div class="outline-text-3" id="text-1-1">
 <pre class="example">
 
@@ -292,12 +293,12 @@ This has been developed to facilitate the integration of Devnagri localization p
 </div>
 </div>
 
-<div id="outline-container-orgec26c91" class="outline-3">
-<h3 id="orgec26c91"><span class="section-number-3">1.2</span> Usage Commands</h3>
+<div id="outline-container-org6600d54" class="outline-3">
+<h3 id="org6600d54"><span class="section-number-3">1.2</span> Usage Commands</h3>
 <div class="outline-text-3" id="text-1-2">
 </div>
-<div id="outline-container-org3cd3941" class="outline-4">
-<h4 id="org3cd3941"><span class="section-number-4">1.2.1</span> init</h4>
+<div id="outline-container-org3fe1b58" class="outline-4">
+<h4 id="org3fe1b58"><span class="section-number-4">1.2.1</span> init</h4>
 <div class="outline-text-4" id="text-1-2-1">
 <pre class="example">
 
@@ -313,7 +314,7 @@ This command initilizes the devnagri-cli .devnagri.yaml within the repository wh
 
 
 <ol class="org-ol">
-<li><a id="orgf3eaa2f"></a><span class="todo TODO">TODO</span> metadata of a file - shall we send a tar ?<br />
+<li><a id="org7b7eb79"></a><span class="todo TODO">TODO</span> metadata of a file - shall we send a tar ?<br />
 <div class="outline-text-5" id="text-1-2-1-1">
 <div class="org-src-container">
 <pre class="src src-yaml"><span style="color: #2aa1ae; background-color: #ecf3ec;">## </span><span style="color: #2aa1ae; background-color: #ecf3ec;">sample content of the .devnagri.yaml</span>
@@ -341,9 +342,9 @@ This command initilizes the devnagri-cli .devnagri.yaml within the repository wh
 
 
 
-<li><a id="orgecc76e2"></a>Sub-command<br />
+<li><a id="org698d866"></a>Sub-command<br />
 <ol class="org-ol">
-<li><a id="orgaa4fb01"></a>client-id<br />
+<li><a id="org4f977f6"></a>client-id<br />
 <div class="outline-text-6" id="text-1-2-1-2-1">
 <pre class="example">
 
@@ -354,7 +355,7 @@ devnagri init --client-id XXXXXXX
 </li>
 
 
-<li><a id="orgd85df6c"></a>client-secret<br />
+<li><a id="org87332aa"></a>client-secret<br />
 <div class="outline-text-6" id="text-1-2-1-2-2">
 <pre class="example">
 
@@ -365,7 +366,7 @@ devnagri init --client-secret XXXXXXX
 </li>
 
 
-<li><a id="orgfc2b3c0"></a>project-key<br />
+<li><a id="org80a34b0"></a>project-key<br />
 <div class="outline-text-6" id="text-1-2-1-2-3">
 <pre class="example">
 
@@ -379,8 +380,8 @@ devnagri init --client-key XXXXXXX
 </ol>
 </div>
 
-<div id="outline-container-org38010de" class="outline-4">
-<h4 id="org38010de"><span class="section-number-4">1.2.2</span> validate</h4>
+<div id="outline-container-orgd73b284" class="outline-4">
+<h4 id="orgd73b284"><span class="section-number-4">1.2.2</span> validate</h4>
 <div class="outline-text-4" id="text-1-2-2">
 <p>
 Just validate the credentials
@@ -409,8 +410,8 @@ This command initiates a process
 </div>
 </div>
 
-<div id="outline-container-org93ccd03" class="outline-4">
-<h4 id="org93ccd03"><span class="section-number-4">1.2.3</span> version</h4>
+<div id="outline-container-orga2c4a25" class="outline-4">
+<h4 id="orga2c4a25"><span class="section-number-4">1.2.3</span> version</h4>
 <div class="outline-text-4" id="text-1-2-3">
 <pre class="example">
 
@@ -420,8 +421,8 @@ This command initiates a process
 </div>
 </div>
 
-<div id="outline-container-orgccb8bb0" class="outline-4">
-<h4 id="orgccb8bb0"><span class="section-number-4">1.2.4</span> status</h4>
+<div id="outline-container-org06a46e9" class="outline-4">
+<h4 id="org06a46e9"><span class="section-number-4">1.2.4</span> status</h4>
 <div class="outline-text-4" id="text-1-2-4">
 <ul class="org-ul">
 <li>Project completion status</li>
@@ -442,8 +443,8 @@ This command returns the translation status of the project
 </div>
 </div>
 
-<div id="outline-container-org9d17d7f" class="outline-4">
-<h4 id="org9d17d7f"><span class="section-number-4">1.2.5</span> sync</h4>
+<div id="outline-container-org38e013e" class="outline-4">
+<h4 id="org38e013e"><span class="section-number-4">1.2.5</span> sync</h4>
 <div class="outline-text-4" id="text-1-2-5">
 <pre class="example">
 
@@ -453,19 +454,25 @@ This command returns the translation status of the project
 </div>
 </div>
 
-<div id="outline-container-orgd814345" class="outline-4">
-<h4 id="orgd814345"><span class="section-number-4">1.2.6</span> push</h4>
+<div id="outline-container-org482b4a2" class="outline-4">
+<h4 id="org482b4a2"><span class="section-number-4">1.2.6</span> push</h4>
 <div class="outline-text-4" id="text-1-2-6">
 <pre class="example">
 
 &gt; devnagri push
 
+
 </pre>
+
+<p>
+Post multi-part
+</p>
 </div>
 </div>
 
-<div id="outline-container-org48de6a3" class="outline-4">
-<h4 id="org48de6a3"><span class="section-number-4">1.2.7</span> pull</h4>
+
+<div id="outline-container-org17aa478" class="outline-4">
+<h4 id="org17aa478"><span class="section-number-4">1.2.7</span> pull</h4>
 <div class="outline-text-4" id="text-1-2-7">
 <pre class="example">
 
@@ -475,8 +482,8 @@ This command returns the translation status of the project
 </div>
 </div>
 
-<div id="outline-container-orga5eb23c" class="outline-4">
-<h4 id="orga5eb23c"><span class="section-number-4">1.2.8</span> help</h4>
+<div id="outline-container-org1b6deb9" class="outline-4">
+<h4 id="org1b6deb9"><span class="section-number-4">1.2.8</span> help</h4>
 <div class="outline-text-4" id="text-1-2-8">
 <pre class="example">
 
@@ -492,33 +499,31 @@ This command prints a short summary of all the commands
 </div>
 </div>
 
-<div id="outline-container-org43b95b2" class="outline-3">
-<h3 id="org43b95b2"><span class="section-number-3">1.3</span> Someday / Maybe - enhancements</h3>
+<div id="outline-container-org69518bf" class="outline-3">
+<h3 id="org69518bf"><span class="section-number-3">1.3</span> Someday / Maybe - enhancements</h3>
 <div class="outline-text-3" id="text-1-3">
 </div>
-<div id="outline-container-orgc30a97b" class="outline-4">
-<h4 id="orgc30a97b"><span class="section-number-4">1.3.1</span> <span class="todo TODO">TODO</span> How to accomodate order system ?</h4>
+<div id="outline-container-org79fbee2" class="outline-4">
+<h4 id="org79fbee2"><span class="section-number-4">1.3.1</span> <span class="todo TODO">TODO</span> How to accomodate order system ? Needs to accomodate credit system - place order - subcommand &lt;&lt; devnagri order &#x2013;xyz &gt;&gt;</h4>
 </div>
-<div id="outline-container-org1508aca" class="outline-4">
-<h4 id="org1508aca"><span class="section-number-4">1.3.2</span> <span class="todo TODO">TODO</span> automatic sync for updated files</h4>
+<div id="outline-container-org5e3ba12" class="outline-4">
+<h4 id="org5e3ba12"><span class="section-number-4">1.3.2</span> <span class="todo TODO">TODO</span> automatic sync for updated files</h4>
 </div>
-<div id="outline-container-org977876c" class="outline-4">
-<h4 id="org977876c"><span class="section-number-4">1.3.3</span> <span class="todo TODO">TODO</span> first conflict prompt for preference</h4>
+<div id="outline-container-orgafdd0fb" class="outline-4">
+<h4 id="orgafdd0fb"><span class="section-number-4">1.3.3</span> <span class="todo TODO">TODO</span> first conflict prompt for preference</h4>
 </div>
-<div id="outline-container-orgd0ced03" class="outline-4">
-<h4 id="orgd0ced03"><span class="section-number-4">1.3.4</span> <span class="todo TODO">TODO</span> file location</h4>
-<div class="outline-text-4" id="text-1-3-4">
-<ul class="org-ul">
-<li></li>
-</ul>
+<div id="outline-container-org7235c20" class="outline-4">
+<h4 id="org7235c20"><span class="section-number-4">1.3.4</span> <span class="todo TODO">TODO</span> file location</h4>
 </div>
+<div id="outline-container-orge384a94" class="outline-4">
+<h4 id="orge384a94"><span class="section-number-4">1.3.5</span> <span class="todo TODO">TODO</span> file type within the config</h4>
 </div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Abhinav Sharma ( abhi18av )</p>
-<p class="date">Created: 2017-12-13 Wed 15:17</p>
+<p class="date">Created: 2017-12-13 Wed 15:53</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
