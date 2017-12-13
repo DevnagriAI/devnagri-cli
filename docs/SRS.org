@@ -137,7 +137,11 @@ This command returns the translation status of the project
 
 > devnagri push
 
+
 #+END_SRC
+
+Post multi-part
+
 
 *** pull
 
@@ -159,11 +163,8 @@ This command returns the translation status of the project
 This command prints a short summary of all the commands
 
 ** Someday / Maybe - enhancements
-*** TODO How to accomodate order system ?
+*** TODO How to accomodate order system ? Needs to accomodate credit system - place order - subcommand << devnagri order --xyz >>
 *** TODO automatic sync for updated files
 *** TODO first conflict prompt for preference
 *** TODO file location 
-
-
-
-- 
+*** TODO file type within the config
