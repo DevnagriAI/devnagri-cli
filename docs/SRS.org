@@ -18,6 +18,57 @@ This has been developed to facilitate the integration of Devnagri localization p
 > devnagri --init
 #+END_SRC
 
+
+**** Functionality
+
+This command initilizes the devnagri-cli config within the repository which consists of the following fields
+
+
+
+#+BEGIN_SRC yaml
+## sample content of the config.yaml
+
+- client-id
+
+- client-secret
+
+- project-key
+
+- languages-to-be-translated
+    - en
+    - hi
+
+
+
+#+END_SRC
+
+
+
+**** Sub-command 
+
+***** client-id
+
+#+BEGIN_SRC 
+
+
+#+END_SRC
+
+
+***** client-secret
+
+#+BEGIN_SRC 
+
+
+#+END_SRC
+
+
+***** project-key
+
+#+BEGIN_SRC 
+
+
+#+END_SRC
+
 *** validate
 
 #+BEGIN_SRC 
@@ -28,6 +79,12 @@ This has been developed to facilitate the integration of Devnagri localization p
 
 #+BEGIN_SRC 
 > devnagri --version
+#+END_SRC
+
+*** status
+
+#+BEGIN_SRC 
+> devnagri --status
 #+END_SRC
 
 *** sync
@@ -48,4 +105,9 @@ This has been developed to facilitate the integration of Devnagri localization p
 > devnagri --pull
 #+END_SRC
 
+*** help
+
+#+BEGIN_SRC 
+> devnagri --help
+#+END_SRC
 
