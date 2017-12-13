@@ -43,10 +43,11 @@ This command initilizes the devnagri-cli config within the repository which cons
     - hi
 
 - global-preference-in-case-of-merge-conflict
-
+    - devnagri
+    - [local]
 
 #+END_SRC
--
+
 
 
 **** Sub-command 
@@ -133,3 +134,5 @@ devnagri init --client-key XXXXXXX
 
 #+END_SRC
 
+
+This command prints a short summary of all the commands
