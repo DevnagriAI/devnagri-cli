@@ -39,6 +39,8 @@ This command initilizes the devnagri-cli .devnagri.yaml within the repository wh
 
 - project-key
 
+- localization folder
+
 - languages-to-be-translated
     - en
     - hi
@@ -106,7 +108,7 @@ This command initiates a process
 #+END_SRC
 
 *** status
-
+    
 - Project completion status
 - Total number of words
 - Translate words
@@ -156,3 +158,10 @@ This command returns the translation status of the project
 This command prints a short summary of all the commands
 
 ** Someday / Maybe - enhancements
+- order 
+- automatic sync for updated files
+- first conflict prompt for preference
+- file location 
+
+
+
