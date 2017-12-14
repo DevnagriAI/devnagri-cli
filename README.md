@@ -17,6 +17,7 @@ We appreciate your contribution. Please refer to our [contributing guidelines](.
 
 ## TODO
 
+- [ ] SetUp testing 
 - [ ] Move from `nextflow`  to `launch.json` within `vscode`
 - [ ] Update the `contributing.md`  as per the build process
 
