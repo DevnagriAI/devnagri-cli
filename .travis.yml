@@ -1,0 +1,14 @@
+language: go
+go: 1.8.3
+install: rake setup
+#script: make ci
+script: rake fmt
+#script: rake test
+#script: rake fmt
+#setup for appveyor and test windows build as well
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+  - test -n "$TRAVIS_TAG" && curl -sL http://git.io/goreleaser | bash
+notifications:
+  email: false
