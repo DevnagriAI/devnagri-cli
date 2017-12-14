@@ -1,0 +1,170 @@
+#+SETUPFILE: theme-readtheorg-local.setup
+#+AUTHOR: Abhinav Sharma ( abhi18av ) 
+
+
+* devnagri-cli
+
+This is the cross platform API client for Devnagri, written in Go-lang.
+
+This has been developed to facilitate the integration of Devnagri localization platform within the Developement workflow.
+
+** Invocation
+
+#+BEGIN_SRC 
+
+> devnagri
+
+#+END_SRC
+
+** Usage Commands
+*** init
+
+#+BEGIN_SRC 
+
+> devnagri init
+
+#+END_SRC
+
+
+This command initilizes the devnagri-cli .devnagri.yaml within the repository which consists of the following fields
+
+
+**** TODO metadata of a file - shall we send a tar ?
+
+#+BEGIN_SRC yaml
+## sample content of the .devnagri.yaml
+
+- client-id
+
+- client-secret
+
+- project-key
+
+- localization folder
+
+- languages-to-be-translated
+    - en
+    - hi
+
+- global-preference-in-case-of-merge-conflict
+    - devnagri
+    - [local]
+
+#+END_SRC
+
+
+
+**** Sub-command 
+
+***** client-id
+
+#+BEGIN_SRC 
+
+devnagri init --client-id XXXXXXX
+
+#+END_SRC
+
+
+***** client-secret
+
+#+BEGIN_SRC 
+
+devnagri init --client-secret XXXXXXX
+
+#+END_SRC
+
+
+***** project-key
+
+#+BEGIN_SRC 
+
+devnagri init --client-key XXXXXXX
+
+#+END_SRC
+
+*** validate
+Just validate the credentials
+
+
+- Send a sample request to devnagri to recieve the project-key [ generate this via browser ]
+- On local machine, validate the YAML file
+
+#+BEGIN_SRC 
+
+> devnagri validate
+
+#+END_SRC
+
+This command initiates a process 
+
+- To validate the .devnagri.yaml file 
+- Sends a request to the devnagri and checks the credentials are authorized
+
+*** version
+    
+#+BEGIN_SRC 
+
+> devnagri version
+
+#+END_SRC
+
+*** status
+    
+- Project completion status
+- Total number of words
+- Translate words
+
+#+BEGIN_SRC 
+
+> devnagri status
+
+#+END_SRC
+
+
+This command returns the translation status of the project
+
+*** sync
+
+#+BEGIN_SRC 
+
+> devnagri sync
+
+#+END_SRC
+
+*** push
+
+#+BEGIN_SRC 
+
+> devnagri push
+
+
+#+END_SRC
+
+Post multi-part
+
+
+*** pull
+
+#+BEGIN_SRC 
+
+> devnagri pull
+
+#+END_SRC
+
+*** help
+
+#+BEGIN_SRC 
+
+> devnagri help
+
+#+END_SRC
+
+
+This command prints a short summary of all the commands
+
+** Someday / Maybe - enhancements
+*** TODO How to accomodate order system ? Needs to accomodate credit system - place order - subcommand << devnagri order --xyz >>
+*** TODO automatic sync for updated files
+*** TODO first conflict prompt for preference
+*** TODO file location 
+*** TODO file type within the config
