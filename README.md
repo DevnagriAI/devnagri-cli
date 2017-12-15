@@ -5,7 +5,7 @@
 This project adheres to the Contributor Covenant [code of conduct](./.github/CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. 
 We appreciate your contribution. Please refer to our [contributing guidelines](./.github/CONTRIBUTING.md). 
  
-[![Release](https://img.shields.io/github/release/FourtekIT/devnagri-cli.svg?style=flat-square)](https://github.com/FourtekIT/devnagri.releases/latest) 
+[![Release](https://img.shields.io/github/release/FourtekIT/devnagri-cli.svg?style=flat-square)](https://github.com/FourtekIT/devnagri-cli/releases/latest) 
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md) 
 [![Travis](https://img.shields.io/travis/FourtekIT/devnagri-cli.svg?style=flat-square)](https://travis-ci.com/FourtekIT/devnagri-cli) 
 [![Go Doc](https://img.shields.io/badge/godoc-reference-blue.svg?style=flat-square)](https://godoc.org/github.com/FourtekIT/devnagri-cli)
