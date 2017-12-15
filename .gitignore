@@ -3,3 +3,4 @@
 vendor
 .private
 dist
+debug
