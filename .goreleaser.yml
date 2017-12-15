@@ -2,7 +2,7 @@ project_name: devnagri
 release:
   github:
     owner: fourtekit
-    name: devnagri
+    name: devnagri-cli
 #brew:
 #  install: bin.install "devnagri"
 builds:
@@ -15,7 +15,7 @@ builds:
   - "386"
   main: .
   ldflags: -s -w -X main.version={{.Version}} -X main.commit={{.Commit}} -X main.date={{.Date}}
-  binary: saigo
+  binary: devnagri
 archive:
   format: tar.gz
   name_template: '{{ .Binary }}_{{.Version}}_{{ .Os }}_{{ .Arch }}{{ if .Arm }}v{{
