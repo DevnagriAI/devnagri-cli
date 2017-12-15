@@ -1,5 +1,5 @@
 language: go
-go: 1.8.3
+go: 1.9.2
 install: rake setup
 #script: make ci
 script: rake fmt

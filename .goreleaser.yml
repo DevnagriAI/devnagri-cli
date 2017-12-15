@@ -1,10 +1,10 @@
-project_name: saigo
+project_name: devnagri
 release:
   github:
-    owner: abhi18av
-    name: saigo
-brew:
-  install: bin.install "saigo"
+    owner: fourtekit
+    name: devnagri-cli
+#brew:
+#  install: bin.install "devnagri"
 builds:
 - goos:
   - linux
@@ -13,11 +13,9 @@ builds:
   goarch:
   - amd64
   - "386"
-  goarm:
-  - "6"
   main: .
   ldflags: -s -w -X main.version={{.Version}} -X main.commit={{.Commit}} -X main.date={{.Date}}
-  binary: saigo
+  binary: devnagri
 archive:
   format: tar.gz
   name_template: '{{ .Binary }}_{{.Version}}_{{ .Os }}_{{ .Arch }}{{ if .Arm }}v{{
