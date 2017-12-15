@@ -37,7 +37,10 @@ lint: ## Run all the linters
 
 
 #ci: lint test ## Run all the tests and code checks
+#ci: test 
+
 ci: test 
+
 
 beta: ## Build a beta version
 	go build -o beta ./main.go
