@@ -1,14 +1,12 @@
 language: go
 go: 1.9.2
-install: rake setup
-#script: make ci
-script: rake fmt
-#script: rake test
-#script: rake fmt
-#setup for appveyor and test windows build as well
-
+install: make setup
+script: make ci
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
-  - test -n "$TRAVIS_TAG" && curl -sL http://git.io/goreleaser | bash
+- bash <(curl -s https://codecov.io/bash)
+- test -n "$TRAVIS_TAG" && curl -sL http://git.io/goreleaser | bash
 notifications:
   email: false
+env:
+  matrix:
+    secure: BIpeG6wv8ecd3Q6K4jIrF5RPpvEPRdOcRjuSUUu9JLl02D4MBkkcgCNurxY+aQN1xZ9CM0Ksg4ZahlJ4YTHzNV9yvpBU/kiYXgaKtKJ1r36O+OUbp4v+0LZs/Sls2lS1TQGfXTUPM9apmEbRQOWbagcxfmB8/1X3XExYQ8DUNEbbYdZtmqnk+FkKvhKRYGesr2rzuOdpms5AgGrOEB6+Dkr+7yjBDNXng5kgoMaydp6pCYZZDccKYfL2AAXpDHNrahiuaCehq8lf7wrsE39xE6Bi1vQbGq0ci/AUmw3djPIT3xRPGPrDOqNRILFWAuBcQMYMoFpYNpa/BPWv7f+4Hgiw0L1rRokA7eGnWNMhqMvAQUX/yIUZTVaJXQQcQqQfiyjKlQv6kjplp+FD7bjE/J+DKhyQMIqE45MHgXQAi6rOwXdNCYrZAyyoy8tGkaPJrDXzo4IJpxqJ9gyX9q2KBC/M6gLi9cCm/VJYdxvVBloV13OMHXUcKmug5IKOmhdcELtgGQ3B8Rte+HYsbwDXAmp6MH6B0F7VTOmx/HaKPePxg9ygdjNDl5Eiy1Tfe3DqQfSSmQd7dW1ZbMbH0XT3A4WbNcuNV+fT660kWBz47iL8xe4whndtB0FEGn/DWecTqyJAeMST/I32hi0m0TuaxsNxaEnfTmujiT8nA9dAMQM=
