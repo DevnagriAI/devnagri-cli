@@ -14,8 +14,11 @@
 
 package main
 
-import "devnagri/cmd"
+import "devnagri-cli/cmd"
+
+var version = "develop"
 
 func main() {
 	cmd.Execute()
+	println(version)
 }

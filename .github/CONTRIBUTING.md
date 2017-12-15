@@ -11,7 +11,7 @@ Prerequisites are:
 
 * Build:
   * `make`
-  * [Go 1.8+](http://golang.org/doc/install)
+  * [Go 1.9+](http://golang.org/doc/install)
 
 Clone `example` from source into `$GOPATH`:
 
