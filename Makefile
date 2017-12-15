@@ -35,7 +35,9 @@ lint: ## Run all the linters
 		--deadline=10m \
 		./...
 
-ci: lint test ## Run all the tests and code checks
+
+#ci: lint test ## Run all the tests and code checks
+ci: test 
 
 build: ## Build a beta version
 	go build -o beta ./main.go
