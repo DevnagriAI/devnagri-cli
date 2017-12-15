@@ -39,7 +39,7 @@ lint: ## Run all the linters
 #ci: lint test ## Run all the tests and code checks
 ci: test 
 
-build: ## Build a beta version
+beta: ## Build a beta version
 	go build -o beta ./main.go
 
 install: ## Install to $GOPATH/src
