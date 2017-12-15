@@ -18,7 +18,7 @@ We appreciate your contribution. Please refer to our [contributing guidelines](.
 ## TODO
 
 - [ ] SetUp testing 
-- [] Setting up the `travis-ci.com` builds
+- [x] Set up the `travis-ci.com` builds
 - [x] Move from `nextflow`  to `launch.json` within `vscode`
 - [ ] Update the `contributing.md`  as per the build process
 
