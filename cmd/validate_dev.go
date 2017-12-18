@@ -28,9 +28,9 @@ func main() {
 		SetHeader("Content-Type", "multipart/form-data").
 		SetFormData(map[string]string{
 			"client_id":     "4",
-			"client_secret": "kBBhqrpeEjJCGLYUCQw9rJuZ6MjLT6C7iUeVISWd",
+			"client_secret": " uTBn7fxknAPpmw9AiEXyIro7X8mP0JhkqPtvBS28",
 			"project_key":   "d41d8cd98f00b204e9800998ecf8427e"}).
-		Post("https://requestb.in/16pfgiv1")
+		Post("http://192.168.60.10/api/key/validations")
 
 	if err != nil {
 		panic(err)
