@@ -1,15 +1,15 @@
-client_id: "Client ID"
+ClientID: "Client ID"
 
-client_secret: "Client Secret"
+ClientSecret: "Client Secret"
 
-project_key: "Project Key"
+ProjectKey: "Project Key"
 
-localization_folder: "Localization Folder"
+Localizationfolder: "Localization Folder"
 
-languages_to_be_translated:
+LanguagesToBeTranslated:
   - en
   - hi
 
 
 // TODO: Choose one  =>  devnagri / local
-global_preference_in_case_of_merge_conflict: "Devnagri"
+GlobalPreferenceInCaseOfMergeConflict: "Remote"

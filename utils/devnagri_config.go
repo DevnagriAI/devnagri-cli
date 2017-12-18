@@ -26,11 +26,23 @@ func main() {
 
 
 
+}
+
+
+func validateAllFields(){
+
+client_id
+client_secret
+project_key
+localization_folder
+global_preference_in_case_of_merge_conflict
+languages_to_be_translated:
+
 	// To validate the presence of a certain field in the YAML file
 	if !viper.IsSet("prod.none") {
 		fmt.Printf("\n")
 		log.Fatal("missing the \"none\" field")
 	}
+
+
 }
-
-
