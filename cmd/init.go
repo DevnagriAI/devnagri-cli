@@ -43,3 +43,8 @@ func init() {
 	// is called directly, e.g.:
 	// initCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }
+
+// TODO : create this using viper
+func createConfigFile() {
+
+}
