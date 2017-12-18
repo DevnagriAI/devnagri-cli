@@ -1,4 +1,15 @@
-auth:
-  username: black
-  password: notthere
-  //none: non_existent
+ClientID: "Client ID"
+
+ClientSecret: "Client Secret"
+
+ProjectKey: "Project Key"
+
+Localizationfolder: "Localization Folder"
+
+LanguagesToBeTranslated:
+  - en
+  - hi
+
+
+// TODO: Choose one  =>  devnagri / local
+GlobalPreferenceInCaseOfMergeConflict: "Remote"
