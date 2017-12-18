@@ -28,5 +28,6 @@ func main() {
 		fmt.Printf("\n")
 		log.Fatal("missing the \"none\" field")
 	}
-
 }
+
+
