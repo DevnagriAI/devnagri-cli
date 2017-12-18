@@ -2,3 +2,19 @@ auth:
   username: black
   password: notthere
   //none: non_existent
+
+client_id: "Client ID"
+
+client_secret: "Client Secret"
+
+project_key: "Project Key"
+
+localization_folder: "Localization Folder"
+
+languages_to_be_translated:
+  - en
+  - hi
+
+
+// TODO: Choose one  =>  devnagri / local
+global_preference_in_case_of_merge_conflict: "Devnagri"
