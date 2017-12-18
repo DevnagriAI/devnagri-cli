@@ -24,20 +24,12 @@ import (
 
 func main() {
 
-	// explore response object
 	resp, err := resty.R().
-		SetHeader("Content-Type", "application/json").
-		SetBody([]byte(`{
-"client_id": "4",
-"client_secret": "kBBhqrpeEjJCGLYUCQw9rJuZ6MjLT6C7iUeVISWd",
-"project_key": "d41d8cd98f00b204e9800998ecf8427e"
-}`)).
-		/*
-		   	SetFormData(map[string]string{
-		   	"first_name": "Jeevanandam",
-		   	"last_name": "M",
-		   }).
-		*/
+		SetHeader("Content-Type", "multipart/form-data").
+		SetFormData(map[string]string{
+			"client_id":     "4",
+			"client_secret": "kBBhqrpeEjJCGLYUCQw9rJuZ6MjLT6C7iUeVISWd",
+			"project_key":   "d41d8cd98f00b204e9800998ecf8427e"}).
 		Post("https://requestb.in/16pfgiv1")
 
 	if err != nil {
