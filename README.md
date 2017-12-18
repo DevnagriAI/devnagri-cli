@@ -18,6 +18,7 @@ We appreciate your contribution. Please refer to our [contributing guidelines](.
 ## TODO
 
 - [ ] SetUp testing 
+- [ ] Build a proper release script
 - [x] Move from `make`  to `powershell` 
 - [x] Set up the `travis-ci.com` builds
 - [x] Move from `nextflow`  to `launch.json` within `vscode`

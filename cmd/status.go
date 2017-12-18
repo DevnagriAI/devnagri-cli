@@ -23,7 +23,7 @@ import (
 // statusCmd represents the status command
 var statusCmd = &cobra.Command{
 	Use:   "status",
-	Short: "A brief description of status command",
+	Short: "This command fetches the status of the current project.",
 	Long:  `A long description of status command.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("status called")

@@ -23,7 +23,7 @@ import (
 // validateCmd represents the validate command
 var validateCmd = &cobra.Command{
 	Use:   "validate",
-	Short: "A brief description of validate command",
+	Short: "This command validates the credentials in the .devnagri file within the local folder.",
 	Long:  `A long description of validate command.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("validate called")
