@@ -37,9 +37,9 @@
   version = "1.0.0"
 
 [[constraint]]
-  name = "github.com/go-task/task"
-  version = "1.4.4"
-
-[[constraint]]
   name = "github.com/fortytw2/leaktest"
   version = "1.1.0"
+
+[[constraint]]
+  name = "github.com/magefile/mage"
+  version = "2.0.1"
