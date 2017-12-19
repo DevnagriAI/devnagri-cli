@@ -7,12 +7,12 @@ import (
 	"io/ioutil"
 	"log"
 	"github.com/spf13/viper"
-)
+	"lfortytw2/leaktest"
+
 
 func main()  {
 
-
-
+	
 	viper.SetConfigFile("./.devnagri.yaml")
 
 	if err := viper.ReadInConfig(); err != nil {
