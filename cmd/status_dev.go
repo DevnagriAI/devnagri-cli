@@ -33,8 +33,8 @@ func main() {
 			"client_id":     "4",
 			"client_secret": " uTBn7fxknAPpmw9AiEXyIro7X8mP0JhkqPtvBS28",
 			"project_key":   "d41d8cd98f00b204e9800998ecf8427e"}).
-		Post("http://192.168.60.10/api/key/status")
-		//Post("https://requestb.in/16pfgiv1")
+		//Post("http://192.168.60.10/api/key/status")
+		Post("https://requestb.in/16pfgiv1")
 
 	if err != nil {
 		panic(err)
