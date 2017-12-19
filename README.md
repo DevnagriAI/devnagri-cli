@@ -17,7 +17,7 @@ We appreciate your contribution. Please refer to our [contributing guidelines](.
 
 ## TODO
 
-- [ ] Move to `go-task` from `makefile`
+- [ ] Move to `mage` from `makefile`
 - [ ] SetUp testing 
 - [ ] Build a proper release script
 - [x] Set up the `travis-ci.com` builds
