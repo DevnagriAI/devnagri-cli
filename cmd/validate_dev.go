@@ -19,6 +19,7 @@ package main
 
 import (
 	"fmt"
+
 	"gopkg.in/resty.v1"
 )
 
@@ -37,4 +38,5 @@ func main() {
 	}
 
 	fmt.Println(resp)
+	//TODO: Save the returned access_token to the .devnagri.yaml
 }
