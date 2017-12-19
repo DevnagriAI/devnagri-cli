@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"log"
+	"github.com/spf13/viper"
 )
 
 func main()  {
@@ -21,12 +22,10 @@ func main()  {
 	// Confirm which config file is used
 	fmt.Printf("Using config: %s\n", viper.ConfigFileUsed())
 
-	x := viper.GetString("RootDir") // returns string
-	//port := viper.GetInt("prod.port") // returns integer
-	fmt.Printf("\n\nValue: %v, Type: %T\n", x, x)
-
-
-	files, err := ioutil.ReadDir(".")
+	RootDir := viper.GetString("RootDir") // returns string
+	
+	// Here we read the files in the RootDirectory
+	files, err := ioutil.ReadDir(RootDir)
 	if err != nil {
 		log.Fatal(err)
 	}
