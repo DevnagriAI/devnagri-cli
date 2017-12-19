@@ -10,6 +10,7 @@ LanguagesToBeTranslated:
   - en
   - hi
 
+RootDir: "./"
 
 // TODO: Choose one  =>  devnagri / local
 GlobalPreferenceInCaseOfMergeConflict: "Remote"
