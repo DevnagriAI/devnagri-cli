@@ -7,7 +7,6 @@ import (
 	"io/ioutil"
 	"log"
 	"github.com/spf13/viper"
-	"leaktest"
 	"devnagri-cli/utils"
 )
 
