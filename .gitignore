@@ -2,6 +2,7 @@
 \.#*
 vendor
 dist
-debug
+_dev
 
+debug
 beta

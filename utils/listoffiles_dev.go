@@ -7,7 +7,7 @@ import (
 	"io/ioutil"
 	"log"
 	"github.com/spf13/viper"
-	"lfortytw2/leaktest"
+	"github.com/fortytw2/leaktest"
 
 
 func main()  {
