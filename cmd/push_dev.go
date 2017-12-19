@@ -8,7 +8,23 @@ import (
 	"gopkg.in/resty.v1"
 )
 
-
+HEADERS
+Accept application/json
+Content-Type multipart/form-data
+BODY
+client_id3
+client_secretHfU2hKMpArJaZVUljxNBoBYgWlWDK0D7Rmh6u3wn
+project_keyd41d8cd98f00b204e9800998ecf8427e
+file[0][hash]31c86620ffe30c99b6e7cb7c2b9f4c6284945e1d4d4f2e9b7445ac52c85bf38d
+file[0][name]asdasd
+file[0][extension]xml
+file[0][file_type]xml
+file[1][hash]31c86620ffe30c99b6e7cb7c2b9f4c6284945e1d4d4f2e9b7445ac52c85bf38d
+file[1][name]asdasd
+file[1][extension]xml
+file[1][file_type]xml
+file[0][file][object Object]
+file[1][file][object Object]
 func main() {
 
 	resp, err := resty.R().
