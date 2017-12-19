@@ -1,7 +1,11 @@
 package main
 
 import (
+	"crypto/sha256"
 	"fmt"
+	"io"
+	"log"
+	"os"
 
 	"gopkg.in/resty.v1"
 )
@@ -37,5 +41,19 @@ func main() {
 	fmt.Println(resp)
 }
 
-func sha256Hash() {
+func sha256Hash(fileName string) {
+
+	f, err := os.Open(fileName)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer f.Close()
+
+	h := sha256.New()
+	if _, err := io.Copy(h, f); err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Printf("%x", h.Sum(nil))
+
 }
