@@ -7,12 +7,14 @@ import (
 	"io/ioutil"
 	"log"
 	"github.com/spf13/viper"
-)
+	// TODO: https://blog.minio.io/debugging-go-routine-leaks-a1220142d32c
+	// TODO: https://github.com/fortytw2/leaktest
+	//"github.com/fortytw2/leaktest"
+
 
 func main()  {
 
-
-
+	
 	viper.SetConfigFile("./.devnagri.yaml")
 
 	if err := viper.ReadInConfig(); err != nil {
