@@ -2,12 +2,6 @@
 
 
 [[projects]]
-  name = "github.com/fortytw2/leaktest"
-  packages = ["."]
-  revision = "7dad53304f9614c1c365755c1176a8e876fee3e8"
-  version = "v1.1.0"
-
-[[projects]]
   name = "github.com/fsnotify/fsnotify"
   packages = ["."]
   revision = "629574ca2a5df945712d3079857300b5e4da0236"
@@ -118,6 +112,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "34f47204bfb38b54df623785e1a3ee2c091ca674027db90a584dc9e595e1e437"
+  inputs-digest = "26c051f6fcbeebd7c4fc0bb533f40f0c521bfa79573ac4505cab811e8d92f689"
   solver-name = "gps-cdcl"
   solver-version = 1
