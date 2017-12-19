@@ -38,10 +38,12 @@ func main() {
 		panic(err)
 	}
 
+	fmt.Println(sha256Hash("push_test_file.xml"))
+
 	fmt.Println(resp)
 }
 
-func sha256Hash(fileName string) {
+func sha256Hash(fileName string) string {
 
 	f, err := os.Open(fileName)
 	if err != nil {
@@ -54,6 +56,7 @@ func sha256Hash(fileName string) {
 		log.Fatal(err)
 	}
 
-	fmt.Printf("%x", h.Sum(nil))
+	//fmt.Printf("%x", h.Sum(nil))
+	return h.Sum(nil)
 
 }
