@@ -20,7 +20,7 @@ func main() {
 			"client_secret":      " uTBn7fxknAPpmw9AiEXyIro7X8mP0JhkqPtvBS28",
 			"project_key":        "d41d8cd98f00b204e9800998ecf8427e",
 			"file[0][hash]":      "3221255c6aecb25c8f73472dcb7c99f42ade9112b8e3029a3e67070233fd101d",
-			"file[0][name]":      "push_test_file.xml",
+			"file[0][name]":      "CallingPapaPro2.xml",
 			"file[0][extension]": "xml",
 			"file[0][file_type]": "xml",
 			//"file[0][file]":
