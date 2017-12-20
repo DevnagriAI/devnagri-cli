@@ -27,3 +27,6 @@ func Cover() {
 	cover("-html=coverage.txt")
 
 }
+
+// TODO: https://godoc.org/github.com/magefile/mage/sh#Exec
+// TODO: https://magefile.org/libraries/
