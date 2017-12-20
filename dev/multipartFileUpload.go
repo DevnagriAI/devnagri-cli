@@ -16,10 +16,12 @@ func newfileUploadRequest(uri string, params map[string]string, paramName, path 
 	if err != nil {
 		return nil, err
 	}
+
 	fileContents, err := ioutil.ReadAll(file)
 	if err != nil {
 		return nil, err
 	}
+
 	fi, err := file.Stat()
 	if err != nil {
 		return nil, err
@@ -27,7 +29,9 @@ func newfileUploadRequest(uri string, params map[string]string, paramName, path 
 	file.Close()
 
 	body := new(bytes.Buffer)
+
 	writer := multipart.NewWriter(body)
+
 	part, err := writer.CreateFormFile(paramName, fi.Name())
 	if err != nil {
 		return nil, err
