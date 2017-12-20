@@ -10,14 +10,6 @@ import (
 	"gopkg.in/resty.v1"
 )
 
-/*
-file[0][hash]
-file[0][name]
-file[0][extension]
-file[0][file_type]
-file[0][file]
-*/
-
 func main() {
 	resp, err := resty.R().
 		SetHeader("Accept", "application/json").
