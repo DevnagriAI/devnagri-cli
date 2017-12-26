@@ -16,11 +16,8 @@ package main
 
 import "devnagri-cli/cmd"
 
-var version = "develop"
-
 func main() {
 
 	cmd.Execute()
-	println(version)
 
 }

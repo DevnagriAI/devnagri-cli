@@ -26,10 +26,9 @@ This has been developed to facilitate the integration of Devnagri localization p
 #+END_SRC
 
 
-This command initilizes the devnagri-cli .devnagri.yaml within the repository which consists of the following fields
+This command initilizes the devnagri-cli *.devnagri.yaml* within the repository which consists of the following fields
 
 
-**** TODO metadata of a file - shall we send a tar ?
 
 #+BEGIN_SRC yaml
 ## sample content of the .devnagri.yaml
@@ -99,9 +98,10 @@ Just validate the credentials
 
 This command initiates a process 
 
-- To validate the .devnagri.yaml file 
+- To validate the *.devnagri.yaml* file 
 - Sends a request to the devnagri and checks the credentials are authorized
 - Returns an access-token
+- This token is added to the *.devnagri.yaml*
 
 *** version
     
@@ -113,6 +113,8 @@ This command initiates a process
 
 *** status
     
+This command returns the translation status of the project
+
 - Project completion status
 - Total number of words
 - Translate words
@@ -124,17 +126,10 @@ This command initiates a process
 #+END_SRC
 
 
-This command returns the translation status of the project
-
-*** sync
-
-#+BEGIN_SRC 
-
-> devnagri sync
-
-#+END_SRC
 
 *** push
+
+This command pushes the local files to devnagri
 
 #+BEGIN_SRC 
 
@@ -142,8 +137,6 @@ This command returns the translation status of the project
 
 
 #+END_SRC
-
-Post multi-part
 
 
 *** pull
@@ -154,7 +147,22 @@ Post multi-part
 
 #+END_SRC
 
+
+*** sync
+
+This command synchronizes the files between the devnagri server and local environments
+
+
+#+BEGIN_SRC 
+
+> devnagri sync
+
+#+END_SRC
+
+
 *** help
+
+This command prints out the devnagri CLI help menu and prints a short summary of all the commands
 
 #+BEGIN_SRC 
 
@@ -163,10 +171,22 @@ Post multi-part
 #+END_SRC
 
 
-This command prints a short summary of all the commands
+*** version
+
+This command prints out the devnagri CLI version 
+
+#+BEGIN_SRC 
+
+> devnagri version
+
+#+END_SRC
+
+
 
 ** Someday / Maybe - enhancements
 *** TODO How to accomodate order system ? Needs to accomodate credit system - place order - subcommand << devnagri order --xyz >>
 *** TODO automatic sync for updated files
 *** TODO first conflict prompt for preference
 *** TODO file type within the config
+*** DONE metadata of a file - shall we send a tar ?
+    CLOSED: [2017-12-26 Tue 11:28]

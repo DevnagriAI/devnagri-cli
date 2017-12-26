@@ -4,6 +4,8 @@ ClientSecret: "Client Secret"
 
 ProjectKey: "Project Key"
 
+AccessToken: "Access Token"
+
 Localizationfolder: "Localization Folder"
 
 LanguagesToBeTranslated:
