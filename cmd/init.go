@@ -23,7 +23,7 @@ import (
 // initCmd represents the init command
 var initCmd = &cobra.Command{
 	Use:   "init",
-	Short: "A brief description of init command",
+	Short: "This command creates a .devnagri.yaml file in the repo.",
 	Long:  `A longer description of init command`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("init called")
@@ -37,14 +37,15 @@ func init() {
 
 	// Cobra supports Persistent Flags which will work for this command
 	// and all subcommands, e.g.:
-	// initCmd.PersistentFlags().String("foo", "", "A help for foo")
+	initCmd.PersistentFlags().String("clientid", "", "Enter your clientid.")
 
+	initCmd.PersistentFlags().String("clientsecret", "", "Enter your clientsecret")
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
-	// initCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	//initCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }
 
-// TODO : create this using viper
+// TODO: create this using viper
 func createConfigFile() {
 
 }
