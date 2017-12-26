@@ -2,6 +2,7 @@ package main
 
 import (
 	"crypto/sha256"
+	"encoding/base64"
 	"encoding/hex"
 	"fmt"
 	"io"
@@ -29,6 +30,10 @@ func main() {
 	}
 
 	fmt.Println(resp)
+
+	uDec, _ := base64.StdEncoding.DecodeString(resp.String())
+	fmt.Println("<< Contents of file >>")
+	fmt.Println(string(uDec))
 }
 
 func sha256Hash(fileName string) string {
