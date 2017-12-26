@@ -26,7 +26,7 @@ var versionCmd = &cobra.Command{
 	Short: "A brief description of version command",
 	Long:  `A long description of version command.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("devnagri cli tool version : ")
+		fmt.Println("devnagri-cli version : ")
 	},
 }
 

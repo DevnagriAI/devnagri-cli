@@ -34,21 +34,23 @@ This command initilizes the devnagri-cli .devnagri.yaml within the repository wh
 #+BEGIN_SRC yaml
 ## sample content of the .devnagri.yaml
 
-- client-id
+ClientID: "Client ID"
 
-- client-secret
+ClientSecret: "Client Secret"
 
-- project-key
+ProjectKey: "Project Key"
 
-- localization folder
+Localizationfolder: "Localization Folder"
 
-- languages-to-be-translated
-    - en
-    - hi
+LanguagesToBeTranslated:
+  - en
+  - hi
 
-- global-preference-in-case-of-merge-conflict
-    - devnagri
-    - [local]
+RootDir: "./"
+
+// TODO: Choose one  =>  devnagri / local
+GlobalPreferenceInCaseOfMergeConflict: "Remote"
+
 
 #+END_SRC
 
@@ -99,6 +101,7 @@ This command initiates a process
 
 - To validate the .devnagri.yaml file 
 - Sends a request to the devnagri and checks the credentials are authorized
+- Returns an access-token
 
 *** version
     
@@ -166,5 +169,4 @@ This command prints a short summary of all the commands
 *** TODO How to accomodate order system ? Needs to accomodate credit system - place order - subcommand << devnagri order --xyz >>
 *** TODO automatic sync for updated files
 *** TODO first conflict prompt for preference
-*** TODO file location 
 *** TODO file type within the config

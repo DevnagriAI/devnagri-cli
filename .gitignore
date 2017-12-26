@@ -2,7 +2,8 @@
 \.#*
 vendor
 dist
-_dev
 
 debug
 beta
+
+*.pdf
