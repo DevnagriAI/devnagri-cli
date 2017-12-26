@@ -32,7 +32,7 @@ func main() {
 
 		}).
 		//Post("http://192.168.60.10/api/project/status")
-		Post("https://requestb.in/1el2uiq1")
+		Post("https://requestb.in/vwvh94vw")
 	if err != nil {
 		panic(err)
 	}
