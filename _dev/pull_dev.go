@@ -2,8 +2,10 @@ package main
 
 import (
 	"crypto/sha256"
+	"encoding/base64"
 	"encoding/hex"
 	"fmt"
+	"reflect"
 
 	//	"github.com/Jeffail/gabs"
 	//	"gopkg.in/resty.v1"
@@ -52,12 +54,16 @@ func main() {
 	//resJson := gabs.ParseJSON(resp.String())
 
 	resJson, _ := gabs.ParseJSON([]byte(resp.String()))
+
 	//fmt.Println(resJson)
 
 	//	fmt.Println("The base64 contents of the returned file : ")
 	//fmt.Println(resJson.Path("file_content"))
 	cypher := resJson.Path("file_content").String()
+	fmt.Println(reflect.TypeOf(cypher))
 	fmt.Println(cypher)
+
+	fmt.Println(decodeBase64(cypher))
 
 	// 	data, err := base64.StdEncoding.DecodeString(cypher)
 	// 	if err != nil {
@@ -91,4 +97,13 @@ func sha256Hash(fileName string) string {
 
 	hashString := hex.EncodeToString(h.Sum(nil))
 	return hashString
+}
+
+func decodeBase64(cypher string) string {
+	println("\n\nRecieved at decodeBase64 function\n\n")
+	println(cypher)
+	data, _ := base64.StdEncoding.DecodeString(cypher)
+
+	return string(data)
+
 }
