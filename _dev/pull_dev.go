@@ -6,7 +6,7 @@ import (
 	"fmt"
 	//	"github.com/Jeffail/gabs"
 	//	"gopkg.in/resty.v1"
-	//	"github.com/Jeffail/gabs"
+	"github.com/Jeffail/gabs"
 	"gopkg.in/resty.v1"
 	"io"
 	"log"
@@ -35,8 +35,11 @@ func main() {
 	//	fmt.Printf("\nResponse Received At: %v", resp.ReceivedAt())
 	//	fmt.Printf("\nResponse Body: %v", resp) // or resp.String() or string(resp.Body())
 
-	fmt.Println("Response \n\n")
-	fmt.Println(resp.String())
+	//fmt.Println("Response \n\n")
+	//fmt.Println(resp.String())
+
+	//	fmt.Println("Byte Array from String")
+	//	fmt.Println([]byte(resp.String()))
 
 	//fmt.Println(resp.Body())
 
@@ -44,8 +47,15 @@ func main() {
 	//	fmt.Println("<< Contents of file >>")
 	//	fmt.Println(string(uDec))
 
-	//	resJson := gabs.ParseJSON(resp.Body())
-	//	fmt.Println(resJson)
+	//resJson := gabs.ParseJSON(resp.String())
+
+	resJson, _ := gabs.ParseJSON([]byte(resp.String()))
+	//fmt.Println(resJson)
+
+	fmt.Println("The base64 contents of the returned file : ")
+	//fmt.Println(resJson.Path("file_content"))
+	x := resJson.Path("file_content").String()
+	println(x)
 
 }
 
