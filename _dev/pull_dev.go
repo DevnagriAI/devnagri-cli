@@ -2,13 +2,12 @@ package main
 
 import (
 	"crypto/sha256"
-	"encoding/base64"
 	"encoding/hex"
 	"fmt"
 	"io"
 	"log"
 	"os"
-
+	// "github.com/Jeffail/gabs"
 	"gopkg.in/resty.v1"
 )
 
@@ -28,12 +27,15 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+	fmt.Printf("\nResponse Status Code: %v", resp.StatusCode())
+	fmt.Printf("\nResponse Status: %v", resp.Status())
+	fmt.Printf("\nResponse Time: %v", resp.Time())
+	fmt.Printf("\nResponse Received At: %v", resp.ReceivedAt())
+	fmt.Printf("\nResponse Body: %v", resp) // or resp.String() or string(resp.Body())
 
-	fmt.Println(resp)
-
-	uDec, _ := base64.StdEncoding.DecodeString(resp.String())
-	fmt.Println("<< Contents of file >>")
-	fmt.Println(string(uDec))
+	//uDec, _ := base64.StdEncoding.DecodeString(resp.Result())
+	//	fmt.Println("<< Contents of file >>")
+	//	fmt.Println(string(uDec))
 }
 
 func sha256Hash(fileName string) string {
