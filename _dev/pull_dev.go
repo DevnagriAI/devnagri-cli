@@ -4,8 +4,12 @@ import (
 	"crypto/sha256"
 	"encoding/hex"
 	"fmt"
+
 	//	"github.com/Jeffail/gabs"
 	//	"gopkg.in/resty.v1"
+	//      "encoding/base64"
+
+	//	"encoding/base64"
 	"github.com/Jeffail/gabs"
 	"gopkg.in/resty.v1"
 	"io"
@@ -14,7 +18,6 @@ import (
 )
 
 func main() {
-
 	resp, err := resty.R().
 		SetHeader("Accept", "application/json").
 		SetHeader("Content-Type", "multipart/form-data").
@@ -52,10 +55,23 @@ func main() {
 	resJson, _ := gabs.ParseJSON([]byte(resp.String()))
 	//fmt.Println(resJson)
 
-	fmt.Println("The base64 contents of the returned file : ")
+	//	fmt.Println("The base64 contents of the returned file : ")
 	//fmt.Println(resJson.Path("file_content"))
-	x := resJson.Path("file_content").String()
-	println(x)
+	children, _ := resJson.S("file_content").Children()
+	fmt.Println(children)
+
+	cypher := resJson.Path("file_content").String()
+	fmt.Println(cypher)
+
+	// 	data, err := base64.StdEncoding.DecodeString(cypher)
+	// 	if err != nil {
+	// 		log.Fatal("error:", err)
+	// 	}
+
+	// 	fmt.Printf("%q\n", data)
+
+	//	var arr []string
+	//	_ = json.Unmarshal([]byte(dataJson), &arr)
 
 }
 
