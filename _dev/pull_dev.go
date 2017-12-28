@@ -4,11 +4,13 @@ import (
 	"crypto/sha256"
 	"encoding/hex"
 	"fmt"
+	//	"github.com/Jeffail/gabs"
+	//	"gopkg.in/resty.v1"
+	//	"github.com/Jeffail/gabs"
+	"gopkg.in/resty.v1"
 	"io"
 	"log"
 	"os"
-
-	"gopkg.in/resty.v1"
 )
 
 func main() {
@@ -22,13 +24,29 @@ func main() {
 			"client_secret": "uTBn7fxknAPpmw9AiEXyIro7X8mP0JhkqPtvBS28",
 			"project_key":   "d41d8cd98f00b204e9800998ecf8427e",
 		}).
-		//Post("http://192.168.60.10/api/project/status")
-		Post("https://requestb.in/vwvh94vw")
+		Post("http://192.168.60.10/api/project/pull")
+		//Post("https://requestb.in/vwvh94vw")
 	if err != nil {
 		panic(err)
 	}
+	//	fmt.Printf("\nResponse Status Code: %v", resp.StatusCode())
+	//	fmt.Printf("\nResponse Status: %v", resp.Status())
+	//	fmt.Printf("\nResponse Time: %v", resp.Time())
+	//	fmt.Printf("\nResponse Received At: %v", resp.ReceivedAt())
+	//	fmt.Printf("\nResponse Body: %v", resp) // or resp.String() or string(resp.Body())
 
-	fmt.Println(resp)
+	fmt.Println("Response \n\n")
+	fmt.Println(resp.String())
+
+	//fmt.Println(resp.Body())
+
+	//uDec, _ := base64.StdEncoding.DecodeString(resp.Result())
+	//	fmt.Println("<< Contents of file >>")
+	//	fmt.Println(string(uDec))
+
+	//	resJson := gabs.ParseJSON(resp.Body())
+	//	fmt.Println(resJson)
+
 }
 
 func sha256Hash(fileName string) string {

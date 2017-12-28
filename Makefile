@@ -13,12 +13,15 @@ setup: ## Install all the build and lint dependencies
 test: ## Run all the tests
 	gotestcover $(TEST_OPTIONS) -covermode=atomic -coverprofile=coverage.txt $(SOURCE_FILES) -run $(TEST_PATTERN) -timeout=30s
 
+#DONE
 cover: test ## RUn all the tests and opens the coverage report
 	go tool cover -html=coverage.txt
 
+#DONE
 fmt: ## gofmt and goimports all go files
 	find . -name '*.go' -not -wholename './vendor/*' | while read -r file; do gofmt -w -s "$$file"; goimports -w "$$file"; done
 
+#DONE
 lint: ## Run all the linters
 	gometalinter --vendor --disable-all \
 		--enable=deadcode \
