@@ -19,6 +19,7 @@ We appreciate your contribution. Please refer to our [contributing guidelines](.
 
 ## TODO
 
+- [ ] Explore CodeClimate for PR quality 
 - [ ] Move to `mage` from `makefile`
 - [ ] SetUp testing 
 - [x] Set up the `travis-ci.com` builds
