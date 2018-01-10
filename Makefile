@@ -39,10 +39,7 @@ lint: ## Run all the linters
 		./...
 
 
-#ci: lint test ## Run all the tests and code checks
-#ci: test 
-
-ci: test 
+ci: lint test ## Run all the tests and code checks
 
 
 beta: ## Build a beta version
@@ -52,7 +49,7 @@ install: ## Install to $GOPATH/src
 	go install ./cmd/...
 
 
-rmbeta: ## Cleaning the ./beta 
+rmbeta: ## Cleaning the ./beta
 	rm ./beta
 
 
