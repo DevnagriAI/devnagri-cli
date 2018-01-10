@@ -23,7 +23,7 @@ import (
 // pullCmd represents the pull command
 var pullCmd = &cobra.Command{
 	Use:   "pull",
-	Short: "A brief description of pull command",
+	Short: "A brief description of the pull command",
 	Long:  `A long description of pull command`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("pull called")

@@ -23,7 +23,7 @@ import (
 // pushCmd represents the push command
 var pushCmd = &cobra.Command{
 	Use:   "push",
-	Short: "A brief description of push command",
+	Short: "A brief description of the push command",
 	Long:  `A long description of push command.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("push called")
