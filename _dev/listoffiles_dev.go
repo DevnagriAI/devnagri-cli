@@ -1,20 +1,18 @@
-package main
+package utils
 
-
+/*
 import (
-	
 	"fmt"
+	"github.com/spf13/viper"
 	"io/ioutil"
 	"log"
-	"github.com/spf13/viper"
 	// TODO: https://blog.minio.io/debugging-go-routine-leaks-a1220142d32c
 	// TODO: https://github.com/fortytw2/leaktest
 	//"github.com/fortytw2/leaktest"
+)
 
+func main() {
 
-func main()  {
-
-	
 	viper.SetConfigFile("./.devnagri.yaml")
 
 	if err := viper.ReadInConfig(); err != nil {
@@ -25,7 +23,7 @@ func main()  {
 	fmt.Printf("Using config: %s\n", viper.ConfigFileUsed())
 
 	RootDir := viper.GetString("RootDir") // returns string
-	
+
 	// Here we read the files in the RootDirectory
 	files, err := ioutil.ReadDir(RootDir)
 	if err != nil {
@@ -36,3 +34,5 @@ func main()  {
 		fmt.Println(file.Name())
 	}
 }
+
+*/
