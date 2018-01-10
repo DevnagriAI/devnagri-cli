@@ -15,6 +15,9 @@ We appreciate your contribution. Please refer to our [contributing guidelines](.
 
 
 
+
+[![Go Report Card](https://goreportcard.com/badge/github.com/FourtekIT/devnagri-cli)](https://goreportcard.com/report/github.com/FourtekIT/devnagri-cli)
+
 ## TODO
 
 - [ ] Move to `mage` from `makefile`
