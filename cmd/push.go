@@ -45,11 +45,11 @@ var pushCmd = &cobra.Command{
 				"project_key":   "2e12635aca73c7d39ec76a514d7490a6",
 				//"file[0][hash]": "3221255c6aecb25c8f73472dcb7c99f42ade9112b8e3029a3e67070233fd101d",
 				//"file[0][hash]": hash,
-				"file[0][hash]": sha256Hash("./CallingPapaPro2.xml"),
+				"file[0][hash]": sha256Hash("./en/CallingPapaPro2.xml"),
 				//"file[0][name]":      "CallingPapaPro2.xml",
 				"file[0][extension]": "xml",
 				"file[0][file_type]": "xml",
-				"file[0][location]":  "./CallingPapaPro2.xml",
+				"file[0][location]":  "./en/CallingPapaPro2.xml",
 				//"file[0][file]":
 
 			}).
