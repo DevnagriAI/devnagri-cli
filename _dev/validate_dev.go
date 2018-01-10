@@ -28,10 +28,11 @@ func main() {
 	resp, err := resty.R().
 		SetHeader("Content-Type", "multipart/form-data").
 		SetFormData(map[string]string{
-			"client_id":     "4",
-			"client_secret": " uTBn7fxknAPpmw9AiEXyIro7X8mP0JhkqPtvBS28",
-			"project_key":   "d41d8cd98f00b204e9800998ecf8427e"}).
-		Post("http://192.168.60.10/api/key/validations")
+			"client_id":     "3",
+			"client_secret": "3WnUqVSP7Vhs8DU7FInIrwHIVMg9twGshcpswlJW",
+			"project_key":   "2e12635aca73c7d39ec76a514d7490a6"}).
+		Post("http://dev.devnagri.co.in/api/key/validations")
+		//	Post("http://192.168.60.10/api/key/validations")
 
 	if err != nil {
 		panic(err)
