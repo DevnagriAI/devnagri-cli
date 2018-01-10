@@ -22,9 +22,7 @@ We appreciate your contribution. Please refer to our [contributing guidelines](.
 
 - [ ] Move to `mage` from `makefile`
 - [ ] SetUp testing 
-- [ ] Build a proper release script
 - [x] Set up the `travis-ci.com` builds
-- [x] Move from `nextflow`  to `launch.json` within `vscode`
 - [ ] Update the `contributing.md`  as per the build process
 
 ## Contributors
