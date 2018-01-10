@@ -15,13 +15,6 @@
 package cmd
 
 import (
-	"crypto/sha256"
-	"encoding/hex"
-	"fmt"
-	"io"
-	"log"
-	"os"
-
 	"github.com/spf13/cobra"
 	"gopkg.in/resty.v1"
 )
