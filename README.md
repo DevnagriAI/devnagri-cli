@@ -1,4 +1,9 @@
-# devnagri
+# devnagri-cli
+
+
+This is the cross platform API client for Devnagri, written in Go-lang.
+
+This has been developed to facilitate the integration of Devnagri localization platform with a Developer's workflow.
 
 
 
@@ -14,14 +19,6 @@ We appreciate your contribution. Please refer to our [contributing guidelines](.
 
 
 
-
-## TODO
-
-- [ ] Explore CodeClimate for PR quality 
-- [ ] Move to `mage` from `makefile`
-- [ ] SetUp testing 
-- [x] Set up the `travis-ci.com` builds
-- [ ] Update the `contributing.md`  as per the build process
 
 ## Contributors
 
