@@ -1,7 +1,4 @@
-package main
-
-// TODO
-//package utils
+package config
 
 import (
 	"fmt"
@@ -9,7 +6,7 @@ import (
 	"log"
 )
 
-func main() {
+func ViperConfig() {
 
 	viper.SetConfigFile("./.devnagri.yaml")
 
