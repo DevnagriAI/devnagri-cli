@@ -8,8 +8,7 @@ ProjectKey: "211fd1d00f0cc01249bb8f7476152c28"
 
 RootDir: "./"
 
-# TODO
-#Localizationfolder: "./languages"
+Localizationfolder: "./languages"
 
 SourceLanguage: "en"
 
