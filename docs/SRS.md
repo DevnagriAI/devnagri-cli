@@ -209,3 +209,11 @@ This command prints out the devnagri CLI version
 
 ### DONE metadata of a file - shall we send a tar ?
 
+
+
+### Ability to do the source language selection - by default selection is only of English source files - add this in YAML
+### This means - we only push << en >> files initially 
+### push/pull/sync - per language 
+
+
+### 
