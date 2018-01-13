@@ -1,7 +1,7 @@
 package main
 
 import (
-	config "devnagri-cli/config"
+	config "github.com/FourtekIT/devnagri-cli/config"
 	"fmt"
 )
 
