@@ -6,7 +6,7 @@ import (
 	"log"
 )
 
-func ViperConfig() {
+func fetchAndValidate(fieldName string) string {
 
 	viper.SetConfigFile("./.devnagri.yaml")
 
@@ -14,82 +14,27 @@ func ViperConfig() {
 		log.Fatalf("Error reading config file, %s", err)
 	}
 
-	// Confirm which config file is used
-	fmt.Printf("Using config: %s\n", viper.ConfigFileUsed())
+	// To validate the presence of a certain field in the YAML file
+	if !viper.IsSet(fieldName) {
+		fmt.Printf("\n%s ", fieldName)
+		log.Fatal("missing the field")
+	}
 
-	validateAllFields()
-
-	ClientID := viper.GetString("ClientID") // returns string
-	fmt.Printf("\n\nValue: %v, Type: %T\n", ClientID, ClientID)
-
-	ClientSecret := viper.GetString("ClientSecret") // returns string
-	fmt.Printf("\n\nValue: %v, Type: %T\n", ClientSecret, ClientSecret)
-
-	ProjectKey := viper.GetString("ProjectKey") // returns string
-	fmt.Printf("\n\nValue: %v, Type: %T\n", ProjectKey, ProjectKey)
-
-	RootDir := viper.GetString("RootDir") // returns string
-	fmt.Printf("\n\nValue: %v, Type: %T\n", RootDir, RootDir)
-
-	SourceLanguage := viper.GetString("SourceLanguage") // returns string
-	fmt.Printf("\n\nValue: %v, Type: %T\n", SourceLanguage, SourceLanguage)
-
-	LanguagesToBeTranslated := viper.GetString("LanguagesToBeTranslated") // returns string
-	fmt.Printf("\n\nValue: %v, Type: %T\n", LanguagesToBeTranslated, LanguagesToBeTranslated)
-
-	GlobalPreferenceInCaseOfMergeConflict := viper.GetString("GlobalPreferenceInCaseOfMergeConflict") // returns string
-	fmt.Printf("\n\nValue: %v, Type: %T\n", GlobalPreferenceInCaseOfMergeConflict, GlobalPreferenceInCaseOfMergeConflict)
+	fieldValue := viper.GetString(fieldName) // returns string
+	return fieldValue
 
 }
 
-func validateAllFields() {
+var ClientID = fetchAndValidate("ClientID") // returns string
 
-	// To validate the presence of a certain field in the YAML file
-	if !viper.IsSet("ClientID") {
-		fmt.Printf("\n")
-		log.Fatal("missing the \"ClientID\" field")
-	}
+var ClientSecret = fetchAndValidate("ClientSecret") // returns string
 
-	// To validate the presence of a certain field in the YAML file
-	if !viper.IsSet("ClientSecret") {
-		fmt.Printf("\n")
-		log.Fatal("missing the \"ClientSecret\" field")
-	}
+var ProjectKey = fetchAndValidate("ProjectKey") // returns string
 
-	// To validate the presence of a certain field in the YAML file
-	if !viper.IsSet("ProjectKey") {
-		fmt.Printf("\n")
-		log.Fatal("missing the \"ProjectKey\" field")
-	}
+var RootDir = fetchAndValidate("RootDir") // returns string
 
-	// To validate the presence of a certain field in the YAML file
-	if !viper.IsSet("RootDir") {
-		fmt.Printf("\n")
-		log.Fatal("missing the \"RootDir\" field")
-	}
+var SourceLanguage = fetchAndValidate("SourceLanguage") // returns string
 
-	// To validate the presence of a certain field in the YAML file
-	if !viper.IsSet("LocalizationFolder") {
-		fmt.Printf("\n")
-		log.Fatal("missing the \"LocalizationFolder\" field")
-	}
+var LanguagesToBeTranslated = fetchAndValidate("LanguagesToBeTranslated") // returns string
 
-	// To validate the presence of a certain field in the YAML file
-	if !viper.IsSet("SourceLanguage") {
-		fmt.Printf("\n")
-		log.Fatal("missing the \"SourceLanguage\" field")
-	}
-
-	// To validate the presence of a certain field in the YAML file
-	if !viper.IsSet("GlobalPreferenceInCaseOfMergeConflict") {
-		fmt.Printf("\n")
-		log.Fatal("missing the \"GlobalPreferenceInCaseOfMergeConflict\" field")
-	}
-
-	// To validate the presence of a certain field in the YAML file
-	if !viper.IsSet("LanguagesToBeTranslated") {
-		fmt.Printf("\n")
-		log.Fatal("missing the \"LanguagesToBeTranslated\" field")
-	}
-
-}
+var GlobalPreferenceInCaseOfMergeConflict = fetchAndValidate("GlobalPreferenceInCaseOfMergeConflict") // returns string
