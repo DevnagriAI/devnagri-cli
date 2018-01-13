@@ -1,0 +1,20 @@
+## sample content of the .devnagri.yaml
+
+ClientID: "3"
+
+ClientSecret: "3WnUqVSP7Vhs8DU7FInIrwHIVMg9twGshcpswlJW"
+
+ProjectKey: "211fd1d00f0cc01249bb8f7476152c28"
+
+RootDir: "./"
+
+# TODO
+#Localizationfolder: "./languages"
+
+SourceLanguage: "en"
+
+LanguagesToBeTranslated:
+  - "hi"
+
+GlobalPreferenceInCaseOfMergeConflict: "Remote"
+#GlobalPreferenceInCaseOfMergeConflict: "Local"

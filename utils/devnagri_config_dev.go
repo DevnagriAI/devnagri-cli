@@ -24,6 +24,8 @@ func main() {
 	//port := viper.GetInt("prod.port") // returns integer
 	fmt.Printf("\n\nValue: %v, Type: %T\n", x, x)
 
+	validateAllFields()
+
 }
 
 func validateAllFields() {
