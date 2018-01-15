@@ -18,6 +18,7 @@ import (
 	"fmt"
 	"github.com/FourtekIT/devnagri-cli/config"
 	"github.com/spf13/cobra"
+	"gopkg.in/resty.v1"
 )
 
 // validateCmd represents the validate command
@@ -27,8 +28,22 @@ var validateCmd = &cobra.Command{
 	Long:  `A long description of validate command.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		//fmt.Println("validate called")
-		fmt.Println(config.ClientID)
-		fmt.Println(config.SourceLanguage)
+
+		resp, err := resty.R().
+			SetHeader("Content-Type", "multipart/form-data").
+			SetFormData(map[string]string{
+				"client_id":     config.ClientID,
+				"client_secret": config.ClientSecret,
+				"project_key":   config.ProjectKey}).
+			Post("http://dev.devnagri.co.in/api/key/validations")
+		//	Post("http://192.168.60.10/api/key/validations")
+
+		if err != nil {
+			panic(err)
+		}
+
+		fmt.Println(resp)
+
 	},
 }
 
