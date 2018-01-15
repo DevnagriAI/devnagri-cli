@@ -5,15 +5,13 @@ import (
 	"encoding/base64"
 	"encoding/hex"
 	"fmt"
-	//"reflect"
-	//	"github.com/Jeffail/gabs"
-	//	"gopkg.in/resty.v1"
-	//      "encoding/base64"
-	"github.com/Jeffail/gabs"
-	"gopkg.in/resty.v1"
 	"io"
 	"log"
 	"os"
+	"reflect"
+
+	"github.com/Jeffail/gabs"
+	"gopkg.in/resty.v1"
 )
 
 func main() {
@@ -25,67 +23,29 @@ func main() {
 			"client_secret": "3WnUqVSP7Vhs8DU7FInIrwHIVMg9twGshcpswlJW",
 			"project_key":   "2e12635aca73c7d39ec76a514d7490a6"}).
 		Post("http://dev.devnagri.co.in/api/project/pull")
-		//Post("http://192.168.60.10/api/project/pull")
-		//Post("https://requestb.in/vwvh94vw")
 	if err != nil {
 		panic(err)
 	}
 
-	//fmt.Println("Response \n\n")
-	//fmt.Println(resp.String())
-
-	//	fmt.Println("Byte Array from String")
-	//	fmt.Println([]byte(resp.String()))
-
-	//fmt.Println(resp.Body())
-
-	//uDec, _ := base64.StdEncoding.DecodeString(resp.Result())
-	//	fmt.Println("<< Contents of file >>")
-	//	fmt.Println(string(uDec))
-
-	//resJson := gabs.ParseJSON(resp.String())
-
 	resJson, _ := gabs.ParseJSON([]byte(resp.String()))
-
-	//fmt.Println(resJson)
-
-	//	fmt.Println("The base64 contents of the returned file : ")
-
-	//fmt.Println(resJson.Path("file_content").Data())
-
-	//cypher := resJson.Path("file_content").String()
-	//	fmt.Println(reflect.TypeOf(cypher))
-	//	fmt.Println(cypher)
-
-	//fmt.Println(decodeBase64(cypher))
-
-	// 	data, err := base64.StdEncoding.DecodeString(cypher)
-	// 	if err != nil {
-	// 		log.Fatal("error:", err)
-	// 	}
-
-	// 	fmt.Printf("%q\n", data)
-
-	//children, _ := resJson.S("file_content").Children()
-	//	children := resJson.S("file_content").Data()
-	//	fmt.Println(children.(string))
-
 	children, _ := resJson.S("file_content").Children()
-
-	/*
-		for _, child := range children {
-			fmt.Println(child.Data().(string))
-		}
-	*/
-
 	child := children[0]
-	//fmt.Println(reflect.TypeOf(child.String()))
 
 	//fmt.Println(child.String())
 
-	decodeBase64(child.String())
+	//data, _ := base64.StdEncoding.Decode(child.String())
+	encoded := child.String()
+	fmt.Println(encoded)
+	fmt.Println(reflect.TypeOf(encoded))
 
-	//fmt.Println(decodeBase64(child.String()))
+	println("Text after decoding")
+	decoded, _ := base64.StdEncoding.DecodeString(encoded)
+	fmt.Println(reflect.TypeOf(string(decoded)))
+	//var data []byte
+	//base64.StdEncoding.Decode(data, decoded)
+	fmt.Println(decoded)
+	fmt.Println(string(decoded))
+
 }
 
 func decodeBase64(cypher string) string {
@@ -97,6 +57,7 @@ func decodeBase64(cypher string) string {
 	//fmt.Println(string(data))
 
 	println("Text after decoding")
+
 	fmt.Println(string(data))
 
 	return string(data)
