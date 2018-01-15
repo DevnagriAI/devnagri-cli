@@ -31,7 +31,7 @@ var validateCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("validate called")
 		validate()
-},
+	},
 }
 
 func init() {
@@ -48,44 +48,48 @@ func init() {
 	// validateCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }
 
-
-
 func validate() {
-		resp, err := resty.R().
-			SetHeader("Content-Type", "multipart/form-data").
-			SetFormData(map[string]string{
-				"client_id":     config.ClientID,
-				"client_secret": config.ClientSecret,
-				"project_key":   config.ProjectKey}).
-			Post("http://dev.devnagri.co.in/api/key/validations")
-		//	Post("http://192.168.60.10/api/key/validations")
 
-		if err != nil {
-			panic(err)
-		}
+	var ClientID = config.FetchAndValidate("ClientID") // returns string
 
-		fmt.Println(resp)
+	var ClientSecret = config.FetchAndValidate("ClientSecret") // returns string
 
-		jsonParsed, _ := gabs.ParseJSON([]byte(resp.String()))
-		accessToken := jsonParsed.Path("access_token").Data()
-		//fmt.Println(access_token)
+	var ProjectKey = config.FetchAndValidate("ProjectKey") // returns string
 
-		filename := "./.devnagri.yaml"
+	resp, err := resty.R().
+		SetHeader("Content-Type", "multipart/form-data").
+		SetFormData(map[string]string{
+			"client_id":     ClientID,
+			"client_secret": ClientSecret,
+			"project_key":   ProjectKey}).
+		Post("http://dev.devnagri.co.in/api/key/validations")
+	//	Post("http://192.168.60.10/api/key/validations")
 
-		f, err := os.OpenFile(filename, os.O_APPEND|os.O_WRONLY, 0600)
-		if err != nil {
-			panic(err)
-		}
-
-		defer f.Close()
-		accessTokenString := "AccessToken: " + accessToken.(string)
-		fmt.Println(accessTokenString)
-		// TODO: Add this to the .devnagri.yaml file as a string
-		f.WriteString(accessTokenString)
-
-		if err != nil {
-			panic(err)
-		}
-
+	if err != nil {
+		panic(err)
 	}
 
+	fmt.Println(resp)
+
+	jsonParsed, _ := gabs.ParseJSON([]byte(resp.String()))
+	accessToken := jsonParsed.Path("access_token").Data()
+	//fmt.Println(access_token)
+
+	filename := "./.devnagri.yaml"
+
+	f, err := os.OpenFile(filename, os.O_APPEND|os.O_WRONLY, 0600)
+	if err != nil {
+		panic(err)
+	}
+
+	defer f.Close()
+	accessTokenString := "AccessToken: " + accessToken.(string)
+	fmt.Println(accessTokenString)
+	// TODO: Add this to the .devnagri.yaml file as a string
+	f.WriteString(accessTokenString)
+
+	if err != nil {
+		panic(err)
+	}
+
+}

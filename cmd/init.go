@@ -23,23 +23,20 @@ import (
 )
 
 var data = `
-ClientID: ""
+ClientID:
 
-ClientSecret: ""
+ClientSecret:
 
-ProjectKey: ""
+ProjectKey:
 
-RootDir: ""
+RootDir: langs
 
-LocalizationFolder: ""
-
-SourceLanguage: \"en\"
+SourceLanguage: en
 
 TargetLanguages:
-    - \"pn\"
-    - \"hi\"
+    - hi
 
-GlobalPreferenceInCaseOfMergeConflict: ""
+GlobalPreferenceInCaseOfMergeConflict: devnagri
 `
 
 // initCmd represents the init command
