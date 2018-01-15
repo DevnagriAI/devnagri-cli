@@ -33,11 +33,11 @@ RootDir: ""
 
 LocalizationFolder: ""
 
-SourceLanguage: \"en\"
+SourceLanguage: en
 
 TargetLanguages:
-    - \"pn\"
-    - \"hi\"
+    - pn
+    - hi
 
 GlobalPreferenceInCaseOfMergeConflict: ""
 `
