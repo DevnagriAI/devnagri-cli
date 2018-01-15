@@ -1,4 +1,0 @@
-<resources tools:ignore="ExtraTranslation" xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_name"></string>
-    <string name="hint_actual"></string>
- </resources>
