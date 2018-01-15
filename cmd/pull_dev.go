@@ -37,14 +37,7 @@ func main() {
 	encoded := child.String()
 	fmt.Println(encoded)
 	fmt.Println(reflect.TypeOf(encoded))
-
-	println("Text after decoding")
-	decoded, _ := base64.StdEncoding.DecodeString(encoded)
-	fmt.Println(reflect.TypeOf(string(decoded)))
-	//var data []byte
-	//base64.StdEncoding.Decode(data, decoded)
-	fmt.Println(decoded)
-	fmt.Println(string(decoded))
+	decodeBase64(encoded)
 
 }
 
