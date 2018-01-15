@@ -44,14 +44,13 @@ ci: lint test ## Run all the tests and code checks
 
 
 beta: ## Build a beta version
-	go build -o beta ./main.go
+	go build -o _dev/beta ./main.go
+
+rmbeta: ## Cleaning the ./beta
+	rm ./_dev/beta
 
 install: ## Install to $GOPATH/src
 	go install ./cmd/...
-
-
-rmbeta: ## Cleaning the ./beta
-	rm ./beta
 
 
 rmdebug: ## Cleaning the ./debug
