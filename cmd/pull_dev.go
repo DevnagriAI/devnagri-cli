@@ -5,8 +5,7 @@ import (
 	"encoding/base64"
 	"encoding/hex"
 	"fmt"
-	"reflect"
-
+	//"reflect"
 	//	"github.com/Jeffail/gabs"
 	//	"gopkg.in/resty.v1"
 	//      "encoding/base64"
@@ -31,11 +30,6 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	//	fmt.Printf("\nResponse Status Code: %v", resp.StatusCode())
-	//	fmt.Printf("\nResponse Status: %v", resp.Status())
-	//	fmt.Printf("\nResponse Time: %v", resp.Time())
-	//	fmt.Printf("\nResponse Received At: %v", resp.ReceivedAt())
-	//	fmt.Printf("\nResponse Body: %v", resp) // or resp.String() or string(resp.Body())
 
 	//fmt.Println("Response \n\n")
 	//fmt.Println(resp.String())
@@ -56,12 +50,14 @@ func main() {
 	//fmt.Println(resJson)
 
 	//	fmt.Println("The base64 contents of the returned file : ")
-	//fmt.Println(resJson.Path("file_content"))
-	cypher := resJson.Path("file_content").String()
-	fmt.Println(reflect.TypeOf(cypher))
-	fmt.Println(cypher)
 
-	fmt.Println(decodeBase64(cypher))
+	//fmt.Println(resJson.Path("file_content").Data())
+
+	//cypher := resJson.Path("file_content").String()
+	//	fmt.Println(reflect.TypeOf(cypher))
+	//	fmt.Println(cypher)
+
+	//fmt.Println(decodeBase64(cypher))
 
 	// 	data, err := base64.StdEncoding.DecodeString(cypher)
 	// 	if err != nil {
@@ -71,9 +67,39 @@ func main() {
 	// 	fmt.Printf("%q\n", data)
 
 	//children, _ := resJson.S("file_content").Children()
+	//	children := resJson.S("file_content").Data()
+	//	fmt.Println(children.(string))
 
-	//children := resJson.S("file_content").Data()
-	//fmt.Println(children)
+	children, _ := resJson.S("file_content").Children()
+
+	/*
+		for _, child := range children {
+			fmt.Println(child.Data().(string))
+		}
+	*/
+
+	child := children[0]
+	//fmt.Println(reflect.TypeOf(child.String()))
+
+	//fmt.Println(child.String())
+
+	decodeBase64(child.String())
+
+	//fmt.Println(decodeBase64(child.String()))
+}
+
+func decodeBase64(cypher string) string {
+	println("\n\nRecieved at decodeBase64 function\n\n")
+	fmt.Println(cypher)
+
+	data, _ := base64.StdEncoding.DecodeString(cypher)
+
+	//fmt.Println(string(data))
+
+	println("Text after decoding")
+	fmt.Println(string(data))
+
+	return string(data)
 
 }
 
@@ -95,13 +121,4 @@ func sha256Hash(fileName string) string {
 
 	hashString := hex.EncodeToString(h.Sum(nil))
 	return hashString
-}
-
-func decodeBase64(cypher string) string {
-	println("\n\nRecieved at decodeBase64 function\n\n")
-	println(cypher)
-	data, _ := base64.StdEncoding.DecodeString(cypher)
-
-	return string(data)
-
 }
