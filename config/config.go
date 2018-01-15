@@ -35,6 +35,6 @@ var RootDir = fetchAndValidate("RootDir") // returns string
 
 var SourceLanguage = fetchAndValidate("SourceLanguage") // returns string
 
-var LanguagesToBeTranslated = fetchAndValidate("LanguagesToBeTranslated") // returns string
+var TargetLanguages = fetchAndValidate("TargetLanguages") // returns string
 
 var GlobalPreferenceInCaseOfMergeConflict = fetchAndValidate("GlobalPreferenceInCaseOfMergeConflict") // returns string

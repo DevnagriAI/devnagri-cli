@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// TODO: This needs to be taken care of since there are multiple help commands
 package cmd
 
 import (
@@ -23,7 +24,7 @@ import (
 // helpCmd represents the help command
 var helpCmd = &cobra.Command{
 	Use:   "help",
-	Short: "Prints out a short manual for devnagri",
+	Short: "Prints out a short usage manual for devnagri",
 	Long:  `A long explanation about help`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("help called")
