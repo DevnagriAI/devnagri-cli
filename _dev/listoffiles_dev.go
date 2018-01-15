@@ -2,34 +2,56 @@ package main
 
 import (
 	"fmt"
-	"github.com/spf13/viper"
-	"io/ioutil"
 	"log"
-	// TODO: https://blog.minio.io/debugging-go-routine-leaks-a1220142d32c
-	// TODO: https://github.com/fortytw2/leaktest
-	//"github.com/fortytw2/leaktest"
+	"os"
+	"path/filepath"
+	"regexp"
+
+	"github.com/Jeffail/gabs"
 )
 
 func main() {
+	var allFiles []string
 
-	viper.SetConfigFile("./.devnagri.yaml")
+	root := "./en"
+	extension := "pdf"
 
-	if err := viper.ReadInConfig(); err != nil {
-		log.Fatalf("Error reading config file, %s", err)
-	}
-
-	// Confirm which config file is used
-	fmt.Printf("Using config: %s\n", viper.ConfigFileUsed())
-
-	RootDir := viper.GetString("RootDir") // returns string
-
-	// Here we read the files in the RootDirectory
-	files, err := ioutil.ReadDir(RootDir)
+	err := filepath.Walk(root, visit(&allFiles))
 	if err != nil {
-		log.Fatal(err)
+		panic(err)
 	}
 
+	reqFiles := requiredExtensionFiles(allFiles, extension)
+	//fmt.Println(reqFiles)
+
+	//TODO return the list of files as a json structure
+	jsonObj := gabs.New()
+	jsonObj.Set(reqFiles)
+	fmt.Println(jsonObj.String())
+}
+
+func requiredExtensionFiles(files []string, extension string) []string {
+
+	extensionRegexp := ".*." + extension + "$"
+
+	var reqFiles []string
 	for _, file := range files {
-		fmt.Println(file.Name())
+
+		matches, _ := regexp.MatchString(extensionRegexp, file)
+		if matches == true {
+			reqFiles = append(reqFiles, file)
+
+		}
+	}
+	return reqFiles
+}
+
+func visit(files *[]string) filepath.WalkFunc {
+	return func(path string, info os.FileInfo, err error) error {
+		if err != nil {
+			log.Fatal(err)
+		}
+		*files = append(*files, path)
+		return nil
 	}
 }
