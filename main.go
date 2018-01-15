@@ -14,8 +14,7 @@
 
 package main
 
-import "devnagri-cli/cmd"
-import "devnagri-cli/_dev"
+import "github.com/FourtekIT/devnagri-cli/cmd"
 
 func main() {
 

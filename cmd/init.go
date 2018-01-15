@@ -16,9 +16,28 @@ package cmd
 
 import (
 	"fmt"
-
 	"github.com/spf13/cobra"
+	"gopkg.in/yaml.v2"
+	"log"
+	"os"
 )
+
+var data = `
+ClientID:
+
+ClientSecret:
+
+ProjectKey:
+
+RootDir: langs
+
+SourceLanguage: en
+
+TargetLanguages:
+    - hi
+
+GlobalPreferenceInCaseOfMergeConflict: devnagri
+`
 
 // initCmd represents the init command
 var initCmd = &cobra.Command{
@@ -27,6 +46,8 @@ var initCmd = &cobra.Command{
 	Long:  `A longer description of init command`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("init called")
+
+		createConfigFile()
 	},
 }
 
@@ -37,15 +58,34 @@ func init() {
 
 	// Cobra supports Persistent Flags which will work for this command
 	// and all subcommands, e.g.:
-	initCmd.PersistentFlags().String("clientid", "", "Enter your clientid.")
-
-	initCmd.PersistentFlags().String("clientsecret", "", "Enter your clientsecret")
+	//initCmd.PersistentFlags().String("clientid", "", "Enter your clientid.")
+	//initCmd.PersistentFlags().String("clientsecret", "", "Enter your clientsecret")
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
 	//initCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }
 
-// TODO: create this using viper
 func createConfigFile() {
 
+	m := make(map[interface{}]interface{})
+
+	err := yaml.Unmarshal([]byte(data), &m)
+	if err != nil {
+		log.Fatalf("error: %v", err)
+	}
+	//		fmt.Printf("--- m:\n%v\n\n", m)
+
+	d, err := yaml.Marshal(&m)
+	if err != nil {
+		log.Fatalf("error: %v", err)
+	}
+	//fmt.Printf("%s\n\n", string(d))
+
+	file, err := os.Create(".devnagri.yaml")
+	if err != nil {
+		log.Fatal("Cannot create file", err)
+	}
+	defer file.Close()
+
+	fmt.Fprintf(file, string(d))
 }

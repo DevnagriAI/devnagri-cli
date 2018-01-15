@@ -20,12 +20,12 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var version = "0.0.1"
+var version = "0.2.0"
 
 // versionCmd represents the version command
 var versionCmd = &cobra.Command{
 	Use:   "version",
-	Short: "A brief description of version command",
+	Short: "Prints out the release version of the CLI tool",
 	Long:  `A long description of version command.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("devnagri-cli version : ", version)

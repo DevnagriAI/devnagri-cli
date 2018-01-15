@@ -1,0 +1,8 @@
+ClientID: 3 
+ClientSecret: 3WnUqVSP7Vhs8DU7FInIrwHIVMg9twGshcpswlJW 
+GlobalPreferenceInCaseOfMergeConflict: devnagri 
+ProjectKey: 2e12635aca73c7d39ec76a514d7490a6 
+RootDir: langs 
+SourceLanguage: en 
+TargetLanguages: 
+- hi 
