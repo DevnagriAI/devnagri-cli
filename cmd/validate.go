@@ -69,7 +69,7 @@ func validate() {
 		panic(err)
 	}
 
-	fmt.Println(resp)
+	//fmt.Println(resp)
 
 	jsonParsed, _ := gabs.ParseJSON([]byte(resp.String()))
 	accessToken := jsonParsed.Path("access_token").Data()
@@ -85,7 +85,7 @@ func validate() {
 	defer f.Close()
 	accessTokenString := "AccessToken: " + accessToken.(string)
 	fmt.Println(accessTokenString)
-	// TODO: Add this to the .devnagri.yaml file as a string
+
 	f.WriteString(accessTokenString)
 
 	if err != nil {
