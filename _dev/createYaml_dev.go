@@ -67,7 +67,6 @@ func main() {
 	}
 	fmt.Printf("%s\n\n", string(d))
 
-	// TODO write the content of << m >> into a file
 	file, err := os.Create(".devnagri.yaml")
 	if err != nil {
 		log.Fatal("Cannot create file", err)
