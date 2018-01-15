@@ -16,8 +16,9 @@ package cmd
 
 import (
 	"fmt"
-
+	"github.com/FourtekIT/devnagri-cli/config"
 	"github.com/spf13/cobra"
+	"gopkg.in/resty.v1"
 )
 
 // statusCmd represents the status command
@@ -27,6 +28,30 @@ var statusCmd = &cobra.Command{
 	Long:  `A long description of status command.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("status called")
+
+		var ClientID = config.FetchAndValidate("ClientID") // returns string
+
+		var ClientSecret = config.FetchAndValidate("ClientSecret") // returns string
+
+		var ProjectKey = config.FetchAndValidate("ProjectKey") // returns string
+
+		var AccessToken = config.FetchAndValidate("AccessToken") // returns string
+
+		resp, err := resty.R().
+			SetHeader("Accept", "application/json").
+			SetAuthToken(AccessToken).
+			SetFormData(map[string]string{
+				"client_id":     ClientID,
+				"client_secret": ClientSecret,
+				"project_key":   ProjectKey}).
+			Post("http://dev.devnagri.co.in/api/project/status")
+
+		if err != nil {
+			panic(err)
+		}
+
+		fmt.Println(resp)
+
 	},
 }
 
