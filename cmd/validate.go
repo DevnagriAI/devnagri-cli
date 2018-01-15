@@ -16,11 +16,11 @@ package cmd
 
 import (
 	"fmt"
-
 	"github.com/FourtekIT/devnagri-cli/config"
 	"github.com/Jeffail/gabs"
 	"github.com/spf13/cobra"
 	"gopkg.in/resty.v1"
+	"os"
 )
 
 // validateCmd represents the validate command
@@ -44,11 +44,28 @@ var validateCmd = &cobra.Command{
 			panic(err)
 		}
 
-		//fmt.Println(resp)
-		//TODO: Add the AccessToken from the response to the .devnagri.yaml
+		fmt.Println(resp)
 
-		projectKey, _ := gabs.ParseJSON(resp)
-		fmt.Println(projectKey)
+		jsonParsed, _ := gabs.ParseJSON([]byte(resp.String()))
+		accessToken := jsonParsed.Path("access_token").Data()
+		//fmt.Println(access_token)
+
+		filename := "./.devnagri.yaml"
+
+		f, err := os.OpenFile(filename, os.O_APPEND|os.O_WRONLY, 0600)
+		if err != nil {
+			panic(err)
+		}
+
+		defer f.Close()
+		accessTokenString := "AccessToken: " + accessToken.(string)
+		fmt.Println(accessTokenString)
+// TODO: Add this to the .devnagri.yaml file as a string
+		f.WriteString(accessTokenString)
+
+		if err != nil {
+			panic(err)
+		}
 
 	},
 }
