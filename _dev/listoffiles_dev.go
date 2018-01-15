@@ -5,6 +5,9 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"regexp"
+
+	"github.com/Jeffail/gabs"
 )
 
 func visit(files *[]string) filepath.WalkFunc {
@@ -18,14 +21,42 @@ func visit(files *[]string) filepath.WalkFunc {
 }
 
 func main() {
-	var files []string
+	var allFiles []string
 
 	root := "./en"
-	err := filepath.Walk(root, visit(&files))
+
+	err := filepath.Walk(root, visit(&allFiles))
 	if err != nil {
 		panic(err)
 	}
-	for _, file := range files {
-		fmt.Println(file)
+
+	jsonObj := gabs.New()
+	// Print the list of file to the console
+	for _, file := range allFiles {
+		matches, _ := regexp.MatchString(".*.pdf$", file)
+		if matches == true {
+
+			jsonObj.Set(file)
+			fmt.Println(file)
+		}
 	}
+
+	//TODO return the list of files as a json structure
+
+	fmt.Println(jsonObj.String())
+}
+
+func requiredExtensionFiles(files []string) []string {
+
+	var reqFiles []string
+	for _, file := range files {
+
+		matches, _ := regexp.MatchString(".*.pdf$", file)
+		if matches == true {
+
+			fmt.Println(file)
+
+		}
+	}
+
 }
