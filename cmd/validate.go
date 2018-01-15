@@ -16,7 +16,7 @@ package cmd
 
 import (
 	"fmt"
-
+	"github.com/FourtekIT/devnagri-cli/config"
 	"github.com/spf13/cobra"
 )
 
@@ -26,7 +26,9 @@ var validateCmd = &cobra.Command{
 	Short: "This command validates the credentials in the .devnagri file within the local folder.",
 	Long:  `A long description of validate command.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("validate called")
+		//fmt.Println("validate called")
+		fmt.Println(config.ClientID)
+		fmt.Println(config.SourceLanguage)
 	},
 }
 

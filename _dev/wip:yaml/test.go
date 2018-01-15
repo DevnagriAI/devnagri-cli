@@ -15,6 +15,6 @@ func main() {
 
 	fmt.Println(config.SourceLanguage)
 
-	fmt.Println(config.LanguagesToBeTranslated)
+	//	fmt.Println(config.LanguagesToBeTranslated)
 
 }
