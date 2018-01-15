@@ -16,8 +16,11 @@ package cmd
 
 import (
 	"fmt"
-
+	"github.com/FourtekIT/devnagri-cli/config"
+	"github.com/Jeffail/gabs"
 	"github.com/spf13/cobra"
+	"gopkg.in/resty.v1"
+	"os"
 )
 
 // validateCmd represents the validate command
@@ -27,6 +30,7 @@ var validateCmd = &cobra.Command{
 	Long:  `A long description of validate command.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("validate called")
+		validate()
 	},
 }
 
@@ -42,4 +46,50 @@ func init() {
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
 	// validateCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+}
+
+func validate() {
+
+	var ClientID = config.FetchAndValidate("ClientID") // returns string
+
+	var ClientSecret = config.FetchAndValidate("ClientSecret") // returns string
+
+	var ProjectKey = config.FetchAndValidate("ProjectKey") // returns string
+
+	resp, err := resty.R().
+		SetHeader("Content-Type", "multipart/form-data").
+		SetFormData(map[string]string{
+			"client_id":     ClientID,
+			"client_secret": ClientSecret,
+			"project_key":   ProjectKey}).
+		Post("http://dev.devnagri.co.in/api/key/validations")
+	//	Post("http://192.168.60.10/api/key/validations")
+
+	if err != nil {
+		panic(err)
+	}
+
+	//fmt.Println(resp)
+
+	jsonParsed, _ := gabs.ParseJSON([]byte(resp.String()))
+	accessToken := jsonParsed.Path("access_token").Data()
+	//fmt.Println(access_token)
+
+	filename := "./.devnagri.yaml"
+
+	f, err := os.OpenFile(filename, os.O_APPEND|os.O_WRONLY, 0600)
+	if err != nil {
+		panic(err)
+	}
+
+	defer f.Close()
+	accessTokenString := "AccessToken: " + accessToken.(string)
+	//fmt.Println(accessTokenString)
+
+	f.WriteString(accessTokenString)
+
+	if err != nil {
+		panic(err)
+	}
+
 }
