@@ -6,6 +6,8 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
+
+	"github.com/Jeffail/gabs"
 )
 
 func main() {
@@ -20,9 +22,12 @@ func main() {
 	}
 
 	reqFiles := requiredExtensionFiles(allFiles, extension)
-	fmt.Println(reqFiles)
+	//fmt.Println(reqFiles)
+
 	//TODO return the list of files as a json structure
-	//fmt.Println(jsonObj.String())
+	jsonObj := gabs.New()
+	jsonObj.Set(reqFiles)
+	fmt.Println(jsonObj.String())
 }
 
 func requiredExtensionFiles(files []string, extension string) []string {
