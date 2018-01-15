@@ -16,7 +16,9 @@ package cmd
 
 import (
 	"fmt"
+
 	"github.com/FourtekIT/devnagri-cli/config"
+	"github.com/Jeffail/gabs"
 	"github.com/spf13/cobra"
 	"gopkg.in/resty.v1"
 )
@@ -42,7 +44,11 @@ var validateCmd = &cobra.Command{
 			panic(err)
 		}
 
-		fmt.Println(resp)
+		//fmt.Println(resp)
+		//TODO: Add the AccessToken from the response to the .devnagri.yaml
+
+		projectKey, _ := gabs.ParseJSON(resp)
+		fmt.Println(projectKey)
 
 	},
 }
