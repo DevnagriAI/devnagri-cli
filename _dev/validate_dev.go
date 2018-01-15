@@ -17,10 +17,10 @@ package main
 import (
 	"fmt"
 	//"github.com/FourtekIT/devnagri-cli/config"
-	//	"github.com/Jeffail/gabs"
-	"encoding/json"
+	"os"
+
+	"github.com/Jeffail/gabs"
 	"gopkg.in/resty.v1"
-	"reflect"
 )
 
 type Response struct {
@@ -37,17 +37,31 @@ func main() {
 			"client_secret": "3WnUqVSP7Vhs8DU7FInIrwHIVMg9twGshcpswlJW",
 			"project_key":   "2e12635aca73c7d39ec76a514d7490a6"}).
 		Post("http://dev.devnagri.co.in/api/key/validations")
-		//	Post("http://192.168.60.10/api/key/validations")
 
 	if err != nil {
 		panic(err)
 	}
 
-	fmt.Println(resp.String())
-
 	//TODO: Save the returned access_token to the .devnagri.yaml
+	// We do this by appending the contents of the .devnagri.yaml file
 
-	//	projectKey, _ := gabs.ParseJSONBuffer(resp)
-	//	fmt.Println(projectKey)
+	jsonParsed, _ := gabs.ParseJSON([]byte(resp.String()))
+	accessToken := jsonParsed.Path("access_token").Data()
+	//fmt.Println(access_token)
+	filename := "./.devnagri.yaml"
 
+	f, err := os.OpenFile(filename, os.O_APPEND|os.O_WRONLY, 0600)
+	if err != nil {
+		panic(err)
+	}
+
+	defer f.Close()
+	accessTokenString := "AccessToken: " + accessToken.(string)
+	fmt.Println(accessTokenString)
+
+	f.WriteString(accessTokenString)
+
+	if err != nil {
+		panic(err)
+	}
 }
