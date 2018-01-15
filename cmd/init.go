@@ -33,11 +33,11 @@ RootDir: ""
 
 LocalizationFolder: ""
 
-SourceLanguage: "en"
+SourceLanguage: \"en\"
 
 TargetLanguages:
-    - "pn"
-    - "hi"
+    - \"pn\"
+    - \"hi\"
 
 GlobalPreferenceInCaseOfMergeConflict: ""
 `
@@ -48,14 +48,14 @@ var initCmd = &cobra.Command{
 	Short: "This command creates a .devnagri.yaml file in the repo.",
 	Long:  `A longer description of init command`,
 	Run: func(cmd *cobra.Command, args []string) {
-		//fmt.Println("init called")
+		fmt.Println("init called")
+
+		createConfigFile()
 	},
 }
 
 func init() {
 	rootCmd.AddCommand(initCmd)
-
-	createConfigFile()
 
 	// Here you will define your flags and configuration settings.
 

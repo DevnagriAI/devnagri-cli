@@ -29,8 +29,28 @@ var validateCmd = &cobra.Command{
 	Short: "This command validates the credentials in the .devnagri file within the local folder.",
 	Long:  `A long description of validate command.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		//fmt.Println("validate called")
+		fmt.Println("validate called")
+		validate()
+},
+}
 
+func init() {
+	rootCmd.AddCommand(validateCmd)
+
+	// Here you will define your flags and configuration settings.
+
+	// Cobra supports Persistent Flags which will work for this command
+	// and all subcommands, e.g.:
+	// validateCmd.PersistentFlags().String("foo", "", "A help for foo")
+
+	// Cobra supports local flags which will only run when this command
+	// is called directly, e.g.:
+	// validateCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+}
+
+
+
+func validate() {
 		resp, err := resty.R().
 			SetHeader("Content-Type", "multipart/form-data").
 			SetFormData(map[string]string{
@@ -60,26 +80,12 @@ var validateCmd = &cobra.Command{
 		defer f.Close()
 		accessTokenString := "AccessToken: " + accessToken.(string)
 		fmt.Println(accessTokenString)
-// TODO: Add this to the .devnagri.yaml file as a string
+		// TODO: Add this to the .devnagri.yaml file as a string
 		f.WriteString(accessTokenString)
 
 		if err != nil {
 			panic(err)
 		}
 
-	},
-}
+	}
 
-func init() {
-	rootCmd.AddCommand(validateCmd)
-
-	// Here you will define your flags and configuration settings.
-
-	// Cobra supports Persistent Flags which will work for this command
-	// and all subcommands, e.g.:
-	// validateCmd.PersistentFlags().String("foo", "", "A help for foo")
-
-	// Cobra supports local flags which will only run when this command
-	// is called directly, e.g.:
-	// validateCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
-}
