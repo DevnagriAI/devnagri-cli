@@ -1,0 +1,10 @@
+ClientID: ""
+ClientSecret: ""
+GlobalPreferenceInCaseOfMergeConflict: ""
+LanguagesToBeTranslated:
+- pn
+- hi
+LocalizationFolder: ""
+ProjectKey: ""
+RootDir: ""
+SourceLanguage: en
