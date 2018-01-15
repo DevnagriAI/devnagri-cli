@@ -61,14 +61,13 @@ func init() {
 
 	// Cobra supports Persistent Flags which will work for this command
 	// and all subcommands, e.g.:
-	initCmd.PersistentFlags().String("clientid", "", "Enter your clientid.")
-	initCmd.PersistentFlags().String("clientsecret", "", "Enter your clientsecret")
+	//initCmd.PersistentFlags().String("clientid", "", "Enter your clientid.")
+	//initCmd.PersistentFlags().String("clientsecret", "", "Enter your clientsecret")
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
 	//initCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }
 
-// TODO: create this using viper
 func createConfigFile() {
 
 	m := make(map[interface{}]interface{})
