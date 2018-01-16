@@ -26,12 +26,6 @@
   version = "v1.0"
 
 [[projects]]
-  name = "github.com/magefile/mage"
-  packages = ["mg","sh","types"]
-  revision = "ab3ca2f6f85577d7ec82e0a6df721147a2e737f9"
-  version = "v2.0.1"
-
-[[projects]]
   name = "github.com/magiconair/properties"
   packages = ["."]
   revision = "d419a98cdbed11a922bf76f257b7c4be79b50e73"
@@ -93,6 +87,12 @@
 
 [[projects]]
   branch = "master"
+  name = "golang.org/x/net"
+  packages = ["idna","publicsuffix"]
+  revision = "5ccada7d0a7ba9aeb5d3aca8d3501b4c2a509fec"
+
+[[projects]]
+  branch = "master"
   name = "golang.org/x/sys"
   packages = ["unix"]
   revision = "83801418e1b59fb1880e363299581ee543af32ca"
@@ -100,8 +100,14 @@
 [[projects]]
   branch = "master"
   name = "golang.org/x/text"
-  packages = ["internal/gen","internal/triegen","internal/ucd","transform","unicode/cldr","unicode/norm"]
+  packages = ["collate","collate/build","internal/colltab","internal/gen","internal/tag","internal/triegen","internal/ucd","language","secure/bidirule","transform","unicode/bidi","unicode/cldr","unicode/norm","unicode/rangetable"]
   revision = "eb22672bea55af56d225d4e35405f4d2e9f062a0"
+
+[[projects]]
+  name = "gopkg.in/resty.v1"
+  packages = ["."]
+  revision = "9ac9c42358f7c3c69ac9f8610e8790d7c338e85d"
+  version = "v1.0"
 
 [[projects]]
   branch = "v2"
@@ -112,6 +118,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "8c3b711db1c8238d89552f236f5dec82138c59287587fe596d8836f749726320"
+  inputs-digest = "cd7c39149f1866bbf48ed45d722b7755267394e9f78409bfb611f7af11ad4a7c"
   solver-name = "gps-cdcl"
   solver-version = 1
