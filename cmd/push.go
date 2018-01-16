@@ -60,7 +60,7 @@ func listAllFilesAndPush() {
 
 	var ProjectKey = config.FetchAndValidate("ProjectKey") // returns string
 
-	var AccessToken = config.FetchAndValidate("AccessToken") // returns string
+	//var AccessToken = config.FetchAndValidate("AccessToken") // returns string
 
 	filename := "./en/CallingPapaPro2.xml"
 
