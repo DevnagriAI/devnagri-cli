@@ -16,11 +16,12 @@ package cmd
 
 import (
 	"fmt"
+	"os"
+
 	"github.com/FourtekIT/devnagri-cli/config"
 	"github.com/Jeffail/gabs"
 	"github.com/spf13/cobra"
 	"gopkg.in/resty.v1"
-	"os"
 )
 
 // validateCmd represents the validate command
@@ -75,7 +76,7 @@ func validate() {
 	accessToken := jsonParsed.Path("access_token").Data()
 	//fmt.Println(access_token)
 
-	filename := "./.devnagri.yaml"
+	filename := ".devnagri.yaml"
 
 	f, err := os.OpenFile(filename, os.O_APPEND|os.O_WRONLY, 0600)
 	if err != nil {

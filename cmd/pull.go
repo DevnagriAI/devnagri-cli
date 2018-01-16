@@ -17,20 +17,22 @@ package cmd
 import (
 	"encoding/base64"
 	"fmt"
-	"github.com/FourtekIT/devnagri-cli/config"
-	"github.com/spf13/cobra"
 	"io/ioutil"
-	//	"os"
+	"log"
+	"os"
+
+	"github.com/FourtekIT/devnagri-cli/config"
+	"github.com/Jeffail/gabs"
+	"github.com/spf13/cobra"
 	//	"reflect"
-	//	"github.com/Jeffail/gabs"
 	"gopkg.in/resty.v1"
 )
 
 // pullCmd represents the pull command
 var pullCmd = &cobra.Command{
 	Use:   "pull",
-	Short: "A brief description of the pull command",
-	Long:  `A long description of pull command`,
+	Short: "This command pulls the translated files from Devnagri",
+	Long:  `When all the files for a language have been translated, they can be pulled from the Devnagri platform to the local filesystem using the CLI tool.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("pull called")
 		saveResponseAndConvert()
@@ -52,7 +54,7 @@ func init() {
 	// pullCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }
 
-func saveResponseAndConvert() string {
+func saveResponseAndConvert() {
 	var ClientID = config.FetchAndValidate("ClientID") // returns string
 
 	var ClientSecret = config.FetchAndValidate("ClientSecret") // returns string
@@ -74,35 +76,39 @@ func saveResponseAndConvert() string {
 	fmt.Println(resp)
 	fmt.Println("\n\n")
 
-	/*
-		resJson, _ := gabs.ParseJSON([]byte(resp.String()))
-			children, _ := resJson.S("file_content").Children()
-			child := children[0]
-	*/
-	//fmt.Println(child.String())
+	resJson, _ := gabs.ParseJSON([]byte(resp.String()))
+	children, _ := resJson.S("file_content").Children()
+	child := children[0]
 
-	//data, _ := base64.StdEncoding.Decode(child.String())
-	//encoded := child.String()
-	//fmt.Println(encoded)
-	//fmt.Println(reflect.TypeOf(encoded))
-	//x := decodeBase64(encoded)
-	//fmt.Println(x)
+	fmt.Println(child.String())
+
+	//TODO: Iterate this over all the file names recieved from the remote
+	file, err := os.Create("temp.txt")
+	if err != nil {
+		log.Fatal("Cannot create file", err)
+	}
+	defer file.Close()
+
+	_, err = file.WriteString(child.String())
 
 	// This works perfectly
 	//fmt.Println("Decoding the string manually")
 	//x := "PCEtLSBUcmFuc2xhdGVkIEJ5IERldm5hZ3JpIC0tPgo8IS0tIGh0dHA6Ly9kZXZuYWdyaS5jb20gLS0+CjxyZXNvdXJjZXMgdG9vbHM6aWdub3JlPSJFeHRyYVRyYW5zbGF0aW9uIiB4bWxuczp0b29scz0iaHR0cDovL3NjaGVtYXMuYW5kcm9pZC5jb20vdG9vbHMiPgogICAgPHN0cmluZyBuYW1lPSJhcHBfbmFtZSI+PC9zdHJpbmc+CiAgICA8c3RyaW5nIG5hbWU9ImhpbnRfYWN0dWFsIj48L3N0cmluZz4KIDwvcmVzb3VyY2VzPg=="
 	//decodeBase64(x)
 
-	dat, _ := ioutil.ReadFile("./content.txt")
-	fmt.Println("reading content.txt")
-	x := decodeBase64(string(dat))
-	fmt.Println(x)
-	return string(dat)
+	dat, _ := ioutil.ReadFile("temp.txt")
+	//fmt.Println("Reading content.txt")
+	fileContent := decodeBase64(string(dat))
+	fmt.Println(fileContent)
+
+	//TODO: Store the content of temp into the actual file
+
+	//TODO: Delete the temp file
 }
 
 func decodeBase64(cypher string) string {
 	//println("\n\nRecieved at decodeBase64 function\n\n")
-	//	fmt.Println(cypher)
+	//fmt.Println(cypher)
 
 	data, _ := base64.StdEncoding.DecodeString(cypher)
 
