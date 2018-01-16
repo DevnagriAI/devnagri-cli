@@ -27,6 +27,7 @@ var pullCmd = &cobra.Command{
 	Long:  `A long description of pull command`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("pull called")
+		saveResponseAndConvert()
 	},
 }
 
@@ -43,4 +44,52 @@ func init() {
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
 	// pullCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+}
+
+func saveResponseAndConvert() string {
+	var ClientID = config.FetchAndValidate("ClientID") // returns string
+
+	var ClientSecret = config.FetchAndValidate("ClientSecret") // returns string
+
+	var ProjectKey = config.FetchAndValidate("ProjectKey") // returns string
+
+	resp, err := resty.R().
+		SetHeader("Content-Type", "multipart/form-data").
+		SetFormData(map[string]string{
+			"client_id":     ClientID,
+			"client_secret": ClientSecret,
+			"project_key":   ProjectKey}).
+		Post("http://dev.devnagri.co.in/api/project/pull")
+
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Println(resp)
+	fmt.Println("\n\n")
+
+	/*
+		resJson, _ := gabs.ParseJSON([]byte(resp.String()))
+			children, _ := resJson.S("file_content").Children()
+			child := children[0]
+	*/
+	//fmt.Println(child.String())
+
+	//data, _ := base64.StdEncoding.Decode(child.String())
+	//encoded := child.String()
+	//fmt.Println(encoded)
+	//fmt.Println(reflect.TypeOf(encoded))
+	//x := decodeBase64(encoded)
+	//fmt.Println(x)
+
+	// This works perfectly
+	//fmt.Println("Decoding the string manually")
+	//x := "PCEtLSBUcmFuc2xhdGVkIEJ5IERldm5hZ3JpIC0tPgo8IS0tIGh0dHA6Ly9kZXZuYWdyaS5jb20gLS0+CjxyZXNvdXJjZXMgdG9vbHM6aWdub3JlPSJFeHRyYVRyYW5zbGF0aW9uIiB4bWxuczp0b29scz0iaHR0cDovL3NjaGVtYXMuYW5kcm9pZC5jb20vdG9vbHMiPgogICAgPHN0cmluZyBuYW1lPSJhcHBfbmFtZSI+PC9zdHJpbmc+CiAgICA8c3RyaW5nIG5hbWU9ImhpbnRfYWN0dWFsIj48L3N0cmluZz4KIDwvcmVzb3VyY2VzPg=="
+	//decodeBase64(x)
+
+	dat, _ := ioutil.ReadFile("./content.txt")
+	fmt.Println("reading content.txt")
+	x := decodeBase64(string(dat))
+	fmt.Println(x)
+	return string(dat)
 }

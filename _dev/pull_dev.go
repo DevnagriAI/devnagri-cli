@@ -12,6 +12,7 @@ import (
 )
 
 func main() {
+	saveResponseAndConvert()
 }
 
 func decodeBase64(cypher string) string {
@@ -25,7 +26,7 @@ func decodeBase64(cypher string) string {
 	println("Text after decoding")
 
 	//fmt.Println(data)
-	fmt.Println(string(data))
+	//fmt.Println(string(data))
 
 	return string(data)
 
@@ -69,6 +70,7 @@ func saveResponseAndConvert() string {
 
 	dat, _ := ioutil.ReadFile("./content.txt")
 	fmt.Println("reading content.txt")
-	decodeBase64(string(dat))
-
+	x := decodeBase64(string(dat))
+	fmt.Println(x)
+	return string(dat)
 }
