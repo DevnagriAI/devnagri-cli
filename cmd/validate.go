@@ -28,7 +28,7 @@ import (
 var validateCmd = &cobra.Command{
 	Use:   "validate",
 	Short: "This command validates the credentials in the .devnagri file within the local folder.",
-	Long:  `A long description of validate command.`,
+	Long:  `The validate command is responsible for generating and storing the Access Token which will further enable the usage of pull and push.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("validate called")
 		validate()

@@ -36,7 +36,7 @@ SourceLanguage: en
 TargetLanguages:
     - hi
 
-GlobalPreferenceInCaseOfMergeConflict: devnagri
+GlobalPreferenceInCaseOfMergeConflict: devnagri # local
 `
 
 // initCmd represents the init command
