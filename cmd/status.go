@@ -16,6 +16,7 @@ package cmd
 
 import (
 	"fmt"
+
 	"github.com/FourtekIT/devnagri-cli/config"
 	"github.com/spf13/cobra"
 	"gopkg.in/resty.v1"
@@ -73,7 +74,7 @@ func fetchStatus() {
 	if err != nil {
 		panic(err)
 	}
-
 	fmt.Println(resp)
 
+	//TODO: Print the properly formatted output of the status command
 }

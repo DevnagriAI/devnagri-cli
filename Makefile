@@ -49,6 +49,8 @@ beta: ## Build a beta version
 rmbeta: ## Cleaning the ./beta
 	rm ./_dev/beta
 
+rebuild: rmbeta beta
+
 install: ## Install to $GOPATH/src
 	go install ./cmd/...
 
