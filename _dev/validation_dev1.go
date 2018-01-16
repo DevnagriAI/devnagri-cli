@@ -12,12 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+//TODO: change this package name
+//package cmd
+
 package main
 
 import (
 	"fmt"
-	//"github.com/FourtekIT/devnagri-cli/config"
-	"github.com/Jeffail/gabs"
+
 	"gopkg.in/resty.v1"
 )
 
@@ -26,10 +28,11 @@ func main() {
 	resp, err := resty.R().
 		SetHeader("Content-Type", "multipart/form-data").
 		SetFormData(map[string]string{
-			"client_id":     "1",
-			"client_secret": "CIo1QNTKcM4FMMpI7JlytrHt1p1Iux9EENSYzBHi",
-			"project_key":   "5034b2cd56c8f3af0c711a9a437eb616"}).
+			"client_id":     "2",
+			"client_secret": "y8umxMS54nUBc1ak7cxod6mjYiAbht2rCNAKsW7c",
+			"project_key":   "3c5724f8fe2d45e1dea65f8842cebd79 "}).
 		Post("http://dev.devnagri.co.in/api/key/validations")
+		//	Post("http://192.168.60.10/api/key/validations")
 
 	if err != nil {
 		panic(err)
@@ -37,29 +40,4 @@ func main() {
 
 	fmt.Println(resp)
 	//TODO: Save the returned access_token to the .devnagri.yaml
-	// We do this by appending the contents of the .devnagri.yaml file
-
-	jsonParsed, _ := gabs.ParseJSON([]byte(resp.String()))
-	accessToken := jsonParsed.Path("access_token").Data()
-	fmt.Println(accessToken)
-
-	/*
-		filename := "./.devnagri.yaml"
-
-		f, err := os.OpenFile(filename, os.O_APPEND|os.O_WRONLY, 0600)
-		if err != nil {
-			panic(err)
-		}
-
-		defer f.Close()
-		accessTokenString := "AccessToken: " + accessToken.(string)
-		//accessTokenString := "AccessToken: " + string(accessToken)
-		fmt.Println(accessTokenString)
-
-		f.WriteString(accessTokenString)
-
-		if err != nil {
-			panic(err)
-		}
-	*/
 }
