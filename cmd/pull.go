@@ -15,9 +15,15 @@
 package cmd
 
 import (
+	"encoding/base64"
 	"fmt"
-
+	"github.com/FourtekIT/devnagri-cli/config"
 	"github.com/spf13/cobra"
+	"io/ioutil"
+	//	"os"
+	//	"reflect"
+	//	"github.com/Jeffail/gabs"
+	"gopkg.in/resty.v1"
 )
 
 // pullCmd represents the pull command
@@ -92,4 +98,21 @@ func saveResponseAndConvert() string {
 	x := decodeBase64(string(dat))
 	fmt.Println(x)
 	return string(dat)
+}
+
+func decodeBase64(cypher string) string {
+	//println("\n\nRecieved at decodeBase64 function\n\n")
+	//	fmt.Println(cypher)
+
+	data, _ := base64.StdEncoding.DecodeString(cypher)
+
+	//fmt.Println(string(data))
+
+	println("Text after decoding")
+
+	//fmt.Println(data)
+	//fmt.Println(string(data))
+
+	return string(data)
+
 }
