@@ -30,6 +30,7 @@ var pullCmd = &cobra.Command{
 	},
 }
 
+//TODO: save the response file_content of the request into a file and then read-decode-save it again.
 func init() {
 	rootCmd.AddCommand(pullCmd)
 
