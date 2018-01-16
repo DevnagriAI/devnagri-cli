@@ -20,24 +20,23 @@ package main
 import (
 	"fmt"
 
-	"github.com/FourtekIT/devnagri-cli/config"
 	"gopkg.in/resty.v1"
 )
 
 func main() {
 
-	var ClientID = config.FetchAndValidate("ClientID") // returns string
+	//var ClientID = config.FetchAndValidate("ClientID") // returns string
 
-	var AccessToken = config.FetchAndValidate("AccessToken") // returns string
+	//var AccessToken = config.FetchAndValidate("AccessToken") // returns string
 
 	resp, err := resty.R().
 		SetHeader("Accept", "application/json").
 		SetAuthToken(AccessToken).
 		//SetHeader("Content-Type", "multipart/form-data").
 		SetFormData(map[string]string{
-			"client_id":     ClientID,
+			"client_id":     "1",
 			"client_secret": "3WnUqVSP7Vhs8DU7FInIrwHIVMg9twGshcpswlJW",
-			"project_key":   "2e12635aca73c7d39ec76a514d7490a6"}).
+			"project_key":   "5034b2cd56c8f3af0c711a9a437eb616"}).
 		Post("http://dev.devnagri.co.in/api/project/status")
 	if err != nil {
 		panic(err)
