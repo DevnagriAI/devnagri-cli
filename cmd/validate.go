@@ -16,18 +16,19 @@ package cmd
 
 import (
 	"fmt"
+	"os"
+
 	"github.com/FourtekIT/devnagri-cli/config"
 	"github.com/Jeffail/gabs"
 	"github.com/spf13/cobra"
 	"gopkg.in/resty.v1"
-	"os"
 )
 
 // validateCmd represents the validate command
 var validateCmd = &cobra.Command{
 	Use:   "validate",
 	Short: "This command validates the credentials in the .devnagri file within the local folder.",
-	Long:  `A long description of validate command.`,
+	Long:  `The validate command is responsible for generating and storing the Access Token which will further enable the usage of pull and push.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("validate called")
 		validate()
@@ -75,7 +76,7 @@ func validate() {
 	accessToken := jsonParsed.Path("access_token").Data()
 	//fmt.Println(access_token)
 
-	filename := "./.devnagri.yaml"
+	filename := ".devnagri.yaml"
 
 	f, err := os.OpenFile(filename, os.O_APPEND|os.O_WRONLY, 0600)
 	if err != nil {
