@@ -27,44 +27,19 @@ This has been developed to facilitate the integration of Devnagri localization p
 
 This command initilizes the devnagri-cli **.devnagri.yaml** within the repository which consists of the following fields
 
-    ## sample content of the .devnagri.yaml
+```
+## sample content of the .devnagri.yaml
     
-    ClientID: "Client ID"
-    
-    ClientSecret: "Client Secret"
-    
-    ProjectKey: "Project Key"
-    
-    Localizationfolder: "Path to Localization Folder"
-    
-    SourceLanguage: en
-
-    LanguagesToBeTranslated:
-      - hi
-    
-    RootDir: "./"
-    
-    // TODO: Choose one  =>  devnagri / local
-    GlobalPreferenceInCaseOfMergeConflict: "Remote"
-
-1.  Sub-command
-
-    1.  client-id
-    
-            ```
-            devnagri init --client-id XXXXXXX
-            ```
-    2.  client-secret
-    
-            ```
-            devnagri init --client-secret XXXXXXX
-            ```
-    3.  project-key
-    
-            ```
-            devnagri init --client-key XXXXXXX
-            ```
-
+ClientID: 1
+ClientSecret: CIo1QNTKcM4FMMpI7JlytrHt1p1Iux9EENSYzBHi
+GlobalPreferenceInCaseOfMergeConflict: devnagri
+ProjectKey: 5034b2cd56c8f3af0c711a9a437eb616 
+RootDir: langs
+SourceLanguage: en
+TargetLanguages:
+- hi
+AccessToken: 129832983740912374v29081374v9028374907291083472
+```
 
 
 ### validate
@@ -72,6 +47,7 @@ This command initilizes the devnagri-cli **.devnagri.yaml** within the repositor
 Just validate the credentials
 
 -   Send a sample request to devnagri to recieve the project-key [ generate this via browser ]
+
 -   On local machine, validate the YAML file
     
     ```
@@ -122,16 +98,6 @@ This command pushes the local files to devnagri
 
     ```
     > devnagri pull
-    ```
-
-
-
-### sync
-
-This command synchronizes the files between the devnagri server and local environments
-
-    ```
-    > devnagri sync
     ```
 
 
