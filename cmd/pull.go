@@ -34,7 +34,7 @@ var pullCmd = &cobra.Command{
 	Short: "This command pulls the translated files from Devnagri",
 	Long:  `When all the files for a language have been translated, they can be pulled from the Devnagri platform to the local filesystem using the CLI tool.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("pull called")
+		fmt.Println("Pulling the files from Devnagri")
 		saveResponseAndConvert()
 	},
 }
@@ -61,8 +61,12 @@ func saveResponseAndConvert() {
 
 	var ProjectKey = config.FetchAndValidate("ProjectKey") // returns string
 
+	var AccessToken = config.FetchAndValidate("AccessToken") // returns string
+
 	resp, err := resty.R().
+		SetHeader("Accept", "application/json").
 		SetHeader("Content-Type", "multipart/form-data").
+		SetAuthToken(AccessToken).
 		SetFormData(map[string]string{
 			"client_id":     ClientID,
 			"client_secret": ClientSecret,
@@ -73,14 +77,13 @@ func saveResponseAndConvert() {
 		panic(err)
 	}
 
-	fmt.Println(resp)
-	fmt.Println("\n\n")
+	//fmt.Println(resp)
 
 	resJson, _ := gabs.ParseJSON([]byte(resp.String()))
 	children, _ := resJson.S("file_content").Children()
 	child := children[0]
 
-	fmt.Println(child.String())
+	//fmt.Println(child.String())
 
 	//TODO: Iterate this over all the file names recieved from the remote
 	file, err := os.Create("temp.txt")
@@ -97,13 +100,29 @@ func saveResponseAndConvert() {
 	//decodeBase64(x)
 
 	dat, _ := ioutil.ReadFile("temp.txt")
-	//fmt.Println("Reading content.txt")
-	fileContent := decodeBase64(string(dat))
-	fmt.Println(fileContent)
+	datString := string(dat)
+	//fmt.Println("String Length : ", len(datString))
+	content := datString[1:(len(datString) - 1)]
+	//fmt.Println(content)
+	fileContent := decodeBase64(content)
+	//fmt.Println(fileContent)
+	//fmt.Println("<<< Reading temp file now >>>")
+	//fileContent := decodeBase64(string(dat))
+	//fmt.Println(fileContent)
 
 	//TODO: Store the content of temp into the actual file
+	responseFile, err := os.Create("responseFile.txt")
+
+	if err != nil {
+		log.Fatal("Cannot create file", err)
+	}
+	defer responseFile.Close()
+
+	_, err = responseFile.WriteString(fileContent)
 
 	//TODO: Delete the temp file
+
+	fmt.Println("Done!")
 }
 
 func decodeBase64(cypher string) string {

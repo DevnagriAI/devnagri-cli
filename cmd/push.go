@@ -15,18 +15,26 @@
 package cmd
 
 import (
+	"crypto/sha256"
+	"encoding/hex"
 	"fmt"
-
+	"io"
+	"log"
+	"os"
+	//"github.com/FourtekIT/devnagri-cli/utils"
+	"github.com/FourtekIT/devnagri-cli/config"
 	"github.com/spf13/cobra"
+	"gopkg.in/resty.v1"
 )
 
 // pushCmd represents the push command
 var pushCmd = &cobra.Command{
 	Use:   "push",
-	Short: "This command pushes the untranslated files from Devnagri",
+	Short: "This command pushes the untranslated files to Devnagri",
 	Long:  `This command transfers all the untranslated local files to the Devnagri platform on a language basis.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("push called")
+		fmt.Println("Pushing the files from Devnagri")
+		listAllFilesAndPush()
 	},
 }
 
@@ -42,4 +50,58 @@ func init() {
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
 	// pushCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+}
+
+func listAllFilesAndPush() {
+	var ClientID = config.FetchAndValidate("ClientID") // returns string
+
+	var ClientSecret = config.FetchAndValidate("ClientSecret") // returns string
+
+	var ProjectKey = config.FetchAndValidate("ProjectKey") // returns string
+
+	var AccessToken = config.FetchAndValidate("AccessToken") // returns string
+
+	filename := "./en/CallingPapaPro2.xml"
+
+	resp, err := resty.R().
+		SetHeader("Accept", "application/json").
+		SetHeader("Content-Type", "multipart/form-data").
+		SetAuthToken(AccessToken).
+		SetFile("file[0][file]", filename).
+		SetFormData(map[string]string{
+			"client_id":          ClientID,
+			"client_secret":      ClientSecret,
+			"project_key":        ProjectKey,
+			"file[0][hash]":      sha256Hash(filename),
+			"file[0][extension]": "xml",
+			"file[0][file_type]": "xml",
+			"file[0][location]":  filename,
+		}).
+		Post("http://dev.devnagri.co.in/api/project/push")
+
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Println(resp)
+}
+
+func sha256Hash(fileName string) string {
+
+	f, err := os.Open(fileName)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer f.Close()
+
+	h := sha256.New()
+	if _, err := io.Copy(h, f); err != nil {
+		log.Fatal(err)
+	}
+
+	//fmt.Printf("%x", h.Sum(nil))
+	//return h.Sum(nil)
+
+	hashString := hex.EncodeToString(h.Sum(nil))
+	return hashString
 }

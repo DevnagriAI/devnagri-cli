@@ -28,10 +28,11 @@ var statusCmd = &cobra.Command{
 	Short: "This command fetches the status of the current project.",
 	Long:  `A long description of status command.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("status called")
+		fmt.Println("The current status of your projects from Devnagri")
 
 		fetchStatus()
 
+		fmt.Println("Done!")
 	},
 }
 
