@@ -2,7 +2,6 @@ package main
 
 import (
 	"encoding/base64"
-	"fmt"
 	"io/ioutil"
 	"log"
 	"os"
@@ -24,7 +23,7 @@ func decodeBase64(cypher string) string {
 
 	//fmt.Println(string(data))
 
-	println("<<< Text after decoding >>>")
+	//println("<<< Text after decoding >>>")
 
 	//fmt.Println(data)
 	//fmt.Println(string(data))
@@ -47,13 +46,12 @@ func saveResponseAndConvert() {
 		panic(err)
 	}
 
-	fmt.Println(resp)
-	fmt.Println("\n\n")
+	//fmt.Println(resp)
 
 	resJson, _ := gabs.ParseJSON([]byte(resp.String()))
 	children, _ := resJson.S("file_content").Children()
 	child := children[0]
-	fmt.Println(child.String())
+	//fmt.Println(child.String())
 
 	//data, _ := base64.StdEncoding.Decode(child.String())
 	//encoded := child.String()

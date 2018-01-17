@@ -73,8 +73,7 @@ func saveResponseAndConvert() {
 		panic(err)
 	}
 
-	fmt.Println(resp)
-	fmt.Println("\n\n")
+	//	fmt.Println(resp)
 
 	resJson, _ := gabs.ParseJSON([]byte(resp.String()))
 	children, _ := resJson.S("file_content").Children()
@@ -97,11 +96,24 @@ func saveResponseAndConvert() {
 	//decodeBase64(x)
 
 	dat, _ := ioutil.ReadFile("temp.txt")
-	//fmt.Println("Reading content.txt")
-	fileContent := decodeBase64(string(dat))
-	fmt.Println(fileContent)
+	datString := string(dat)
+	//fmt.Println("String Length : ", len(datString))
+	content := datString[1:(len(datString) - 1)]
+	//fmt.Println(content)
+	fileContent := decodeBase64(content)
+	//fmt.Println(fileContent)
+	//fmt.Println("<<< Reading temp file now >>>")
+	//fileContent := decodeBase64(string(dat))
+	//fmt.Println(fileContent)
 
 	//TODO: Store the content of temp into the actual file
+	responseFile, err := os.Create("responseFile.txt")
+	if err != nil {
+		log.Fatal("Cannot create file", err)
+	}
+	defer responseFile.Close()
+
+	_, err = responseFile.WriteString(fileContent)
 
 	//TODO: Delete the temp file
 }
