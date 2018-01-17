@@ -16,17 +16,8 @@ func main() {
 }
 
 func decodeBase64(cypher string) string {
-	//println("\n\nRecieved at decodeBase64 function\n\n")
-	//	fmt.Println(cypher)
 
 	data, _ := base64.StdEncoding.DecodeString(cypher)
-
-	//fmt.Println(string(data))
-
-	//println("<<< Text after decoding >>>")
-
-	//fmt.Println(data)
-	//fmt.Println(string(data))
 
 	return string(data)
 
@@ -51,19 +42,6 @@ func saveResponseAndConvert() {
 	resJson, _ := gabs.ParseJSON([]byte(resp.String()))
 	children, _ := resJson.S("file_content").Children()
 	child := children[0]
-	//fmt.Println(child.String())
-
-	//data, _ := base64.StdEncoding.Decode(child.String())
-	//encoded := child.String()
-	//fmt.Println(encoded)
-	//fmt.Println(reflect.TypeOf(encoded))
-	//x := decodeBase64(encoded)
-	//fmt.Println(x)
-
-	// This works perfectly
-	//fmt.Println("Decoding the string manually")
-	//x := "PCEtLSBUcmFuc2xhdGVkIEJ5IERldm5hZ3JpIC0tPgo8IS0tIGh0dHA6Ly9kZXZuYWdyaS5jb20gLS0+CjxyZXNvdXJjZXMgdG9vbHM6aWdub3JlPSJFeHRyYVRyYW5zbGF0aW9uIiB4bWxuczp0b29scz0iaHR0cDovL3NjaGVtYXMuYW5kcm9pZC5jb20vdG9vbHMiPgogICAgPHN0cmluZyBuYW1lPSJhcHBfbmFtZSI+PC9zdHJpbmc+CiAgICA8c3RyaW5nIG5hbWU9ImhpbnRfYWN0dWFsIj48L3N0cmluZz4KIDwvcmVzb3VyY2VzPg=="
-	//decodeBase64(x)
 
 	//TODO: Iterate this over all the file names recieved from the remote
 	file, err := os.Create("temp.txt")

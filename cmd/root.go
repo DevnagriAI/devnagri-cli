@@ -31,7 +31,7 @@ var rootCmd = &cobra.Command{
 	Short: "The CLI client for the Devnagri platform API",
 	Long: `
 	       devnagri is the cross platform API client for Devnagri written in Go-lang.
-	       
+
 	       This CLI client has been developed to facilitate the integration of Devnagri
 	       platform with a Developer's workflow
 	       `,

@@ -45,9 +45,9 @@ var initCmd = &cobra.Command{
 	Short: "This command creates a .devnagri.yaml file in the repo.",
 	Long:  `A longer description of init command`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("init called")
-
+		fmt.Println("Created the default .devnagri.yaml config in the current directory.")
 		createConfigFile()
+		fmt.Println("Done!")
 	},
 }
 
@@ -88,4 +88,5 @@ func createConfigFile() {
 	defer file.Close()
 
 	fmt.Fprintf(file, string(d))
+
 }

@@ -34,7 +34,7 @@ var pullCmd = &cobra.Command{
 	Short: "This command pulls the translated files from Devnagri",
 	Long:  `When all the files for a language have been translated, they can be pulled from the Devnagri platform to the local filesystem using the CLI tool.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("pull called")
+		fmt.Println("Pulling the files from Devnagri")
 		saveResponseAndConvert()
 	},
 }
@@ -64,6 +64,7 @@ func saveResponseAndConvert() {
 	var AccessToken = config.FetchAndValidate("AccessToken") // returns string
 
 	resp, err := resty.R().
+		SetHeader("Accept", "application/json").
 		SetHeader("Content-Type", "multipart/form-data").
 		SetAuthToken(AccessToken).
 		SetFormData(map[string]string{
@@ -76,13 +77,13 @@ func saveResponseAndConvert() {
 		panic(err)
 	}
 
-	//	fmt.Println(resp)
+	//fmt.Println(resp)
 
 	resJson, _ := gabs.ParseJSON([]byte(resp.String()))
 	children, _ := resJson.S("file_content").Children()
 	child := children[0]
 
-	fmt.Println(child.String())
+	//fmt.Println(child.String())
 
 	//TODO: Iterate this over all the file names recieved from the remote
 	file, err := os.Create("temp.txt")
@@ -111,6 +112,7 @@ func saveResponseAndConvert() {
 
 	//TODO: Store the content of temp into the actual file
 	responseFile, err := os.Create("responseFile.txt")
+
 	if err != nil {
 		log.Fatal("Cannot create file", err)
 	}
@@ -119,6 +121,8 @@ func saveResponseAndConvert() {
 	_, err = responseFile.WriteString(fileContent)
 
 	//TODO: Delete the temp file
+
+	fmt.Println("Done!")
 }
 
 func decodeBase64(cypher string) string {

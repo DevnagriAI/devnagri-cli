@@ -32,6 +32,7 @@ var validateCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("validate called")
 		validate()
+		fmt.Println("Done!")
 	},
 }
 

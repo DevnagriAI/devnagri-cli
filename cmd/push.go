@@ -30,10 +30,10 @@ import (
 // pushCmd represents the push command
 var pushCmd = &cobra.Command{
 	Use:   "push",
-	Short: "This command pushes the untranslated files from Devnagri",
+	Short: "This command pushes the untranslated files to Devnagri",
 	Long:  `This command transfers all the untranslated local files to the Devnagri platform on a language basis.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("push called")
+		fmt.Println("Pushing the files from Devnagri")
 		listAllFilesAndPush()
 	},
 }
