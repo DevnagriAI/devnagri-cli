@@ -61,8 +61,11 @@ func saveResponseAndConvert() {
 
 	var ProjectKey = config.FetchAndValidate("ProjectKey") // returns string
 
+	var AccessToken = config.FetchAndValidate("AccessToken") // returns string
+
 	resp, err := resty.R().
 		SetHeader("Content-Type", "multipart/form-data").
+		SetAuthToken(AccessToken).
 		SetFormData(map[string]string{
 			"client_id":     ClientID,
 			"client_secret": ClientSecret,

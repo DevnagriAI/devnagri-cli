@@ -30,7 +30,7 @@ func main() {
 		SetFormData(map[string]string{
 			"client_id":     "2",
 			"client_secret": "y8umxMS54nUBc1ak7cxod6mjYiAbht2rCNAKsW7c",
-			"project_key":   "3c5724f8fe2d45e1dea65f8842cebd79 "}).
+			"project_key":   "3c5724f8fe2d45e1dea65f8842cebd79"}).
 		Post("http://dev.devnagri.co.in/api/key/validations")
 		//	Post("http://192.168.60.10/api/key/validations")
 

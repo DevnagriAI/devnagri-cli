@@ -1,0 +1,8 @@
+ClientID: 1
+ClientSecret: CIo1QNTKcM4FMMpI7JlytrHt1p1Iux9EENSYzBHi
+GlobalPreferenceInCaseOfMergeConflict: devnagri
+ProjectKey: 5034b2cd56c8f3af0c711a9a437eb616 
+RootDir: langs
+SourceLanguage: en
+TargetLanguages:
+- hi
