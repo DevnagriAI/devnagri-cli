@@ -18,7 +18,7 @@ import (
 	"fmt"
 
 	"github.com/FourtekIT/devnagri-cli/config"
-	"github.com/Jeffail/gabs"
+//	"github.com/Jeffail/gabs"
 	"github.com/spf13/cobra"
 	"gopkg.in/resty.v1"
 )
@@ -79,9 +79,12 @@ func fetchStatus() {
 
 	fmt.Println(resp)
 
+/*
 	resJson, _ := gabs.ParseJSON([]byte(resp.String()))
 	val := resJson.S("translatedWordsCount")
 	fmt.Println(val)
 	//TODO: Print the properly formatted output of the status command
+
+*/
 
 }
