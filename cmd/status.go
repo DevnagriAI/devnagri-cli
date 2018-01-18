@@ -18,6 +18,7 @@ import (
 	"fmt"
 
 	"github.com/FourtekIT/devnagri-cli/config"
+	"github.com/Jeffail/gabs"
 	"github.com/spf13/cobra"
 	"gopkg.in/resty.v1"
 )
@@ -28,11 +29,11 @@ var statusCmd = &cobra.Command{
 	Short: "This command fetches the status of the current project.",
 	Long:  `A long description of status command.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("The current status of your projects from Devnagri")
+		fmt.Println("The current status of your project from Devnagri")
 
 		fetchStatus()
 
-		fmt.Println("Done!")
+		//fmt.Println("Done!")
 	},
 }
 
@@ -75,7 +76,12 @@ func fetchStatus() {
 	if err != nil {
 		panic(err)
 	}
+
 	fmt.Println(resp)
 
+	resJson, _ := gabs.ParseJSON([]byte(resp.String()))
+	val := resJson.S("translatedWordsCount")
+	fmt.Println(val)
 	//TODO: Print the properly formatted output of the status command
+
 }
