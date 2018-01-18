@@ -22,7 +22,7 @@ import (
 	"os"
 
 	"github.com/FourtekIT/devnagri-cli/config"
-//	"github.com/Jeffail/gabs"
+	//	"github.com/Jeffail/gabs"
 	"github.com/spf13/cobra"
 	//	"reflect"
 	"gopkg.in/resty.v1"
@@ -78,11 +78,9 @@ func saveResponseAndConvert() {
 	}
 
 	//fmt.Println(resp)
-/*
 	resJson, _ := gabs.ParseJSON([]byte(resp.String()))
 	children, _ := resJson.S("file_content").Children()
 	child := children[0]
-*/
 	//fmt.Println(child.String())
 
 	//TODO: Iterate this over all the file names recieved from the remote
