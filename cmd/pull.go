@@ -111,7 +111,7 @@ func saveResponseAndConvert() {
 	//fmt.Println(fileContent)
 
 	//TODO: Store the content of temp into the actual file
-	responseFile, err := os.Create("responseFile.txt")
+	responseFile, err := os.Create("./hi/strings.xml")
 
 	if err != nil {
 		log.Fatal("Cannot create file", err)
@@ -120,7 +120,7 @@ func saveResponseAndConvert() {
 
 	_, err = responseFile.WriteString(fileContent)
 
-	//TODO: Delete the temp file
+	os.Remove("temp.txt")
 
 	fmt.Println("Done!")
 }

@@ -33,7 +33,7 @@ var pushCmd = &cobra.Command{
 	Short: "This command pushes the untranslated files to Devnagri",
 	Long:  `This command transfers all the untranslated local files to the Devnagri platform on a language basis.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("Pushing the files from Devnagri")
+		fmt.Println("Pushing the local files to Devnagri for localization")
 		listAllFilesAndPush()
 	},
 }
@@ -61,7 +61,7 @@ func listAllFilesAndPush() {
 
 	var AccessToken = config.FetchAndValidate("AccessToken") // returns string
 
-	filename := "./en/CallingPapaPro2.xml"
+	filename := "./en/strings.xml"
 
 	resp, err := resty.R().
 		SetHeader("Accept", "application/json").
