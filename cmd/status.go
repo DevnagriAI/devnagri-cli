@@ -1,4 +1,4 @@
-// Copyright © 2017 NAME HERE <EMAIL ADDRESS>
+// Copyright © 2017 Abhinav Sharma <abhinav@fourtek.com>
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@ import (
 	"fmt"
 
 	"github.com/FourtekIT/devnagri-cli/config"
-//	"github.com/Jeffail/gabs"
+	"github.com/Jeffail/gabs"
 	"github.com/spf13/cobra"
 	"gopkg.in/resty.v1"
 )
@@ -77,14 +77,25 @@ func fetchStatus() {
 		panic(err)
 	}
 
-	fmt.Println(resp)
+	//fmt.Println(resp)
 
-/*
-	resJson, _ := gabs.ParseJSON([]byte(resp.String()))
-	val := resJson.S("translatedWordsCount")
-	fmt.Println(val)
-	//TODO: Print the properly formatted output of the status command
+	/*
+		resJson, _ := gabs.ParseJSON([]byte(resp.String()))
+		val := resJson.S("translatedWordsCount")
+		fmt.Println(val)
+		//TODO: Print the properly formatted output of the status command
 
-*/
+	*/
+
+	jsonParsed, _ := gabs.ParseJSON([]byte(resp))
+
+	projectStatus := jsonParsed.Path("project_status").Data().(string)
+
+	fmt.Println("\nProject Status : ", projectStatus, "\n")
+
+	childrenMap, _ := jsonParsed.Path("languages_status").ChildrenMap()
+	for key, val := range childrenMap {
+		fmt.Println("\n", key, val)
+	}
 
 }

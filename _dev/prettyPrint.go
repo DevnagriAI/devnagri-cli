@@ -8,47 +8,44 @@ import (
 )
 
 func main() {
-
 	/*
 		jsonString := []byte(`
-		{"languages_status":
-		{"hi":
-		{"translatedWordsCount":0,"reviewedWordsCount":0,"totalWordsCount":1283,"pendingWordsCount":1283}},
-		"project_status":"draft"}
-		`)
+			{"languages_status":
+			{"hi":
+			{"translatedWordsCount":0,"reviewedWordsCount":0,"totalWordsCount":1283,"pendingWordsCount":1283}},
+			"project_status":"draft"}
+			`)
 
 	*/
 
 	jsonString := []byte(`
 
-{
-	"languages_status": {
+	   {
+	   	"languages_status": {
 
-		"hi": {
-			"translatedWordsCount": 0,
-			"reviewedWordsCount": 0,
-			"totalWordsCount": 1283,
-			"pendingWordsCount": 1283
-		},
+	   		"hi": {
+	   			"translatedWordsCount": 0,
+	   			"reviewedWordsCount": 0,
+	   			"totalWordsCount": 1283,
+	   			"pendingWordsCount": 1283
+	   		},
 
-		"pn": {
-			"translatedWordsCount": 0,
-			"reviewedWordsCount": 0,
-			"totalWordsCount": 1283,
-			"pendingWordsCount": 1283
-		}
-	},
-	"project_status": "draft"
-} 
-	 
-	   `)
+	   		"pn": {
+	   			"translatedWordsCount": 0,
+	   			"reviewedWordsCount": 0,
+	   			"totalWordsCount": 1283,
+	   			"pendingWordsCount": 1283
+	   		}
+	   	},
+	   	"project_status": "draft"
+	   }
+
+	   	   `)
 
 	jsonParsed, _ := gabs.ParseJSON(jsonString)
 
 	//	langName := jsonParsed.Path("languages_status").String()
 	//	fmt.Println(langName)
-
-	//projectStatus := jsonParsed.Path("project_status").Data().(string)
 
 	//value := jsonParsed.Path("languages_status.hi.totalWordsCount").Data()
 
@@ -65,8 +62,14 @@ func main() {
 			fmt.Println(child.Data())
 		}
 	*/
+
+	projectStatus := jsonParsed.Path("project_status").Data().(string)
+
+	fmt.Println("\nProject Status : ", projectStatus, "\n")
+
 	childrenMap, _ := jsonParsed.Path("languages_status").ChildrenMap()
 	for key, val := range childrenMap {
-		fmt.Println(key, val)
+		fmt.Println("\n", key, val)
 	}
+
 }
