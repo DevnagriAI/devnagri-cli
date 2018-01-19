@@ -87,7 +87,7 @@ func fetchStatus() {
 
 	*/
 
-	jsonParsed, _ := gabs.ParseJSON([]byte(resp))
+	jsonParsed, _ := gabs.ParseJSON([]byte(resp.String()))
 
 	projectStatus := jsonParsed.Path("project_status").Data().(string)
 
