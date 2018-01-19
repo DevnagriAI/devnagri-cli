@@ -30,14 +30,16 @@ ClientSecret:
 
 ProjectKey:
 
-RootDir: langs
+RootDir: langs #default
 
-SourceLanguage: en
+Extension : xml #default
+
+SourceLanguage: en #default
 
 TargetLanguages:
-    - hi
+    - hi 	#default
 
-GlobalPreferenceInCaseOfMergeConflict: devnagri # local
+GlobalPreferenceInCaseOfMergeConflict: devnagri # default is devnagri.
 `
 
 // initCmd represents the init command
