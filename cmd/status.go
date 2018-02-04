@@ -97,5 +97,5 @@ func fetchStatus() {
 	for key, val := range childrenMap {
 		fmt.Println("\n", key, val)
 	}
-
+	//TODO: add a suboption to print out the raw json
 }
