@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"os"
 	"path/filepath"
@@ -12,6 +13,38 @@ import (
 
 func main() {
 
+	files := visit2("./en")
+	/*
+		for _, file := range files {
+			fmt.Println(file)
+		}
+
+	*/
+	impFiles := requiredExtensionFiles(files, "xml")
+
+	for _, file := range impFiles {
+		fmt.Println(file)
+	}
+
+}
+
+func visit2(searchDir string) []string {
+	//searchDir := "./en"
+
+	fileList := []string{}
+
+	filepath.Walk(searchDir, func(path string, f os.FileInfo, err error) error {
+		fileList = append(fileList, path)
+		return nil
+	})
+
+	return fileList
+	/*
+		for _, file := range fileList {
+			fmt.Println(file)
+		}
+
+	*/
 }
 
 func visit(files *[]string) filepath.WalkFunc {
