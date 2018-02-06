@@ -25,6 +25,8 @@ And that's it - you're all set to localize!
 2. Select the project you wish to localize with the `devnagri` CLI tool.
 3. Scroll down and click on *Project Key*.
 
+![Generate Project Key](./project-key-1.png) "Generate Key")
+
 
 #### Cliend ID and Client Secret
 
@@ -33,6 +35,7 @@ And that's it - you're all set to localize!
 3. Scroll down till you find the *OAuth Clients* section.
 4. Then click on *Create New Token* to generate the ID and Secret for the CLI client.
 
+![Generate Client Credentials](./client-key-2.png) "Generate Client Credentials")
 
 
 ### Language codes used in Devnagri 
