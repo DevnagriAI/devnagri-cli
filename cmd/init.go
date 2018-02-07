@@ -30,7 +30,7 @@ ClientSecret:
 
 ProjectKey:
 
-RootDir: langs #default
+RootDir: values #default
 
 Extension : xml #default
 
