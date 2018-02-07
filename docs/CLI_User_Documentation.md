@@ -41,7 +41,7 @@ And that's it - you're all set to localize!
 ```
 English     -       en
 Hindi       -       hi
-Punjabi     -       pn
+Punjabi     -       pa
 Marathi     -       mr
 Tamil       -       ta
 Malayalam   -       ml 
