@@ -109,13 +109,13 @@ func saveResponseAndConvert() {
 	//fmt.Println(fileContent)
 
 	//TODO: Make the << hi >> dir
-	if _, err := os.Stat("./hi"); os.IsNotExist(err) {
-		os.Mkdir("./hi", os.ModePerm)
+	if _, err := os.Stat("./values-hi"); os.IsNotExist(err) {
+		os.Mkdir("./values-hi", os.ModePerm)
 	}
 
 	//TODO: Store the content of temp into the actual file
 
-	responseFile, err := os.Create("./hi/strings.xml")
+	responseFile, err := os.Create("./values-hi/strings.xml")
 
 	if err != nil {
 		log.Fatal("Cannot create file", err)
