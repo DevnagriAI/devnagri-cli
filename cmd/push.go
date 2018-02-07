@@ -65,7 +65,7 @@ func listAllFilesAndPush() {
 
 	filename := "./" + RootFolder + "/strings.xml"
 
-	var Extension = config.FetchAndValidate("Extansion")
+	var Extension = config.FetchAndValidate("Extension")
 
 	//TODO: This should be abstracted to various languages
 
@@ -81,7 +81,7 @@ func listAllFilesAndPush() {
 			"client_secret":      ClientSecret,
 			"project_key":        ProjectKey,
 			"file[0][hash]":      sha256Hash(filename),
-			"file[0][extension]": "xml",
+			"file[0][extension]": Extension,
 			"file[0][file_type]": "xml",
 			"file[0][location]":  filename,
 		}).
