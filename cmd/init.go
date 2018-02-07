@@ -30,7 +30,7 @@ ClientSecret:
 
 ProjectKey:
 
-RootDir: values #default
+RootFolder: values #default
 
 Extension : xml #default
 

@@ -63,7 +63,6 @@ func listAllFilesAndPush() {
 
 	var RootFolder = config.FetchAndValidate("RootFolder") // returns string
 
-
 	filename := "./" + RootFolder + "/strings.xml"
 
 	resp, err := resty.R().
