@@ -109,6 +109,8 @@ func saveResponseAndConvert() {
 	//fmt.Println(fileContent)
 
 	//TODO: This should be abstracted to various languages
+	// Read all the languages mentioned in the YAML file
+
 	//TODO: Make the << hi >> dir
 	if _, err := os.Stat("./values-hi"); os.IsNotExist(err) {
 		os.Mkdir("./values-hi", os.ModePerm)
