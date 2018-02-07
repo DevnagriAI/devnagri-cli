@@ -65,6 +65,12 @@ func listAllFilesAndPush() {
 
 	filename := "./" + RootFolder + "/strings.xml"
 
+	var Extension = config.FetchAndValidate("Extansion")
+
+	//TODO: This should be abstracted to various languages
+
+	//TODO: Read all the languages mentioned in the YAML file
+
 	resp, err := resty.R().
 		SetHeader("Accept", "application/json").
 		SetHeader("Content-Type", "multipart/form-data").
