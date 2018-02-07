@@ -108,6 +108,7 @@ func saveResponseAndConvert() {
 	//fileContent := decodeBase64(string(dat))
 	//fmt.Println(fileContent)
 
+	//TODO: This should be abstracted to various languages
 	//TODO: Make the << hi >> dir
 	if _, err := os.Stat("./values-hi"); os.IsNotExist(err) {
 		os.Mkdir("./values-hi", os.ModePerm)
