@@ -121,7 +121,7 @@ This command initiates a process
 -   Returns an access-token
 -   This token is added to the **.devnagri.yaml**
 
-
+NOTE: If you update the list of target languages, you don't need to validate the credentials again.
 
 ### version
 
