@@ -39,15 +39,17 @@ And that's it - you're all set to localize!
 
 ### Language codes used in Devnagri 
 ```
-Hindi   - हिंदी         => "hi",
-Punjabi - ਪੰਜਾਬੀ        => "pa",
-Tamil - தமிழ்           => "ta",
-Gujarati - ગુજરાતી      => "gu"
-Kannada - ಕನ್ನಡ         => "kn",
-Bengali - বাংলা        => "bn",
-Marathi - मराठी         => "mr",
-Telugu - తెలుగు        => "te",
-English               => "en"
+English               	 => "en"
+Hindi   - हिंदी     	   => "hi",
+Punjabi - ਪੰਜਾਬੀ           => "pa",
+Tamil - தமிழ்              => "ta",
+Gujarati - ગુજરાતી         => "gu"
+Kannada - ಕನ್ನಡ            => "kn",
+Bengali - বাংলা            => "bn",
+Marathi - मराठी            => "mr",
+Telugu - తెలుగు            => "te"
+
+
 ```
 
 
