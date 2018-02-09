@@ -1,3 +1,4 @@
+
 # devnagri-cli
 
 This is the cross platform API client for Devnagri, written in Go-lang.
@@ -150,7 +151,7 @@ This command returns the translation status of the project
 
 ### push
 
-This command pushes the local files to devnagri
+This command pushes the local files to Devnagri
 
     ```
     > devnagri push
@@ -160,15 +161,18 @@ This command pushes the local files to devnagri
 
 ### pull
 
+This command pulls the file from Devnagri server to the local filesystem. 
+
     ```
     > devnagri pull
     ```
-
+    
+NOTE: This command must be done only after you've checked the status of your project on Devnagri.
 
 
 ### sync
 
-This command synchronizes the files between the devnagri server and local environments
+This command synchronizes the files between the Devnagri server and local environments
 
     ```
     > devnagri sync
@@ -193,5 +197,4 @@ This command prints out the devnagri CLI version
     ```    
     > devnagri version
     ```
-
 
