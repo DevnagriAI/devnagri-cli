@@ -21,9 +21,11 @@ func main() {
 
 	var AccessToken = config.FetchAndValidate("AccessToken") // returns string
 
-	var RootFolder = config.FetchAndValidate("RootFolder") // returns string
+	//var RootFolder = config.FetchAndValidate("RootFolder") // returns string
 
-	filename := "./" + RootFolder + "/strings.xml"
+	var SourceLanguage = config.FetchAndValidate("SourceLanguage")
+
+	filename := "./" + SourceLanguage + "/strings.xml"
 
 	var Extension = config.FetchAndValidate("Extension")
 

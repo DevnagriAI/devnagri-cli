@@ -4,6 +4,7 @@ GlobalPreferenceInCaseOfMergeConflict: devnagri
 ProjectKey:  25b8d9d922b61aa445c0802e09a68eee 
 RootFolder: langs 
 SourceLanguage: en 
+Extension : xml
 TargetLanguages: 
 - hi 
 - pa
