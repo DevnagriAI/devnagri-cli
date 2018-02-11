@@ -2,7 +2,7 @@ ClientID: 2
 ClientSecret: aCC10gFfbP0zXE7EFLQZnZIWVUr4nFwRjU7QkiO2
 GlobalPreferenceInCaseOfMergeConflict: devnagri 
 ProjectKey:  25b8d9d922b61aa445c0802e09a68eee 
-RootDir: langs 
+RootFolder: langs 
 SourceLanguage: en 
 TargetLanguages: 
 - hi 

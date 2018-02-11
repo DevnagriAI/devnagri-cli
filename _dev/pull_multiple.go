@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/base64"
 	"fmt"
+	"io/ioutil"
 	//	"io/ioutil"
 	"log"
 	"os"
@@ -72,14 +73,14 @@ func saveResponseAndConvert() {
 	//x := "PCEtLSBUcmFuc2xhdGVkIEJ5IERldm5hZ3JpIC0tPgo8IS0tIGh0dHA6Ly9kZXZuYWdyaS5jb20gLS0+CjxyZXNvdXJjZXMgdG9vbHM6aWdub3JlPSJFeHRyYVRyYW5zbGF0aW9uIiB4bWxuczp0b29scz0iaHR0cDovL3NjaGVtYXMuYW5kcm9pZC5jb20vdG9vbHMiPgogICAgPHN0cmluZyBuYW1lPSJhcHBfbmFtZSI+PC9zdHJpbmc+CiAgICA8c3RyaW5nIG5hbWU9ImhpbnRfYWN0dWFsIj48L3N0cmluZz4KIDwvcmVzb3VyY2VzPg=="
 	//decodeBase64(x)
 
-	//dat, _ := ioutil.ReadFile("temp.txt")
-	//datString := string(dat)
+	dat, _ := ioutil.ReadFile("temp.txt")
+	datString := string(dat)
 	//fmt.Println("String Length : ", len(datString))
 
-	//content := datString[1:(len(datString) - 1)]
+	content := datString[1:(len(datString) - 1)]
 	//fmt.Println(content)
 
-	//fileContent := decodeBase64(content)
+	fileContent := decodeBase64(content)
 	//fmt.Println(fileContent)
 
 	//fmt.Println("<<< Reading temp file now >>>")
@@ -93,26 +94,24 @@ func saveResponseAndConvert() {
 	fieldValue := viper.GetStringSlice("TargetLanguages") // returns string
 	fmt.Println(fieldValue)
 
-	/*
-		//TODO: Make the << hi >> dir
-		if _, err := os.Stat("./values-hi"); os.IsNotExist(err) {
-			os.Mkdir("./values-hi", os.ModePerm)
-		}
+	//TODO: Make the << hi >> dir
+	if _, err := os.Stat("./values-hi"); os.IsNotExist(err) {
+		os.Mkdir("./values-hi", os.ModePerm)
+	}
 
-		//TODO: Store the content of temp into the actual file
+	//TODO: Store the content of temp into the actual file
 
-		responseFile, err := os.Create("./values-hi/strings.xml")
+	responseFile, err := os.Create("./values-hi/strings.xml")
 
-		if err != nil {
-			log.Fatal("Cannot create file", err)
-		}
-		defer responseFile.Close()
+	if err != nil {
+		log.Fatal("Cannot create file", err)
+	}
+	defer responseFile.Close()
 
-		_, err = responseFile.WriteString(fileContent)
+	_, err = responseFile.WriteString(fileContent)
 
-		os.Remove("temp.txt")
+	os.Remove("temp.txt")
 
-	*/
 	fmt.Println("Done!")
 
 }
