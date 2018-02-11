@@ -24,7 +24,7 @@ func main() {
 	//var RootFolder = config.FetchAndValidate("RootFolder") // returns string
 
 	var SourceLanguage = config.FetchAndValidate("SourceLanguage")
-
+	//TODO: send all the files within a SourceLanguage target folder
 	filename := "./" + SourceLanguage + "/strings.xml"
 
 	var Extension = config.FetchAndValidate("Extension")
