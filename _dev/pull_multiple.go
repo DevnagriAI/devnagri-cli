@@ -88,8 +88,6 @@ func saveResponseAndConvert() {
 
 	//TODO: This should be abstracted to various languages
 
-	//TODO: Read all the languages mentioned in the YAML file
-
 	fieldValue := viper.GetStringSlice("TargetLanguages") // returns string
 	fmt.Println(fieldValue)
 
