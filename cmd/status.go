@@ -94,8 +94,41 @@ func fetchStatus() {
 	fmt.Println("\nProject Status : ", projectStatus, "\n")
 
 	childrenMap, _ := jsonParsed.Path("languages_status").ChildrenMap()
-	for key, val := range childrenMap {
-		fmt.Println("\n", key, val)
-	}
+
+	/*
+		for key, val := range childrenMap {
+			fmt.Println("\n", key, val)
+		}
+
+	*/
+
 	//TODO: add a suboption to print out the raw json
+
+	for key, val := range childrenMap {
+
+		//fmt.Println("\n", key, val)
+
+		langName := key
+
+		valChildren, _ := val.ChildrenMap()
+
+		pendingWordsCount := valChildren["pendingWordsCount"]
+		reviewedWordsCount := valChildren["reviewedWordsCount"]
+		totalWordsCount := valChildren["totalWordsCount"]
+		translatedWordsCount := valChildren["translatedWordsCount"]
+
+		fmt.Println("\n~~~~~~~~~\n")
+		fmt.Println("langName : ", langName)
+		fmt.Println("pendingWordsCount : ", pendingWordsCount)
+		fmt.Println("reviewedWordsCount : ", reviewedWordsCount)
+		fmt.Println("totalWordsCount : ", totalWordsCount)
+		fmt.Println("translatedWordsCount : ", translatedWordsCount)
+
+		/*
+			for _, y := range valChildren {
+				fmt.Println("\n", y)
+			}
+		*/
+	}
+
 }

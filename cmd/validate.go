@@ -85,7 +85,7 @@ func validate() {
 	}
 
 	defer f.Close()
-	accessTokenString := "AccessToken: " + accessToken.(string)
+	accessTokenString := "\nAccessToken: " + accessToken.(string)
 	//fmt.Println(accessTokenString)
 
 	f.WriteString(accessTokenString)
