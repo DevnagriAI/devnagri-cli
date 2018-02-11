@@ -124,6 +124,8 @@ func fetchStatus() {
 		fmt.Println("totalWordsCount : ", totalWordsCount)
 		fmt.Println("translatedWordsCount : ", translatedWordsCount)
 
+
+//TODO: Do some maths here to print out the percentage
 		/*
 			for _, y := range valChildren {
 				fmt.Println("\n", y)

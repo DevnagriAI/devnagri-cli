@@ -40,7 +40,7 @@ func main() {
 			"project_key":        ProjectKey,
 			"file[0][hash]":      sha256Hash(filename),
 			"file[0][extension]": Extension,
-			"file[0][file_type]": "xml",
+			"file[0][file_type]": Extension,
 			"file[0][location]":  filename,
 		}).
 		Post("http://dev.devnagri.co.in/api/project/push")

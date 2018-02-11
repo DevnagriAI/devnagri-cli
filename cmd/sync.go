@@ -23,7 +23,7 @@ import (
 // syncCmd represents the sync command
 var syncCmd = &cobra.Command{
 	Use:   "sync",
-	Short: "A brief description of sync command",
+	Short: "This synchronises the files between Devnagri and local FileSystem.",
 	Long:  `A long description of sync command.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("sync called")
