@@ -21,11 +21,20 @@ func main() {
 
 	*/
 	impFiles := requiredExtensionFiles(files, "xml")
+	/*
+		for _, file := range impFiles {
+			fmt.Println(file)
+		}
+	*/
 
-	for _, file := range impFiles {
-		fmt.Println(file)
+	fmt.Println(jsonListofFiles(impFiles))
+
+	var fileJSON = map[string]string{
+		"file[0][hash]":      sha256Hash(filename),
+		"file[0][extension]": Extension,
+		"file[0][file_type]": Extension,
+		"file[0][location]":  filename,
 	}
-
 }
 
 func visit2(searchDir string) []string {
@@ -78,10 +87,10 @@ func jsonListofFiles(files []string) string {
 	// TODO Change the following to be initialized form the calling location
 	var allFiles []string
 
-	RootDir := config.FetchAndValidate("RootDir") // returns string
-	//root := "./en"
+	RootDir := config.FetchAndValidate("RootFolder") // returns string
+	//RootDir := "./en"
 	Extension := config.FetchAndValidate("Extension")
-	//extension := "pdf"
+	//Extension := "pdf"
 
 	err := filepath.Walk(RootDir, visit(&allFiles))
 	if err != nil {

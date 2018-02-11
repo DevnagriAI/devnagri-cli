@@ -28,7 +28,7 @@ func main() {
 	filename := "./" + SourceLanguage + "/strings.xml"
 
 	var Extension = config.FetchAndValidate("Extension")
-
+	//TODO: Make this concurrent wrt the number of files << filename >>
 	resp, err := resty.R().
 		SetHeader("Accept", "application/json").
 		SetHeader("Content-Type", "multipart/form-data").
