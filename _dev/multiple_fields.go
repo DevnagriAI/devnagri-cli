@@ -17,6 +17,22 @@ func main() {
 		log.Fatalf("Error reading config file, %s", err)
 	}
 
-	fieldValue := viper.Get("TargetLanguages") // returns string
+	fieldValue := viper.GetStringSlice("TargetLanguages") // returns string
 	fmt.Println(fieldValue)
+
+	for _, x := range fieldValue {
+		println(x)
+	}
+
+	//reflect.ArrayOf(2, fieldValue)
+
+	/*
+
+		b := make([]interface{}, len(fieldValue))
+		for i := range fieldValue {
+			b[i] = fieldValue[i]
+			fmt.Println(b[i])
+		}
+
+	*/
 }
