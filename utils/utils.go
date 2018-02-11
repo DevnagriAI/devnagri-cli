@@ -1,12 +1,12 @@
 package utils
 
 import (
-	"fmt"
 	"log"
 	"os"
 	"path/filepath"
 	"regexp"
 
+	"github.com/FourtekIT/devnagri-cli/config"
 	"github.com/Jeffail/gabs"
 )
 
@@ -36,19 +36,22 @@ func requiredExtensionFiles(files []string, extension string) []string {
 	return reqFiles
 }
 
-func jsonListofFiles(files []string, extension string, root string) string {
+func jsonListofFiles(files []string) string {
 
 	// TODO Change the following to be initialized form the calling location
 	var allFiles []string
-	root := "./en"
-	extension := "pdf"
 
-	err := filepath.Walk(root, visit(&allFiles))
+	RootDir := config.FetchAndValidate("RootDir") // returns string
+	//root := "./en"
+	Extension := config.FetchAndValidate("Extension")
+	//extension := "pdf"
+
+	err := filepath.Walk(RootDir, visit(&allFiles))
 	if err != nil {
 		panic(err)
 	}
 
-	reqFiles := requiredExtensionFiles(allFiles, extension)
+	reqFiles := requiredExtensionFiles(allFiles, Extension)
 	//fmt.Println(reqFiles)
 
 	jsonObj := gabs.New()

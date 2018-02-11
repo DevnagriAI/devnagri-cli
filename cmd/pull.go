@@ -1,4 +1,4 @@
-// Copyright © 2017 NAME HERE <EMAIL ADDRESS>
+// Copyright © 2017 Abhinav Sharma <abhinav@fourtek.com>
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -78,11 +78,9 @@ func saveResponseAndConvert() {
 	}
 
 	//fmt.Println(resp)
-
 	resJson, _ := gabs.ParseJSON([]byte(resp.String()))
 	children, _ := resJson.S("file_content").Children()
 	child := children[0]
-
 	//fmt.Println(child.String())
 
 	//TODO: Iterate this over all the file names recieved from the remote
@@ -110,8 +108,18 @@ func saveResponseAndConvert() {
 	//fileContent := decodeBase64(string(dat))
 	//fmt.Println(fileContent)
 
+	//TODO: This should be abstracted to various languages
+
+	//TODO: Read all the languages mentioned in the YAML file
+
+	//TODO: Make the << hi >> dir
+	if _, err := os.Stat("./values-hi"); os.IsNotExist(err) {
+		os.Mkdir("./values-hi", os.ModePerm)
+	}
+
 	//TODO: Store the content of temp into the actual file
-	responseFile, err := os.Create("responseFile.txt")
+
+	responseFile, err := os.Create("./values-hi/strings.xml")
 
 	if err != nil {
 		log.Fatal("Cannot create file", err)
@@ -120,7 +128,7 @@ func saveResponseAndConvert() {
 
 	_, err = responseFile.WriteString(fileContent)
 
-	//TODO: Delete the temp file
+	os.Remove("temp.txt")
 
 	fmt.Println("Done!")
 }
@@ -133,7 +141,7 @@ func decodeBase64(cypher string) string {
 
 	//fmt.Println(string(data))
 
-	println("Text after decoding")
+	//println("Text after decoding")
 
 	//fmt.Println(data)
 	//fmt.Println(string(data))

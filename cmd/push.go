@@ -1,4 +1,4 @@
-// Copyright © 2017 NAME HERE <EMAIL ADDRESS>
+// Copyright © 2017 Abhinav Sharma <abhinav@fourtek.com>
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -33,7 +33,7 @@ var pushCmd = &cobra.Command{
 	Short: "This command pushes the untranslated files to Devnagri",
 	Long:  `This command transfers all the untranslated local files to the Devnagri platform on a language basis.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("Pushing the files from Devnagri")
+		fmt.Println("Pushing the local files to Devnagri for localization")
 		listAllFilesAndPush()
 	},
 }
@@ -61,7 +61,11 @@ func listAllFilesAndPush() {
 
 	var AccessToken = config.FetchAndValidate("AccessToken") // returns string
 
-	filename := "./en/CallingPapaPro2.xml"
+	var RootFolder = config.FetchAndValidate("RootFolder") // returns string
+
+	filename := "./" + RootFolder + "/strings.xml"
+
+	var Extension = config.FetchAndValidate("Extension")
 
 	resp, err := resty.R().
 		SetHeader("Accept", "application/json").
@@ -73,7 +77,7 @@ func listAllFilesAndPush() {
 			"client_secret":      ClientSecret,
 			"project_key":        ProjectKey,
 			"file[0][hash]":      sha256Hash(filename),
-			"file[0][extension]": "xml",
+			"file[0][extension]": Extension,
 			"file[0][file_type]": "xml",
 			"file[0][location]":  filename,
 		}).
