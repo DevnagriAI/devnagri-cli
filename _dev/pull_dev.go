@@ -2,12 +2,8 @@ package main
 
 import (
 	"encoding/base64"
-	"io/ioutil"
-	"log"
-	"os"
 	//	"reflect"
 
-	"github.com/Jeffail/gabs"
 	"gopkg.in/resty.v1"
 )
 
@@ -36,47 +32,4 @@ func saveResponseAndConvert() {
 	if err != nil {
 		panic(err)
 	}
-
-	//fmt.Println(resp)
-
-	resJson, _ := gabs.ParseJSON([]byte(resp.String()))
-	children, _ := resJson.S("file_content").Children()
-	child := children[0]
-
-	//TODO: Iterate this over all the file names recieved from the remote
-	file, err := os.Create("temp.txt")
-	if err != nil {
-		log.Fatal("Cannot create file", err)
-	}
-	defer file.Close()
-
-	_, err = file.WriteString(child.String())
-
-	// This works perfectly
-	//fmt.Println("Decoding the string manually")
-	//x := "PCEtLSBUcmFuc2xhdGVkIEJ5IERldm5hZ3JpIC0tPgo8IS0tIGh0dHA6Ly9kZXZuYWdyaS5jb20gLS0+CjxyZXNvdXJjZXMgdG9vbHM6aWdub3JlPSJFeHRyYVRyYW5zbGF0aW9uIiB4bWxuczp0b29scz0iaHR0cDovL3NjaGVtYXMuYW5kcm9pZC5jb20vdG9vbHMiPgogICAgPHN0cmluZyBuYW1lPSJhcHBfbmFtZSI+PC9zdHJpbmc+CiAgICA8c3RyaW5nIG5hbWU9ImhpbnRfYWN0dWFsIj48L3N0cmluZz4KIDwvcmVzb3VyY2VzPg=="
-	//decodeBase64(x)
-
-	dat, _ := ioutil.ReadFile("temp.txt")
-	datString := string(dat)
-	//fmt.Println("String Length : ", len(datString))
-	content := datString[1:(len(datString) - 1)]
-	//fmt.Println(content)
-	fileContent := decodeBase64(content)
-	//fmt.Println(fileContent)
-	//fmt.Println("<<< Reading temp file now >>>")
-	//fileContent := decodeBase64(string(dat))
-	//fmt.Println(fileContent)
-
-	//TODO: Store the content of temp into the actual file
-	responseFile, err := os.Create("responseFile.txt")
-	if err != nil {
-		log.Fatal("Cannot create file", err)
-	}
-	defer responseFile.Close()
-
-	_, err = responseFile.WriteString(fileContent)
-
-	//TODO: Delete the temp file
-
 }
