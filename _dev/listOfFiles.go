@@ -6,6 +6,7 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
+	"strconv"
 
 	"github.com/FourtekIT/devnagri-cli/config"
 	"github.com/Jeffail/gabs"
@@ -27,14 +28,31 @@ func main() {
 		}
 	*/
 
+	//DONE
 	fmt.Println(jsonListofFiles(impFiles))
 
-	var fileJSON = map[string]string{
-		"file[0][hash]":      sha256Hash(filename),
-		"file[0][extension]": Extension,
-		"file[0][file_type]": Extension,
-		"file[0][location]":  filename,
+	/*
+
+		//TODO: Populate this struct on a per file basis.
+		var fileJSON = map[string]string{
+			"file[0][hash]":      sha256Hash(filename),
+			"file[0][extension]": Extension,
+			"file[0][file_type]": Extension,
+			"file[0][location]":  filename,
+		}
+	*/
+
+	var tempMap = make(map[int]string)
+
+	for i := range []int{1, 2, 3, 4, 5} {
+		tempMap[i], _ = strconv.FormatInt(i, 10)
+
+		//fmt.Println(i)
+
 	}
+
+	fmt.Println(tempMap)
+
 }
 
 func visit2(searchDir string) []string {
