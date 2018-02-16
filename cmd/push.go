@@ -67,6 +67,8 @@ func listAllFilesAndPush() {
 
 	var Extension = config.FetchAndValidate("Extension")
 
+	var PushURL = config.DevnagriURL + "/project/push"
+
 	resp, err := resty.R().
 		SetHeader("Accept", "application/json").
 		SetHeader("Content-Type", "multipart/form-data").
@@ -81,7 +83,7 @@ func listAllFilesAndPush() {
 			"file[0][file_type]": "xml",
 			"file[0][location]":  filename,
 		}).
-		Post("http://dev.devnagri.co.in/api/project/push")
+		Post(PushURL)
 
 	if err != nil {
 		panic(err)

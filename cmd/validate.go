@@ -58,14 +58,15 @@ func validate() {
 
 	var ProjectKey = config.FetchAndValidate("ProjectKey") // returns string
 
+	var ValidateURL = config.DevnagriURL + "/project/validations"
+
 	resp, err := resty.R().
 		SetHeader("Content-Type", "multipart/form-data").
 		SetFormData(map[string]string{
 			"client_id":     ClientID,
 			"client_secret": ClientSecret,
 			"project_key":   ProjectKey}).
-		Post("http://dev.devnagri.co.in/api/key/validations")
-	//	Post("http://192.168.60.10/api/key/validations")
+		Post(ValidateURL)
 
 	if err != nil {
 		panic(err)

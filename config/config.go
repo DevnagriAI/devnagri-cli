@@ -27,18 +27,4 @@ func FetchAndValidate(fieldName string) string {
 
 }
 
-/*
-var ClientID = fetchAndValidate("ClientID") // returns string
-
-var ClientSecret = fetchAndValidate("ClientSecret") // returns string
-
-var ProjectKey = fetchAndValidate("ProjectKey") // returns string
-
-var RootDir = fetchAndValidate("RootDir") // returns string
-
-var SourceLanguage = fetchAndValidate("SourceLanguage") // returns string
-
-var TargetLanguages = fetchAndValidate("TargetLanguages") // returns string
-
-var GlobalPreferenceInCaseOfMergeConflict = fetchAndValidate("GlobalPreferenceInCaseOfMergeConflict") // returns string
-*/
+var DevnagriURL = "http://dev.devnagri.co.in/api"

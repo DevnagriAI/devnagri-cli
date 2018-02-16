@@ -64,6 +64,8 @@ func fetchStatus() {
 
 	var AccessToken = config.FetchAndValidate("AccessToken") // returns string
 
+	var StatusURL = config.DevnagriURL + "/project/status"
+
 	resp, err := resty.R().
 		SetHeader("Accept", "application/json").
 		SetAuthToken(AccessToken).
@@ -71,7 +73,7 @@ func fetchStatus() {
 			"client_id":     ClientID,
 			"client_secret": ClientSecret,
 			"project_key":   ProjectKey}).
-		Post("http://dev.devnagri.co.in/api/project/status")
+		Post(StatusURL)
 
 	if err != nil {
 		panic(err)
@@ -124,8 +126,7 @@ func fetchStatus() {
 		fmt.Println("totalWordsCount : ", totalWordsCount)
 		fmt.Println("translatedWordsCount : ", translatedWordsCount)
 
-
-//TODO: Do some maths here to print out the percentage
+		//TODO: Do some maths here to print out the percentage
 		/*
 			for _, y := range valChildren {
 				fmt.Println("\n", y)

@@ -63,6 +63,8 @@ func saveResponseAndConvert() {
 
 	var AccessToken = config.FetchAndValidate("AccessToken") // returns string
 
+	var PullURL = config.DevnagriURL + "/project/pull"
+
 	resp, err := resty.R().
 		SetHeader("Accept", "application/json").
 		SetHeader("Content-Type", "multipart/form-data").
@@ -71,7 +73,7 @@ func saveResponseAndConvert() {
 			"client_id":     ClientID,
 			"client_secret": ClientSecret,
 			"project_key":   ProjectKey}).
-		Post("http://dev.devnagri.co.in/api/project/pull")
+		Post(PullURL)
 
 	if err != nil {
 		panic(err)
